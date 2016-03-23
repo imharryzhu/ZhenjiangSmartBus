@@ -10,8 +10,13 @@
 #ifndef bus_pch
 #define bus_pch
 
-#import "NSArray+Log.h"
+#import "BCommon.h"
 
+#import "NSArray+Log.h"
 #import "UIView+ZH.h"
+#import "NSString+Extension.h"
+
+
+#define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
 
 #endif /* bus_pch */

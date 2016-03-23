@@ -7,6 +7,7 @@
 //
 
 #import "BBusLineController.h"
+#import "BBusStationController.h"
 #import "BBusLineCell.h"
 
 #import "BBusLineViewModel.h"
@@ -18,9 +19,6 @@
 
 @interface BBusLineController ()
 
-/**
- *  <#Description#>
- */
 @property (nonatomic,strong) NSArray<BBusLineViewModel*>* busLineViewModels;
 
 @end
@@ -100,7 +98,17 @@
  */
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 108;
+    return 108 + 20;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BBusStationController* busStationVC = [[BBusStationController alloc]initWithStyle:UITableViewStylePlain];
+    
+    BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
+    busStationVC.busLine = viewModel.busLine;
+    
+    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:busStationVC] animated:YES completion:nil];
 }
 
 

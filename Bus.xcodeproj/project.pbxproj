@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B39857C1CA23FCE005B2A96 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39857B1CA23FCE005B2A96 /* NSString+Extension.m */; };
+		7B39857F1CA2552C005B2A96 /* BCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39857E1CA2552C005B2A96 /* BCommon.m */; };
+		7B3985821CA25B9B005B2A96 /* BBusStationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985811CA25B9B005B2A96 /* BBusStationTool.m */; };
+		7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985841CA25C28005B2A96 /* BBusStation.m */; };
+		7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985871CA25E5C005B2A96 /* BBusStationController.m */; };
+		7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858A1CA25F57005B2A96 /* BBusStationCell.m */; };
 		7B4069881C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4069871C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m */; };
 		7B40698B1C9D790E0047C7C2 /* BCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */; };
 		7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */; };
@@ -118,6 +124,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B39857A1CA23FCE005B2A96 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		7B39857B1CA23FCE005B2A96 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		7B39857D1CA2552C005B2A96 /* BCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCommon.h; sourceTree = "<group>"; };
+		7B39857E1CA2552C005B2A96 /* BCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCommon.m; sourceTree = "<group>"; };
+		7B3985801CA25B9B005B2A96 /* BBusStationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationTool.h; sourceTree = "<group>"; };
+		7B3985811CA25B9B005B2A96 /* BBusStationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationTool.m; sourceTree = "<group>"; };
+		7B3985831CA25C28005B2A96 /* BBusStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStation.h; sourceTree = "<group>"; };
+		7B3985841CA25C28005B2A96 /* BBusStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStation.m; sourceTree = "<group>"; };
+		7B3985861CA25E5C005B2A96 /* BBusStationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationController.h; sourceTree = "<group>"; };
+		7B3985871CA25E5C005B2A96 /* BBusStationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationController.m; sourceTree = "<group>"; };
+		7B3985891CA25F57005B2A96 /* BBusStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationCell.h; sourceTree = "<group>"; };
+		7B39858A1CA25F57005B2A96 /* BBusStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationCell.m; sourceTree = "<group>"; };
 		7B4069861C9D5DD60047C7C2 /* BBFavoriteBusCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFavoriteBusCardCell.h; sourceTree = "<group>"; };
 		7B4069871C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFavoriteBusCardCell.m; sourceTree = "<group>"; };
 		7B4069891C9D790E0047C7C2 /* BCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -343,6 +361,8 @@
 				7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */,
 				7B40698F1C9D7CBA0047C7C2 /* UIView+ZH.h */,
 				7B4069901C9D7CBA0047C7C2 /* UIView+ZH.m */,
+				7B39857A1CA23FCE005B2A96 /* NSString+Extension.h */,
+				7B39857B1CA23FCE005B2A96 /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -484,6 +504,8 @@
 				7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */,
 				7B9A4AE61C9EA4890041AC35 /* BBusLineController.h */,
 				7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */,
+				7B3985861CA25E5C005B2A96 /* BBusStationController.h */,
+				7B3985871CA25E5C005B2A96 /* BBusStationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +515,8 @@
 			children = (
 				7BB05CA71CA1024900D0D130 /* BBusLine.h */,
 				7BB05CA81CA1024900D0D130 /* BBusLine.m */,
+				7B3985831CA25C28005B2A96 /* BBusStation.h */,
+				7B3985841CA25C28005B2A96 /* BBusStation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,6 +527,8 @@
 				7B40698C1C9D7CBA0047C7C2 /* Category */,
 				7B95BDC11C9992D30029AEAE /* AppDelegate.h */,
 				7B95BDC21C9992D30029AEAE /* AppDelegate.m */,
+				7B39857D1CA2552C005B2A96 /* BCommon.h */,
+				7B39857E1CA2552C005B2A96 /* BCommon.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -517,6 +543,8 @@
 				7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */,
 				7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */,
 				7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */,
+				7B3985891CA25F57005B2A96 /* BBusStationCell.h */,
+				7B39858A1CA25F57005B2A96 /* BBusStationCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +556,8 @@
 				7BB05CA51CA0FBA300D0D130 /* BNetworkTool.m */,
 				7BB05CAA1CA1028F00D0D130 /* BBusLineTool.h */,
 				7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */,
+				7B3985801CA25B9B005B2A96 /* BBusStationTool.h */,
+				7B3985811CA25B9B005B2A96 /* BBusStationTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -922,6 +952,7 @@
 				7B9A4AE21C9E9A1F0041AC35 /* BAddFavoriteBusCell.m in Sources */,
 				7BB05C881CA0FB1500D0D130 /* MJRefreshBackGifFooter.m in Sources */,
 				7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */,
+				7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */,
 				7BB05C9E1CA0FB1500D0D130 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7BB05C711CA0FB1500D0D130 /* UIButton+AFNetworking.m in Sources */,
 				7B57BFB61C9AB75800D4AE6E /* MASCompositeConstraint.m in Sources */,
@@ -957,10 +988,12 @@
 				7BB05C741CA0FB1500D0D130 /* UIRefreshControl+AFNetworking.m in Sources */,
 				7B40698B1C9D790E0047C7C2 /* BCollectionViewLayout.m in Sources */,
 				7B57BFB91C9AB75800D4AE6E /* MASLayoutConstraint.m in Sources */,
+				7B39857C1CA23FCE005B2A96 /* NSString+Extension.m in Sources */,
 				7BB05C9A1CA0FB1500D0D130 /* SDWebImagePrefetcher.m in Sources */,
 				7BB05CA11CA0FB1500D0D130 /* SVIndefiniteAnimatedView.m in Sources */,
 				7BB05C8F1CA0FB1500D0D130 /* MJRefreshConst.m in Sources */,
 				7BB05C7B1CA0FB1500D0D130 /* NSObject+MJClass.m in Sources */,
+				7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */,
 				7BB05C941CA0FB1500D0D130 /* SDImageCache.m in Sources */,
 				7BB05C761CA0FB1500D0D130 /* MJExtensionConst.m in Sources */,
 				7BB05C7E1CA0FB1500D0D130 /* NSObject+MJProperty.m in Sources */,
@@ -969,17 +1002,20 @@
 				7B4069881C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m in Sources */,
 				7BB05C901CA0FB1500D0D130 /* UIScrollView+MJExtension.m in Sources */,
 				7BB05C951CA0FB1500D0D130 /* SDWebImageCompat.m in Sources */,
+				7B3985821CA25B9B005B2A96 /* BBusStationTool.m in Sources */,
 				7BB05C991CA0FB1500D0D130 /* SDWebImageManager.m in Sources */,
 				7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7B4069921C9D7CBA0047C7C2 /* UIView+ZH.m in Sources */,
 				7BB05C9B1CA0FB1500D0D130 /* UIButton+WebCache.m in Sources */,
 				7BB05C861CA0FB1500D0D130 /* MJRefreshAutoNormalFooter.m in Sources */,
+				7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */,
 				7BB05C6D1CA0FB1500D0D130 /* AFAutoPurgingImageCache.m in Sources */,
 				7BB05C841CA0FB1500D0D130 /* MJRefreshHeader.m in Sources */,
 				7BB05C961CA0FB1500D0D130 /* SDWebImageDecoder.m in Sources */,
 				7BB05C981CA0FB1500D0D130 /* SDWebImageDownloaderOperation.m in Sources */,
 				7BB05C8D1CA0FB1500D0D130 /* MJRefreshStateHeader.m in Sources */,
 				7BB05C681CA0FB1500D0D130 /* AFNetworkReachabilityManager.m in Sources */,
+				7B39857F1CA2552C005B2A96 /* BCommon.m in Sources */,
 				7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */,
 				7BB05C791CA0FB1500D0D130 /* MJPropertyKey.m in Sources */,
 				7B57BFB81C9AB75800D4AE6E /* MASConstraintMaker.m in Sources */,

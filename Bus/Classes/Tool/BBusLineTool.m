@@ -13,8 +13,6 @@
 
 #import "MJExtension.h"
 
-#define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
-
 @implementation BBusLineTool
 
 + (void)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure {

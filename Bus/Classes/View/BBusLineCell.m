@@ -27,6 +27,10 @@
  */
 @property (nonatomic,weak) UILabel* terminateStationNameLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *firstTimeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
+
 @end
 
 @implementation BBusLineCell
@@ -65,8 +69,11 @@
 - (void)setViewModel:(BBusLineViewModel *)viewModel {
     _viewModel = viewModel;
     
+    self.fullNameLabel.font = [viewModel.busLine.fullname maxFontInSize:self.fullNameLabel.bounds.size];
+    
     self.fullNameLabel.text = viewModel.busLine.fullname;
+    self.firstTimeLabel.text = [BCommon timeFromDateString:viewModel.busLine.firsttime];
+    self.lastTimeLabel.text = [BCommon timeFromDateString:viewModel.busLine.lasttime];
 }
-
 
 @end

@@ -61,7 +61,6 @@
     }
     
     // 当力度大于0.3时，说明一定要切换到另一页
-    NSLog(@"%f", velocity.x);
     if (fabs(velocity.x) > 0.3) {
         
         // 右边还有元素

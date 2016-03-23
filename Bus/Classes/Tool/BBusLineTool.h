@@ -12,6 +12,8 @@
 
 @interface BBusLineTool : NSObject
 
+// gprs /Wcity/Bus/BusGPS/0/191/0?format=json
+
 /**
  *  获取城市公交线路
  *
