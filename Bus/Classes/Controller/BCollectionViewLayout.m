@@ -77,7 +77,11 @@
     // 动画移动到指定位置
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionAllowUserInteraction animations:^{
         self.collectionView.contentOffset = destPoint;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        if(finished && [self.collectionView.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
+            [self.collectionView.delegate scrollViewDidEndDecelerating:self.collectionView];
+        }
+    }];
     
 
     

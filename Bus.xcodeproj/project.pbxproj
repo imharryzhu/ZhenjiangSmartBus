@@ -13,7 +13,9 @@
 		7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985841CA25C28005B2A96 /* BBusStation.m */; };
 		7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985871CA25E5C005B2A96 /* BBusStationController.m */; };
 		7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858A1CA25F57005B2A96 /* BBusStationCell.m */; };
-		7B4069881C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4069871C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m */; };
+		7B39858E1CA27BE4005B2A96 /* BFavoriteBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */; };
+		7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */; };
+		7B4069881C9D5DD60047C7C2 /* BFavoriteBusCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */; };
 		7B40698B1C9D790E0047C7C2 /* BCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */; };
 		7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */; };
 		7B4069921C9D7CBA0047C7C2 /* UIView+ZH.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4069901C9D7CBA0047C7C2 /* UIView+ZH.m */; };
@@ -136,8 +138,12 @@
 		7B3985871CA25E5C005B2A96 /* BBusStationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationController.m; sourceTree = "<group>"; };
 		7B3985891CA25F57005B2A96 /* BBusStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationCell.h; sourceTree = "<group>"; };
 		7B39858A1CA25F57005B2A96 /* BBusStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationCell.m; sourceTree = "<group>"; };
-		7B4069861C9D5DD60047C7C2 /* BBFavoriteBusCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFavoriteBusCardCell.h; sourceTree = "<group>"; };
-		7B4069871C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFavoriteBusCardCell.m; sourceTree = "<group>"; };
+		7B39858C1CA27BE4005B2A96 /* BFavoriteBusLineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusLineTool.h; sourceTree = "<group>"; };
+		7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusLineTool.m; sourceTree = "<group>"; };
+		7B39858F1CA27C41005B2A96 /* BFavoriteBusLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusLine.h; sourceTree = "<group>"; };
+		7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusLine.m; sourceTree = "<group>"; };
+		7B4069861C9D5DD60047C7C2 /* BFavoriteBusCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusCardCell.h; sourceTree = "<group>"; };
+		7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusCardCell.m; sourceTree = "<group>"; };
 		7B4069891C9D790E0047C7C2 /* BCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCollectionViewLayout.h; sourceTree = "<group>"; };
 		7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCollectionViewLayout.m; sourceTree = "<group>"; };
 		7B40698D1C9D7CBA0047C7C2 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
@@ -517,6 +523,8 @@
 				7BB05CA81CA1024900D0D130 /* BBusLine.m */,
 				7B3985831CA25C28005B2A96 /* BBusStation.h */,
 				7B3985841CA25C28005B2A96 /* BBusStation.m */,
+				7B39858F1CA27C41005B2A96 /* BFavoriteBusLine.h */,
+				7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -536,8 +544,8 @@
 		7B95BDC31C9992D30029AEAE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7B4069861C9D5DD60047C7C2 /* BBFavoriteBusCardCell.h */,
-				7B4069871C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m */,
+				7B4069861C9D5DD60047C7C2 /* BFavoriteBusCardCell.h */,
+				7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */,
 				7B9A4AE01C9E9A1F0041AC35 /* BAddFavoriteBusCell.h */,
 				7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */,
 				7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */,
@@ -558,6 +566,8 @@
 				7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */,
 				7B3985801CA25B9B005B2A96 /* BBusStationTool.h */,
 				7B3985811CA25B9B005B2A96 /* BBusStationTool.m */,
+				7B39858C1CA27BE4005B2A96 /* BFavoriteBusLineTool.h */,
+				7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -999,16 +1009,18 @@
 				7BB05C7E1CA0FB1500D0D130 /* NSObject+MJProperty.m in Sources */,
 				7B57BFBE1C9AB75800D4AE6E /* View+MASAdditions.m in Sources */,
 				7BB05CA01CA0FB1500D0D130 /* UIView+WebCacheOperation.m in Sources */,
-				7B4069881C9D5DD60047C7C2 /* BBFavoriteBusCardCell.m in Sources */,
+				7B4069881C9D5DD60047C7C2 /* BFavoriteBusCardCell.m in Sources */,
 				7BB05C901CA0FB1500D0D130 /* UIScrollView+MJExtension.m in Sources */,
 				7BB05C951CA0FB1500D0D130 /* SDWebImageCompat.m in Sources */,
 				7B3985821CA25B9B005B2A96 /* BBusStationTool.m in Sources */,
 				7BB05C991CA0FB1500D0D130 /* SDWebImageManager.m in Sources */,
 				7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */,
 				7B4069921C9D7CBA0047C7C2 /* UIView+ZH.m in Sources */,
 				7BB05C9B1CA0FB1500D0D130 /* UIButton+WebCache.m in Sources */,
 				7BB05C861CA0FB1500D0D130 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */,
+				7B39858E1CA27BE4005B2A96 /* BFavoriteBusLineTool.m in Sources */,
 				7BB05C6D1CA0FB1500D0D130 /* AFAutoPurgingImageCache.m in Sources */,
 				7BB05C841CA0FB1500D0D130 /* MJRefreshHeader.m in Sources */,
 				7BB05C961CA0FB1500D0D130 /* SDWebImageDecoder.m in Sources */,

@@ -48,6 +48,8 @@
         self.switc = siwtc;
         [self addSubview:siwtc];
         
+        [siwtc addTarget:self action:@selector(didSelect:) forControlEvents:UIControlEventTouchUpInside];
+        
         siwtc.x = 100;
         siwtc.y = 40;
         
@@ -56,10 +58,12 @@
     return self;
 }
 
-- (void)awakeFromNib {
+- (void)didSelect:(UISwitch*)swit {
+    
     
     
 }
+
 
 - (void)setBusStation:(BBusStation *)busStation {
     _busStation = busStation;

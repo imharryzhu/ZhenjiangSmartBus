@@ -12,8 +12,10 @@
 
 #import "BBusLineViewModel.h"
 #import "BBusLine.h"
+#import "BFavoriteBusLine.h"
 
 #import "BBusLineTool.h"
+#import "BFavoriteBusLineTool.h"
 
 #import "SVProgressHUD.h"
 
@@ -103,12 +105,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BBusStationController* busStationVC = [[BBusStationController alloc]initWithStyle:UITableViewStylePlain];
-    
     BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
-    busStationVC.busLine = viewModel.busLine;
     
-    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:busStationVC] animated:YES completion:nil];
+    BFavoriteBusLine* favorite = [[BFavoriteBusLine alloc]init];
+    favorite.busLine = viewModel.busLine;
+    
+    if([[BFavoriteBusLineTool defaultTool]addBusLine:favorite]) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:BFavoriteChangeNotification object:nil];
+    } else {
+        
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    return; // 目前直接添加到收藏
+//    BBusStationController* busStationVC = [[BBusStationController alloc]initWithStyle:UITableViewStylePlain];
+//    
+//    BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
+//    busStationVC.busLine = viewModel.busLine;
+//    
+//    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:busStationVC] animated:YES completion:nil];
 }
 
 

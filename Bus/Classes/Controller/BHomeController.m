@@ -11,14 +11,24 @@
 
 #import "BBusLineController.h"
 
+#import "BFavoriteBusLine.h"
+#import "BBusLine.h"
+
+#import "BFavoriteBusLineTool.h"
+
 #import "BCollectionViewLayout.h"
-#import "BBFavoriteBusCardCell.h"
+#import "BFavoriteBusCardCell.h"
 #import "BAddFavoriteBusCell.h"
 
 @interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 @property (nonatomic,weak) UIView* updateView;
+
+/**
+ *  定时器，如果当前cell在屏幕中停留指定时间的话，则cell开始执行刷新函数
+ */
+@property (nonatomic,strong) NSTimer* timer;
 
 @end
 
@@ -33,6 +43,11 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     
     [self setupUI];
+    
+    /**
+     *  监听 用户收藏改变
+     */
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
     
 }
 
@@ -61,7 +76,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
 //    collectionView.pagingEnabled = YES;
 //    collectionView.bounces = NO;
-    collectionView.delaysContentTouches = NO;
+//    collectionView.delaysContentTouches = NO;
     
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuide);
@@ -70,7 +85,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         make.height.equalTo(superView).with.multipliedBy(0.7);
     }];
     
-    [collectionView registerClass:[BBFavoriteBusCardCell class] forCellWithReuseIdentifier:reuseId_favorite];
+    [collectionView registerClass:[BFavoriteBusCardCell class] forCellWithReuseIdentifier:reuseId_favorite];
     [collectionView registerClass:[BAddFavoriteBusCell class] forCellWithReuseIdentifier:reuseId_addFavorite];
     
     
@@ -93,18 +108,24 @@ static NSString* reuseId_addFavorite = @"addfavorite";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return 4;
+    return [[BFavoriteBusLineTool defaultTool]favoriteBusLines].count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = nil;
-    if (indexPath.row == 3) {
+    
+    NSArray* favorite = [[BFavoriteBusLineTool defaultTool]favoriteBusLines];
+    
+    if (indexPath.row == favorite.count) {
         BAddFavoriteBusCell* busCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_addFavorite forIndexPath:indexPath];
         cell = busCell;
         busCell.delegate = self;
     } else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_favorite forIndexPath:indexPath];
+        
+        BFavoriteBusCardCell* favoriteCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_favorite forIndexPath:indexPath];
+        cell = favoriteCell;
+        
+        favoriteCell.favoriteBusLine = favorite[indexPath.row];
     }
     
     return cell;
@@ -121,13 +142,20 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [scrollView setContentOffset:scrollView.contentOffset animated:NO];
 }
 
-
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    NSLog(@"%d", scrollView.scrollEnabled);
-//    [scrollView.layer removeAllAnimations];
-//    
-//}
-
+/**
+ *  当页面滑动完毕后
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    // 判断是否为该类
+    if(scrollView == self.collectionView) {
+        // 取消原来的计时
+        [self.timer invalidate];
+        
+        // 开始新的计时
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(busCardDidSelected) userInfo:nil repeats:NO];
+    }
+}
 
 #pragma mark - BAddFavoriteBusCellDelegate
 
@@ -143,5 +171,38 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark - 通知消息
+
+/**
+ *  当收藏发生改变时
+ */
+- (void)favoriteBusLinesDidchange {
+    [self.collectionView reloadData];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
+}
+
+
+/**
+ *  公交卡被选中
+ */
+- (void)busCardDidSelected {
+    
+    CGPoint centerPos = CGPointMake(self.collectionView.contentOffset.x + self.collectionView.width/2, self.collectionView.height/2);
+    
+    // 获取屏幕中心点所在的cell
+    NSIndexPath* indexPath = [self.collectionView indexPathForItemAtPoint:centerPos];
+    
+    UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[BFavoriteBusCardCell class]]) {
+        BFavoriteBusCardCell* favotireCell = (BFavoriteBusCardCell*)cell;
+        NSLog(@"选中了 %@", favotireCell.favoriteBusLine.busLine.fullname);
+    }
+    
+    
+}
 
 @end
