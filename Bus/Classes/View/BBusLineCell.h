@@ -15,11 +15,6 @@
 + (instancetype)busLineCellWithTableView:(UITableView*)tableView;
 
 /**
- *  公交线路名称
- */
-@property (nonatomic,copy) NSString* fullName;
-
-/**
  *  viewmodel
  */
 @property (nonatomic,strong) BBusLineViewModel* viewModel;

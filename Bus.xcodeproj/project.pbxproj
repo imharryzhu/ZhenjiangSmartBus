@@ -97,6 +97,7 @@
 		7BB05CA91CA1024900D0D130 /* BBusLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CA81CA1024900D0D130 /* BBusLine.m */; };
 		7BB05CAC1CA1028F00D0D130 /* BBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */; };
 		7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */; };
+		7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +308,7 @@
 		7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineTool.m; sourceTree = "<group>"; };
 		7BB05CAF1CA1081800D0D130 /* BBusLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineViewModel.h; sourceTree = "<group>"; };
 		7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineViewModel.m; sourceTree = "<group>"; };
+		7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBusLineCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +516,7 @@
 				7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */,
 				7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */,
 				7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */,
+				7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BB05CA21CA0FB1500D0D130 /* SVProgressHUD.bundle in Resources */,
+				7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */,
 				7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */,
 				7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */,
 				7BB05C8E1CA0FB1500D0D130 /* MJRefresh.bundle in Resources */,
@@ -1116,6 +1120,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1129,6 +1134,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";

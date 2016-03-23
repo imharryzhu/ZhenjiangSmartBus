@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="busline" rowHeight="87" id="GfY-ui-eDl" customClass="BBusLineCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GfY-ui-eDl" id="Z7q-rX-pSe">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmg-2N-6pp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="busstation_fullname" translatesAutoresizingMaskIntoConstraints="NO" id="3ga-s4-VbX">
+                                <rect key="frame" x="9" y="9" width="120" height="70"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaaaaaaaaaaa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-QV-yIg">
+                                <rect key="frame" x="20" y="21" width="98" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="88" id="1Vg-qf-BDT"/>
+                            <constraint firstItem="3ga-s4-VbX" firstAttribute="top" secondItem="Xmg-2N-6pp" secondAttribute="top" constant="9" id="JkP-BU-3D4"/>
+                            <constraint firstItem="3ga-s4-VbX" firstAttribute="leading" secondItem="Xmg-2N-6pp" secondAttribute="leading" constant="9" id="SF3-7P-Mh2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Xmg-2N-6pp" secondAttribute="trailing" id="7H0-2G-MPr"/>
+                    <constraint firstItem="Xmg-2N-6pp" firstAttribute="leading" secondItem="Z7q-rX-pSe" secondAttribute="leading" id="PKb-2e-eAY"/>
+                    <constraint firstItem="Xmg-2N-6pp" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="top" id="TZI-ss-f56"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fullNameLabel" destination="2Jc-QV-yIg" id="J0y-MH-ttF"/>
+            </connections>
+            <point key="canvasLocation" x="193.5" y="313"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="busstation_fullname" width="120" height="70"/>
+    </resources>
+</document>

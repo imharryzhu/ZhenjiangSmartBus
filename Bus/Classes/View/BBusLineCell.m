@@ -7,13 +7,15 @@
 //
 
 #import "BBusLineCell.h"
+#import "BBusLineViewModel.h"
+#import "BBusLine.h"
 
 @interface BBusLineCell()
 
 /**
  *  公交名称
  */
-@property (nonatomic,weak) UILabel* fullNameLabel;
+@property (nonatomic,weak) IBOutlet UILabel* fullNameLabel;
 
 /**
  *  始发站名称
@@ -40,18 +42,16 @@
     
     BBusLineCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     if(!cell) {
-        cell = [[BBusLineCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+        
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"BBusLineCell" owner:nil options:nil] lastObject];
+        
+        cell.backgroundColor = [UIColor clearColor];
     }
     return cell;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell已收藏"]];
-        imageView.x = 0;
-        imageView.y = 0;
-        [self addSubview:imageView];
-        
         
         // 去除分割线
         self.backgroundColor = [UIColor clearColor];
@@ -65,7 +65,7 @@
 - (void)setViewModel:(BBusLineViewModel *)viewModel {
     _viewModel = viewModel;
     
-    
+    self.fullNameLabel.text = viewModel.busLine.fullname;
 }
 
 
