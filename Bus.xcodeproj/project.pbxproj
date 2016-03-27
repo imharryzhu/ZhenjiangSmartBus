@@ -106,6 +106,12 @@
 		7BB05CAC1CA1028F00D0D130 /* BBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */; };
 		7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */; };
 		7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */; };
+		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
+		7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */; };
+		7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */; };
+		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
+		7BE601E11CA3F41700301A56 /* BBusGPSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601E01CA3F41700301A56 /* BBusGPSTool.m */; };
+		7BE601E41CA3FCFC00301A56 /* BBusGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601E31CA3FCFC00301A56 /* BBusGPS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +339,16 @@
 		7BB05CAF1CA1081800D0D130 /* BBusLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineViewModel.h; sourceTree = "<group>"; };
 		7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineViewModel.m; sourceTree = "<group>"; };
 		7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBusLineCell.xib; sourceTree = "<group>"; };
+		7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BFavoriteBusCardCell.xib; sourceTree = "<group>"; };
+		7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSView.h; sourceTree = "<group>"; };
+		7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSView.m; sourceTree = "<group>"; };
+		7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSCell.h; sourceTree = "<group>"; };
+		7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSCell.m; sourceTree = "<group>"; };
+		7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBusGPSCell.xib; sourceTree = "<group>"; };
+		7BE601DF1CA3F41700301A56 /* BBusGPSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSTool.h; sourceTree = "<group>"; };
+		7BE601E01CA3F41700301A56 /* BBusGPSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSTool.m; sourceTree = "<group>"; };
+		7BE601E21CA3FCFC00301A56 /* BBusGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPS.h; sourceTree = "<group>"; };
+		7BE601E31CA3FCFC00301A56 /* BBusGPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +541,8 @@
 				7B3985841CA25C28005B2A96 /* BBusStation.m */,
 				7B39858F1CA27C41005B2A96 /* BFavoriteBusLine.h */,
 				7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */,
+				7BE601E21CA3FCFC00301A56 /* BBusGPS.h */,
+				7BE601E31CA3FCFC00301A56 /* BBusGPS.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,6 +564,7 @@
 			children = (
 				7B4069861C9D5DD60047C7C2 /* BFavoriteBusCardCell.h */,
 				7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */,
+				7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */,
 				7B9A4AE01C9E9A1F0041AC35 /* BAddFavoriteBusCell.h */,
 				7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */,
 				7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */,
@@ -553,6 +572,11 @@
 				7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */,
 				7B3985891CA25F57005B2A96 /* BBusStationCell.h */,
 				7B39858A1CA25F57005B2A96 /* BBusStationCell.m */,
+				7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */,
+				7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */,
+				7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */,
+				7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */,
+				7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +590,8 @@
 				7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */,
 				7B3985801CA25B9B005B2A96 /* BBusStationTool.h */,
 				7B3985811CA25B9B005B2A96 /* BBusStationTool.m */,
+				7BE601DF1CA3F41700301A56 /* BBusGPSTool.h */,
+				7BE601E01CA3F41700301A56 /* BBusGPSTool.m */,
 				7B39858C1CA27BE4005B2A96 /* BFavoriteBusLineTool.h */,
 				7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */,
 			);
@@ -915,9 +941,11 @@
 				7BB05CA21CA0FB1500D0D130 /* SVProgressHUD.bundle in Resources */,
 				7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */,
 				7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */,
+				7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */,
 				7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */,
 				7BB05C8E1CA0FB1500D0D130 /* MJRefresh.bundle in Resources */,
 				7B57BFB51C9AB75800D4AE6E /* Info.plist in Resources */,
+				7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,11 +987,13 @@
 				7BB05C7F1CA0FB1500D0D130 /* NSString+MJExtension.m in Sources */,
 				7BB05C971CA0FB1500D0D130 /* SDWebImageDownloader.m in Sources */,
 				7BB05C811CA0FB1500D0D130 /* MJRefreshBackFooter.m in Sources */,
+				7BE601E41CA3FCFC00301A56 /* BBusGPS.m in Sources */,
 				7B9A4AE21C9E9A1F0041AC35 /* BAddFavoriteBusCell.m in Sources */,
 				7BB05C881CA0FB1500D0D130 /* MJRefreshBackGifFooter.m in Sources */,
 				7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */,
 				7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */,
 				7BB05C9E1CA0FB1500D0D130 /* UIImageView+HighlightedWebCache.m in Sources */,
+				7BE601E11CA3F41700301A56 /* BBusGPSTool.m in Sources */,
 				7BB05C711CA0FB1500D0D130 /* UIButton+AFNetworking.m in Sources */,
 				7B57BFB61C9AB75800D4AE6E /* MASCompositeConstraint.m in Sources */,
 				7BB05C7D1CA0FB1500D0D130 /* NSObject+MJKeyValue.m in Sources */,
@@ -979,6 +1009,7 @@
 				7B57BFB71C9AB75800D4AE6E /* MASConstraint.m in Sources */,
 				7BB05C891CA0FB1500D0D130 /* MJRefreshBackNormalFooter.m in Sources */,
 				7BB05C6E1CA0FB1500D0D130 /* AFImageDownloader.m in Sources */,
+				7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */,
 				7BB05CA61CA0FBA300D0D130 /* BNetworkTool.m in Sources */,
 				7BB05C6F1CA0FB1500D0D130 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				7BB05C751CA0FB1500D0D130 /* UIWebView+AFNetworking.m in Sources */,
@@ -1001,6 +1032,7 @@
 				7B39857C1CA23FCE005B2A96 /* NSString+Extension.m in Sources */,
 				7BB05C9A1CA0FB1500D0D130 /* SDWebImagePrefetcher.m in Sources */,
 				7BB05CA11CA0FB1500D0D130 /* SVIndefiniteAnimatedView.m in Sources */,
+				7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */,
 				7BB05C8F1CA0FB1500D0D130 /* MJRefreshConst.m in Sources */,
 				7BB05C7B1CA0FB1500D0D130 /* NSObject+MJClass.m in Sources */,
 				7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */,

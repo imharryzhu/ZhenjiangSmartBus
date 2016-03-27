@@ -12,8 +12,6 @@
 
 @interface BBusLineTool : NSObject
 
-// gprs /Wcity/Bus/BusGPS/0/191/0?format=json
-
 /**
  *  获取城市公交线路
  *
@@ -21,5 +19,10 @@
  *  @param failure     失败的回调
  */
 + (void)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure;
+
+/**
+ *  从本地获取
+ */
++ (NSArray<BBusLine*>*)busLinesFromLocal;
 
 @end

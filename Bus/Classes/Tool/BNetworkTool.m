@@ -10,12 +10,12 @@
 
 @implementation BNetworkTool
 
-+ (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (NSURLSessionDataTask*)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     // 创建请求管理者
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    [mgr GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [mgr GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
             success(responseObject);
         }
@@ -26,12 +26,12 @@
     }];
 }
 
-+ (void)Post:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (NSURLSessionDataTask*)Post:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     // 创建请求管理者
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    [mgr POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [mgr POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
             success(responseObject);
         }

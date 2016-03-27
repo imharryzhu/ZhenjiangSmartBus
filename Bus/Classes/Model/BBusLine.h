@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBusStation;
+
 @interface BBusLine : NSObject
 
 @property (nonatomic,copy) NSString* gprsid;
@@ -38,5 +40,10 @@
  *  线路名称
  */
 @property (nonatomic,copy) NSString* fullname;
+
+/**
+ *  busstaitons
+ */
+@property (nonatomic,strong) NSArray<BBusStation*>* busStations;
 
 @end

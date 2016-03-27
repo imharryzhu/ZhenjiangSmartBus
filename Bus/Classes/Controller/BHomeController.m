@@ -10,6 +10,7 @@
 #import "Masonry.h"
 
 #import "BBusLineController.h"
+#import "BBusGPSView.h"
 
 #import "BFavoriteBusLine.h"
 #import "BBusLine.h"
@@ -20,15 +21,22 @@
 #import "BFavoriteBusCardCell.h"
 #import "BAddFavoriteBusCell.h"
 
+#import <CoreLocation/CoreLocation.h>
+
 @interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
-@property (nonatomic,weak) UIView* updateView;
+@property (nonatomic,weak) BBusGPSView* gpsView;
 
 /**
  *  定时器，如果当前cell在屏幕中停留指定时间的话，则cell开始执行刷新函数
  */
 @property (nonatomic,strong) NSTimer* timer;
+
+/**
+ *  定位
+ */
+@property (nonatomic,strong) CLLocationManager* locationMgr;
 
 @end
 
@@ -48,6 +56,8 @@ static NSString* reuseId_addFavorite = @"addfavorite";
      *  监听 用户收藏改变
      */
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
+    
+    
     
 }
 
@@ -85,17 +95,17 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         make.height.equalTo(superView).with.multipliedBy(0.7);
     }];
     
-    [collectionView registerClass:[BFavoriteBusCardCell class] forCellWithReuseIdentifier:reuseId_favorite];
+//    [collectionView registerClass:[BFavoriteBusCardCell class] forCellWithReuseIdentifier:reuseId_favorite];
+    [collectionView registerNib:[UINib nibWithNibName:@"BFavoriteBusCardCell" bundle:nil] forCellWithReuseIdentifier:reuseId_favorite];
     [collectionView registerClass:[BAddFavoriteBusCell class] forCellWithReuseIdentifier:reuseId_addFavorite];
     
     
     // 创建时时公交显示View
-    UIView* updateView = [[UIView alloc]init];
+    BBusGPSView* updateView = [[BBusGPSView alloc]init];
     [self.view addSubview:updateView];
-    _updateView = updateView;
+    _gpsView = updateView;
     
-    updateView.backgroundColor = [UIColor redColor];
-    
+    updateView.backgroundColor = [UIColor whiteColor];
     
     
     [updateView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -185,7 +195,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
 }
 
-
 /**
  *  公交卡被选中
  */
@@ -199,10 +208,9 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     if ([cell isKindOfClass:[BFavoriteBusCardCell class]]) {
         BFavoriteBusCardCell* favotireCell = (BFavoriteBusCardCell*)cell;
-        NSLog(@"选中了 %@", favotireCell.favoriteBusLine.busLine.fullname);
+        
+        self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
     }
-    
-    
 }
 
 @end

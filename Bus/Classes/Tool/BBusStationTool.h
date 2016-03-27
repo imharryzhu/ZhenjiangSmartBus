@@ -19,6 +19,11 @@
  *  @param success     成功的回调
  *  @param failure     失败的回调
  */
-+ (void)busStationForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusStation*>* busStations))success withFailure:(void(^)(NSError* error))failure;
++ (NSURLSessionDataTask*)busStationForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusStation*>* busStations))success withFailure:(void(^)(NSError* error))failure;
+
+/**
+ *  从本地获取
+ */
++ (NSArray<BBusStation*>*)busStationsFromLocal:(NSString*)busLineName;
 
 @end

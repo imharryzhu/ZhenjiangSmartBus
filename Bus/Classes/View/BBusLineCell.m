@@ -9,27 +9,20 @@
 #import "BBusLineCell.h"
 #import "BBusLineViewModel.h"
 #import "BBusLine.h"
+#import "BBusStation.h"
+
+#import "BBusStationTool.h"
+
+#import "AFNetworking.h"
+#import <objc/runtime.h>
 
 @interface BBusLineCell()
 
-/**
- *  公交名称
- */
 @property (nonatomic,weak) IBOutlet UILabel* fullNameLabel;
-
-/**
- *  始发站名称
- */
-@property (nonatomic,weak) UILabel* startStationNameLabel;
-
-/**
- *  终点站名称
- */
-@property (nonatomic,weak) UILabel* terminateStationNameLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *firstTimeLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startStationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *terminalStationLabel;
 
 @end
 
@@ -74,6 +67,52 @@
     self.fullNameLabel.text = viewModel.busLine.fullname;
     self.firstTimeLabel.text = [BCommon timeFromDateString:viewModel.busLine.firsttime];
     self.lastTimeLabel.text = [BCommon timeFromDateString:viewModel.busLine.lasttime];
+    
+    // 起始站终点站
+    NSArray<BBusStation*>* busStations = viewModel.busLine.busStations;
+    
+    if(busStations) {
+        BBusStation* startStation = [viewModel.busLine.busStations firstObject];
+        self.startStationLabel.text = startStation.name;
+
+        BBusStation* terminalStation = [viewModel.busLine.busStations lastObject];
+        self.terminalStationLabel.text = terminalStation.name;
+    }else{
+        self.startStationLabel.text = nil;
+        self.terminalStationLabel.text = nil;
+        [self setBusStationInfo];
+    }
 }
+
+/**
+ *  从网络获取数据，并设置界面信息
+ */
+- (void)setBusStationInfo {
+    
+    // 取消上一次请求
+    static NSString* taskKey = @"getstationtask";
+    NSURLSessionDataTask* m_task = objc_getAssociatedObject(self, &taskKey);
+    if(m_task) {
+        [m_task cancel];
+        objc_setAssociatedObject(self, &taskKey, nil, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    
+    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.viewModel.busLine success:^(NSArray<BBusStation *> *busStations) {
+        
+        self.viewModel.busLine.busStations = busStations;
+        
+        BBusStation* startStation = [busStations firstObject];       
+        self.startStationLabel.text = startStation.name;
+        
+        BBusStation* terminalStation = [busStations lastObject];
+        self.terminalStationLabel.text = terminalStation.name;
+        
+    } withFailure:nil];
+    
+    
+    objc_setAssociatedObject(self, &taskKey, task, OBJC_ASSOCIATION_RETAIN);
+}
+
 
 @end

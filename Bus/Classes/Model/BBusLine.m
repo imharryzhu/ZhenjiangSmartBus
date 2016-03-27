@@ -7,11 +7,24 @@
 //
 
 #import "BBusLine.h"
+#import "BBusStationTool.h"
 
 @implementation BBusLine
 
 - (NSString *)description {
     return self.fullname;
+}
+
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[@"busStations"];
+}
+
+- (NSArray<BBusStation *> *)busStations {
+    if(!_busStations) {
+        NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self];
+        _busStations = busStation;
+    }
+    return _busStations;
 }
 
 @end
