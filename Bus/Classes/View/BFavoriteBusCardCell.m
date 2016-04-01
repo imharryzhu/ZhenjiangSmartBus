@@ -13,15 +13,32 @@
 #import "BBusLine.h"
 #import "BBusStation.h"
 
+#import "BLabel.h"
+
 @interface BFavoriteBusCardCell()
 
-@property (nonatomic,weak) UILabel* label;
-
-@property (weak, nonatomic) IBOutlet UILabel *busLineNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *firstTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *startStationLabel;
+@property (weak, nonatomic) IBOutlet BLabel *busLineNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endStationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endStationSubLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+
+/**
+ *  当前站
+ */
+@property (weak, nonatomic) IBOutlet UILabel *currentStationNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentStationSubLabel;
+
+/**
+ *  目的站底部 距离底部距离
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *endStationNameBottom;
+
+/**
+ *  busLineNameLabel上方的间距
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *busLineNameTop;
+@property (weak, nonatomic) IBOutlet BLabel *aaa;
 
 @end
 
@@ -38,13 +55,6 @@
         
         [self setupUI];
         
-        UILabel* label = [[UILabel alloc]init];
-        label.font = [UIFont systemFontOfSize:80];
-        label.center = CGPointMake(0, self.height/2);
-        self.label = label;
-        [self addSubview:label];
-        
-        
     }
     return self;
 }
@@ -58,11 +68,19 @@
     
     [self setupUI];
     
-    UILabel* label = [[UILabel alloc]init];
-    label.font = [UIFont systemFontOfSize:80];
-    label.center = CGPointMake(0, self.height/2);
-    self.label = label;
-    [self addSubview:label];
+    // 公交线路名称垂直居下
+    self.busLineNameLabel.verticalAlignment = VerticalAlignmentBottom;
+    
+    // 如果是4s屏幕，则将公交线路名称上方的间距设置为 0
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        self.busLineNameTop.constant = 0;
+    }
+    
+    self.locationButton.imageView.center = CGPointMake(self.locationButton.width/2, 0);
+    self.locationButton.imageView.y = 0;
+    self.locationButton.titleLabel.center = CGPointMake(self.locationButton.width/2, 0);
+    self.locationButton.titleLabel.y = CGRectGetMaxY(self.locationButton.imageView.frame) ;
+    
 }
 
 
@@ -76,17 +94,65 @@
 - (void)setFavoriteBusLine:(BFavoriteBusLine *)favoriteBusLine {
     _favoriteBusLine = favoriteBusLine;
     
-    self.busLineNameLabel.font =[favoriteBusLine.busLine.fullname maxFontInSize:self.busLineNameLabel.frame.size];
+    // 公交名称
     
     self.busLineNameLabel.text = favoriteBusLine.busLine.fullname;
-    self.firstTimeLabel.text = favoriteBusLine.busLine.firsttime;
-    self.lastTimeLabel.text = favoriteBusLine.busLine.lasttime;
     
-    BBusStation* startBusStation = [favoriteBusLine.busLine.busStations firstObject];
-    self.startStationLabel.text = startBusStation.name;
     
+    
+    // 目的站
     BBusStation* endBusStation = [favoriteBusLine.busLine.busStations lastObject];
-    self.endStationLabel.text = endBusStation.name;
+    NSArray<NSString*>* endBusStationName = [self subNameInStationName:endBusStation.name];
+    endBusStationName = [self subNameInStationName:endBusStation.name];
+    self.endStationLabel.text = endBusStationName[0];
+    self.endStationSubLabel.text = endBusStationName[1];
+    
+    if([endBusStationName[1] isEqualToString:@""]) {
+        self.endStationNameBottom.constant = 5;
+    }else{
+        self.endStationNameBottom.constant = 14;
+    }
+    
+    [self updateConstraints];
+//    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    
+    
+    // fullName
+    self.busLineNameLabel.font =[self.busLineNameLabel.text maxFontInSize:self.busLineNameLabel.frame.size  maxFontSize:100];
+    
+    // 开往
+    self.aaa.font = [self.aaa.text maxFontInSize:self.aaa.frame.size  maxFontSize:100];
+    
+    // 尾站
+    self.endStationLabel.font = [self.endStationLabel.text maxFontInSize:self.endStationLabel.frame.size  maxFontSize:100];
+    
 }
+
+
+/**
+ *  将公交名称包含()的，截取未 主名称和子名称
+ *  返回  [主, 子]
+ */
+- (NSArray<NSString*>*)subNameInStationName:(NSString*)fullname
+{
+    NSString* pattern = @"(.+)[/(（](.+)[/)）]?$";
+    NSRegularExpression* reg = [[NSRegularExpression alloc]initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray<NSTextCheckingResult*>* arr = [reg matchesInString:fullname options:0 range:NSMakeRange(0, fullname.length)];
+    
+    
+    if(arr.count > 0)
+    {
+        NSTextCheckingResult* result = [arr firstObject];
+        NSRange range1 = [result rangeAtIndex:1];
+        NSRange range2 = [result rangeAtIndex:2];
+        return @[[fullname substringWithRange:range1],[fullname substringWithRange:range2]];
+        
+    }else{
+        return @[fullname, @""];
+    }
+}
+
+
 
 @end

@@ -23,10 +23,15 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate>
+@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 @property (nonatomic,weak) BBusGPSView* gpsView;
+
+/**
+ *  记录上一次选中的卡片
+ */
+@property (nonatomic,weak) BFavoriteBusCardCell* lastFavotireCell;
 
 /**
  *  定时器，如果当前cell在屏幕中停留指定时间的话，则cell开始执行刷新函数
@@ -58,6 +63,16 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
     
     
+    // 开始定位
+    self.locationMgr = [[CLLocationManager alloc]init];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] > 8.0) {
+        [self.locationMgr requestAlwaysAuthorization];
+    }
+    self.locationMgr.delegate = self;
+    // 位置偏移 500m
+    self.locationMgr.distanceFilter = 500;
+    self.locationMgr.desiredAccuracy = kCLLocationAccuracyKilometer;
+    [self.locationMgr startUpdatingLocation];
     
 }
 
@@ -114,10 +129,9 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         make.right.equalTo(superView);
         make.top.equalTo(collectionView.mas_bottom);
     }];
-    
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {    
     return [[BFavoriteBusLineTool defaultTool]favoriteBusLines].count + 1;
 }
 
@@ -181,6 +195,34 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark - 定位代理
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@"%f -- %f",[locations lastObject].coordinate.latitude, [locations lastObject].coordinate.longitude);
+    
+    CLGeocoder* geocoder = [[CLGeocoder alloc]init];
+    [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (placemarks.count == 0 || error) {
+            NSLog(@"你他妈是在火星吧");
+            return;
+        }
+        
+        for (CLPlacemark *placemark in placemarks) {
+            
+            //获取城市名称 --> 一定要加判断 locality有可能获取不到值
+            
+            //locality : 城市名
+            //administrativeArea : 行政区域
+            if (placemark.locality) {
+                NSLog(@"city: %@",placemark.locality);
+            } else {
+                NSLog(@"city: %@",placemark.administrativeArea);
+            }
+        }
+    }];
+    
+}
+
 #pragma mark - 通知消息
 
 /**
@@ -208,8 +250,10 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     if ([cell isKindOfClass:[BFavoriteBusCardCell class]]) {
         BFavoriteBusCardCell* favotireCell = (BFavoriteBusCardCell*)cell;
-        
-        self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
+        if(self.lastFavotireCell != favotireCell) {
+            self.lastFavotireCell= favotireCell;
+//            self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
+        }
     }
 }
 

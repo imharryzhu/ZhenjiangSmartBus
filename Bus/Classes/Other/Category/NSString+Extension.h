@@ -21,7 +21,8 @@
  *  在某个区域内最大的字体
  *
  *  @param maxSize 区域
+ *  @param maxFontSize 最大字体 ，默认为50
  */
-- (UIFont*)maxFontInSize:(CGSize)maxSize;
+- (UIFont*)maxFontInSize:(CGSize)maxSize maxFontSize:(NSInteger)maxFontSize;
 
 @end

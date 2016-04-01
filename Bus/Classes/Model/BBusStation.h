@@ -25,8 +25,9 @@
 
 @property (nonatomic,copy) NSString* gprsid;
 @property (nonatomic,copy) NSString* Id;
-@property (nonatomic,copy) NSString* longitude;
+@property (nonatomic,copy) NSNumber* longitude;
 @property (nonatomic,copy) NSString* isdisable;
+@property (nonatomic,copy) NSNumber* latitude;
 @property (nonatomic,copy) NSString* bystartdistance;
 @property (nonatomic,copy) NSString* direction;
 @property (nonatomic,copy) NSString* orderno;

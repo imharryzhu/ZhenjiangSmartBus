@@ -21,7 +21,7 @@
 
 - (NSArray<BBusStation *> *)busStations {
     if(!_busStations) {
-        NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self];
+        NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self.fullname];
         _busStations = busStation;
     }
     return _busStations;

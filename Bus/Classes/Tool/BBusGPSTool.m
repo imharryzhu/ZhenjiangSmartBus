@@ -23,7 +23,6 @@
     [BNetworkTool GET:url parameters:nil success:^(id responseObject) {
         
         NSArray* busGps = [BBusGPS mj_objectArrayWithKeyValuesArray:responseObject[@"GPSlist"]];
-        NSLog(@"%@", responseObject);
         success(busGps);
         
     } failure:^(NSError *error) {

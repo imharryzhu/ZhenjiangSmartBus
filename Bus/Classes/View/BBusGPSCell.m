@@ -10,27 +10,23 @@
 #import "BBusLine.h"
 #import "BBusStation.h"
 
+#import "Masonry.h"
 
 @interface BBusGPSCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *test;
+
+
 
 @end
 
 @implementation BBusGPSCell
 
--(instancetype)initWithFrame:(CGRect)frame {
-    if(self = [super initWithFrame:frame]) {
-        
-    }
-    return self;
-}
-
 - (void)setBusStation:(BBusStation *)busStation {
     _busStation = busStation;
+    self.backgroundColor = [UIColor lightGrayColor];
     
-    self.label.text = busStation.name;
-    
+    self.test.text = busStation.name;
 }
 
 @end

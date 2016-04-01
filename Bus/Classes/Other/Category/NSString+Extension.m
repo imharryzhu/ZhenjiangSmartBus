@@ -16,9 +16,9 @@
     return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 }
 
-- (UIFont*)maxFontInSize:(CGSize)maxSize
+- (UIFont*)maxFontInSize:(CGSize)maxSize maxFontSize:(NSInteger)maxFontSize
 {
-    NSInteger fontSize = 50;
+    NSInteger fontSize = maxFontSize == 0 ? 50 : maxFontSize;
     
     for (NSInteger i = fontSize; i >= 1; i--) {
         UIFont* font = [UIFont systemFontOfSize:i];

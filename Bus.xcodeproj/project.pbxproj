@@ -40,6 +40,8 @@
 		7B9A4AE21C9E9A1F0041AC35 /* BAddFavoriteBusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */; };
 		7B9A4AE81C9EA4890041AC35 /* BBusLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */; };
 		7B9A4AF21C9EA84C0041AC35 /* BBusLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */; };
+		7BAEC6261CACD5B00036D5D6 /* BLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEC6251CACD5B00036D5D6 /* BLabel.m */; };
+		7BAEC6291CACFB700036D5D6 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEC6281CACFB700036D5D6 /* BButton.m */; };
 		7BB05C671CA0FB1500D0D130 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BDF1CA0FB1500D0D130 /* AFHTTPSessionManager.m */; };
 		7BB05C681CA0FB1500D0D130 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BE21CA0FB1500D0D130 /* AFNetworkReachabilityManager.m */; };
 		7BB05C691CA0FB1500D0D130 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BE41CA0FB1500D0D130 /* AFSecurityPolicy.m */; };
@@ -107,6 +109,7 @@
 		7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */; };
 		7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */; };
 		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
+		7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */; };
 		7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */; };
 		7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */; };
 		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
@@ -204,6 +207,10 @@
 		7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineController.m; sourceTree = "<group>"; };
 		7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineCell.h; sourceTree = "<group>"; };
 		7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineCell.m; sourceTree = "<group>"; };
+		7BAEC6241CACD5B00036D5D6 /* BLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLabel.h; sourceTree = "<group>"; };
+		7BAEC6251CACD5B00036D5D6 /* BLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLabel.m; sourceTree = "<group>"; };
+		7BAEC6271CACFB700036D5D6 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		7BAEC6281CACFB700036D5D6 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		7BB05BDE1CA0FB1500D0D130 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		7BB05BDF1CA0FB1500D0D130 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		7BB05BE01CA0FB1500D0D130 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -340,6 +347,8 @@
 		7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineViewModel.m; sourceTree = "<group>"; };
 		7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBusLineCell.xib; sourceTree = "<group>"; };
 		7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BFavoriteBusCardCell.xib; sourceTree = "<group>"; };
+		7BC3F4111CAA266E004FE662 /* BBusGPSViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSViewLayout.h; sourceTree = "<group>"; };
+		7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSViewLayout.m; sourceTree = "<group>"; };
 		7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSView.h; sourceTree = "<group>"; };
 		7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSView.m; sourceTree = "<group>"; };
 		7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSCell.h; sourceTree = "<group>"; };
@@ -379,8 +388,8 @@
 		7B40698C1C9D7CBA0047C7C2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				7B40698D1C9D7CBA0047C7C2 /* NSArray+Log.h */,
 				7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */,
+				7B40698D1C9D7CBA0047C7C2 /* NSArray+Log.h */,
 				7B40698F1C9D7CBA0047C7C2 /* UIView+ZH.h */,
 				7B4069901C9D7CBA0047C7C2 /* UIView+ZH.m */,
 				7B39857A1CA23FCE005B2A96 /* NSString+Extension.h */,
@@ -574,9 +583,15 @@
 				7B39858A1CA25F57005B2A96 /* BBusStationCell.m */,
 				7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */,
 				7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */,
+				7BC3F4111CAA266E004FE662 /* BBusGPSViewLayout.h */,
+				7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */,
 				7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */,
 				7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */,
 				7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */,
+				7BAEC6241CACD5B00036D5D6 /* BLabel.h */,
+				7BAEC6251CACD5B00036D5D6 /* BLabel.m */,
+				7BAEC6271CACFB700036D5D6 /* BButton.h */,
+				7BAEC6281CACFB700036D5D6 /* BButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1024,6 +1039,7 @@
 				7BB05C6B1CA0FB1500D0D130 /* AFURLResponseSerialization.m in Sources */,
 				7BB05C7A1CA0FB1500D0D130 /* MJPropertyType.m in Sources */,
 				7BB05C871CA0FB1500D0D130 /* MJRefreshAutoStateFooter.m in Sources */,
+				7BAEC6261CACD5B00036D5D6 /* BLabel.m in Sources */,
 				7B9A4AE81C9EA4890041AC35 /* BBusLineController.m in Sources */,
 				7BB05C6A1CA0FB1500D0D130 /* AFURLRequestSerialization.m in Sources */,
 				7BB05C741CA0FB1500D0D130 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1049,6 +1065,7 @@
 				7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */,
 				7B4069921C9D7CBA0047C7C2 /* UIView+ZH.m in Sources */,
+				7BAEC6291CACFB700036D5D6 /* BButton.m in Sources */,
 				7BB05C9B1CA0FB1500D0D130 /* UIButton+WebCache.m in Sources */,
 				7BB05C861CA0FB1500D0D130 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */,
@@ -1063,6 +1080,7 @@
 				7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */,
 				7BB05C791CA0FB1500D0D130 /* MJPropertyKey.m in Sources */,
 				7B57BFB81C9AB75800D4AE6E /* MASConstraintMaker.m in Sources */,
+				7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */,
 				7BB05C831CA0FB1500D0D130 /* MJRefreshFooter.m in Sources */,
 				7BB05CA31CA0FB1500D0D130 /* SVProgressHUD.m in Sources */,
 			);
@@ -1200,7 +1218,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1214,7 +1232,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";

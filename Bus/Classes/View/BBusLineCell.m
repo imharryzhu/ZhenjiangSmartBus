@@ -62,7 +62,7 @@
 - (void)setViewModel:(BBusLineViewModel *)viewModel {
     _viewModel = viewModel;
     
-    self.fullNameLabel.font = [viewModel.busLine.fullname maxFontInSize:self.fullNameLabel.bounds.size];
+    self.fullNameLabel.font = [viewModel.busLine.fullname maxFontInSize:self.fullNameLabel.bounds.size maxFontSize:100];
     
     self.fullNameLabel.text = viewModel.busLine.fullname;
     self.firstTimeLabel.text = [BCommon timeFromDateString:viewModel.busLine.firsttime];

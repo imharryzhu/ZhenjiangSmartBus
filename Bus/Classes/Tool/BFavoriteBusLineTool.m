@@ -7,6 +7,7 @@
 //
 
 #import "BFavoriteBusLineTool.h"
+#import "BBusLine.h"
 #import "BFavoriteBusLine.h"
 
 #import "MJExtension.h"
@@ -40,6 +41,13 @@
         // 从文件读取
         NSArray* array = [BFavoriteBusLine mj_objectArrayWithFile:BFavoriteBusLinesFullName];
         [_favoriteBusLines addObjectsFromArray:array];
+        
+        
+        // 尝试从本地加载 公交线路
+        for (BFavoriteBusLine* favorite in array) {
+            [favorite.busLine busStations];
+        }
+        
     }
     return _favoriteBusLines;
 }
