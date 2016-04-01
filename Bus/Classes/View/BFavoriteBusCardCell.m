@@ -96,9 +96,6 @@
     // 公交线路名称垂直居下
     self.busLineNameLabel.verticalAlignment = VerticalAlignmentBottom;
     
-    
-    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
-    
     if([UIScreen mainScreen].bounds.size.height <= 480) { // 4s
         self.busLineNameTop.constant = 0;
         self.busDirViewTop.constant = 0;
@@ -108,7 +105,7 @@
         // 预计/分钟字体大小
         self.guessLabel.font = [UIFont systemFontOfSize:9];
         self.timeNameLabel.font = [UIFont systemFontOfSize:9];
-        self.busArriveTipLabel.font =[UIFont systemFontOfSize:11];
+        self.busArriveTipLabel.font =[UIFont systemFontOfSize:13];
     } else if ([UIScreen mainScreen].bounds.size.height <= 568) { // 5s
         self.busLineNameTop.constant /= 2;
         self.busDirViewTop.constant /= 2;
@@ -118,14 +115,17 @@
         // 预计/分钟字体大小
         self.guessLabel.font = [UIFont systemFontOfSize:9];
         self.timeNameLabel.font = [UIFont systemFontOfSize:9];
+        self.busArriveTipLabel.font =[UIFont systemFontOfSize:13];
     }else if([UIScreen mainScreen].bounds.size.height <= 667) {  // 6s
         self.selfLocationViewTop.constant /= 2;
         self.busLocationViewTop.constant /= 2;
         // 预计/分钟字体大小
         self.guessLabel.font = [UIFont systemFontOfSize:12];
         self.timeNameLabel.font = [UIFont systemFontOfSize:12];
+        self.busArriveTipLabel.font =[UIFont systemFontOfSize:18];
     }else if([UIScreen mainScreen].bounds.size.height <= 736) { // 6sp
-        self.busLocationViewBottom.constant = 25;
+        self.busLocationViewBottom.constant = 45;
+        self.busArriveTipLabel.font =[UIFont systemFontOfSize:22];
     }
     
 //    self.locationButton.imageView.center = CGPointMake(self.locationButton.width/2, 0);
@@ -172,7 +172,6 @@
     
     // 时间label
     self.surplusTimeLabel.font = [self.surplusTimeLabel.text maxFontInSize:self.surplusTimeLabel.frame.size  maxFontSize:50];
-
 }
 
 
