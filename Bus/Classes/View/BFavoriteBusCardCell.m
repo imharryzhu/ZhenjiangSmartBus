@@ -27,7 +27,49 @@
  *  当前站
  */
 @property (weak, nonatomic) IBOutlet UILabel *currentStationNameLabel;
+/**
+ *  当前站子标题
+ */
 @property (weak, nonatomic) IBOutlet UILabel *currentStationSubLabel;
+/**
+ *  计算剩余时间label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *surplusTimeLabel;
+/**
+ *  时间单位label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *timeNameLabel;
+/**
+ *  预计label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *guessLabel;
+
+/**
+ *  到站提醒label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *busArriveTipLabel;
+
+/*********autolayout*********/
+
+/**
+ *  开往方向view顶部距离
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *busDirViewTop;
+
+/**
+ *  用户选择位置view顶部距离
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *selfLocationViewTop;
+
+/**
+ *  公交车view顶部距离
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *busLocationViewTop;
+
+/**
+ *  公交车view底部距离
+ */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *busLocationViewBottom;
 
 /**
  *  目的站底部 距离底部距离
@@ -44,21 +86,6 @@
 
 @implementation BFavoriteBusCardCell
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if(self = [super initWithFrame:frame]) {
-        
-        // 设置卡片的圆角
-        self.layer.cornerRadius = 20;
-        self.layer.masksToBounds = YES;
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        
-        [self setupUI];
-        
-    }
-    return self;
-}
-
 - (void)awakeFromNib {
     // 设置卡片的圆角
     self.layer.cornerRadius = 20;
@@ -66,29 +93,46 @@
     self.layer.borderWidth = 1;
     self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    [self setupUI];
-    
     // 公交线路名称垂直居下
     self.busLineNameLabel.verticalAlignment = VerticalAlignmentBottom;
     
-    // 如果是4s屏幕，则将公交线路名称上方的间距设置为 0
-    if ([UIScreen mainScreen].bounds.size.height < 568) {
+    
+    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
+    
+    if([UIScreen mainScreen].bounds.size.height <= 480) { // 4s
         self.busLineNameTop.constant = 0;
+        self.busDirViewTop.constant = 0;
+        self.selfLocationViewTop.constant = 0;
+        self.busLocationViewTop.constant = 0;
+        self.endStationNameBottom.constant = 0;
+        // 预计/分钟字体大小
+        self.guessLabel.font = [UIFont systemFontOfSize:9];
+        self.timeNameLabel.font = [UIFont systemFontOfSize:9];
+        self.busArriveTipLabel.font =[UIFont systemFontOfSize:11];
+    } else if ([UIScreen mainScreen].bounds.size.height <= 568) { // 5s
+        self.busLineNameTop.constant /= 2;
+        self.busDirViewTop.constant /= 2;
+        self.selfLocationViewTop.constant /= 2;
+        self.busLocationViewTop.constant /= 2;
+        self.endStationNameBottom.constant /= 2;
+        // 预计/分钟字体大小
+        self.guessLabel.font = [UIFont systemFontOfSize:9];
+        self.timeNameLabel.font = [UIFont systemFontOfSize:9];
+    }else if([UIScreen mainScreen].bounds.size.height <= 667) {  // 6s
+        self.selfLocationViewTop.constant /= 2;
+        self.busLocationViewTop.constant /= 2;
+        // 预计/分钟字体大小
+        self.guessLabel.font = [UIFont systemFontOfSize:12];
+        self.timeNameLabel.font = [UIFont systemFontOfSize:12];
+    }else if([UIScreen mainScreen].bounds.size.height <= 736) { // 6sp
+        self.busLocationViewBottom.constant = 25;
     }
     
-    self.locationButton.imageView.center = CGPointMake(self.locationButton.width/2, 0);
-    self.locationButton.imageView.y = 0;
-    self.locationButton.titleLabel.center = CGPointMake(self.locationButton.width/2, 0);
-    self.locationButton.titleLabel.y = CGRectGetMaxY(self.locationButton.imageView.frame) ;
+//    self.locationButton.imageView.center = CGPointMake(self.locationButton.width/2, 0);
+//    self.locationButton.imageView.y = 0;
+//    self.locationButton.titleLabel.center = CGPointMake(self.locationButton.width/2, 0);
+//    self.locationButton.titleLabel.y = CGRectGetMaxY(self.locationButton.imageView.frame) ;
     
-}
-
-
-- (void)setupUI {
-//    UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"card1"]];
-//    [self addSubview:imageView];
-////
-//    imageView.center = CGPointMake(self.width/2, self.height/2);
 }
 
 - (void)setFavoriteBusLine:(BFavoriteBusLine *)favoriteBusLine {
@@ -97,7 +141,6 @@
     // 公交名称
     
     self.busLineNameLabel.text = favoriteBusLine.busLine.fullname;
-    
     
     
     // 目的站
@@ -119,18 +162,21 @@
     
     
     // fullName
-    self.busLineNameLabel.font =[self.busLineNameLabel.text maxFontInSize:self.busLineNameLabel.frame.size  maxFontSize:100];
+    self.busLineNameLabel.font =[self.busLineNameLabel.text maxFontInSize:self.busLineNameLabel.frame.size  maxFontSize:50];
     
     // 开往
-    self.aaa.font = [self.aaa.text maxFontInSize:self.aaa.frame.size  maxFontSize:100];
+    self.aaa.font = [self.aaa.text maxFontInSize:self.aaa.frame.size  maxFontSize:50];
     
     // 尾站
-    self.endStationLabel.font = [self.endStationLabel.text maxFontInSize:self.endStationLabel.frame.size  maxFontSize:100];
+    self.endStationLabel.font = [self.endStationLabel.text maxFontInSize:self.endStationLabel.frame.size  maxFontSize:50];
     
+    // 时间label
+    self.surplusTimeLabel.font = [self.surplusTimeLabel.text maxFontInSize:self.surplusTimeLabel.frame.size  maxFontSize:50];
+
 }
 
 
-/**
+/*
  *  将公交名称包含()的，截取未 主名称和子名称
  *  返回  [主, 子]
  */
