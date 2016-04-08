@@ -15,8 +15,36 @@
 #import "NSArray+Log.h"
 #import "UIView+ZH.h"
 #import "NSString+Extension.h"
+#import "BCommon.h"
+
+
+#define BREAK_IF(cond) if(cond) break
 
 
 #define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
+
+/**
+ *  系统获取到用户位置发送的消息
+ */
+#define BUserLocationDidUpdateNotifcation @"BUserLocationDidUpdateNotifcation"
+
+/**
+ *  已获取到公交GPS信息后，发送该消息。
+ *  发送点在 BBusGPSView中 updateBusGps方法
+ */
+#define BBusGPSDidUpdateNotifcation @"BBusGPSDidUpdateNotifcation"
+/**
+ *  保存已获取的公交GPS的键
+ */
+#define BBusGPSsName @"BBusGPSsName"
+
+/**
+ *  用户点击公交站点时，应该修改对应的数值
+ */
+#define BBuStationDidSelectedNotifcation @"BBuStationDidSelectedNotifcation"
+/**
+ *  保存BBusStaion数据
+ */
+#define BSelectedBusStation @"BSelectedBusStation"
 
 #endif /* bus_pch */

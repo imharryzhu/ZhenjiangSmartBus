@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CLLocation;
+
 @interface BBusStation : NSObject
 
 /**
@@ -30,8 +32,12 @@
 @property (nonatomic,copy) NSNumber* latitude;
 @property (nonatomic,copy) NSString* bystartdistance;
 @property (nonatomic,copy) NSString* direction;
-@property (nonatomic,copy) NSString* orderno;
+/**
+ *  公交到站编号，对应statioNo
+ */
+@property (nonatomic,copy) NSNumber* orderno;
 @property (nonatomic,copy) NSString* name;
 
+@property (nonatomic,readonly) CLLocation* location;
 
 @end

@@ -14,26 +14,57 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="394"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5z-al-zjc">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="394"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5z-al-zjc">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="394"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-Fo-nrF">
+                        <rect key="frame" x="79" y="0.0" width="1" height="394"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Gkv-Uy-Q7u"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOS-v2-38L">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="394"/>
+                        <connections>
+                            <action selector="btnClick:" destination="v88-X0-edi" eventType="touchUpInside" id="8pT-WI-MEH"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-d0-siH">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="22"/>
+                        <state key="normal" image="busstation_bus_small"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="k5z-al-zjc" firstAttribute="leading" secondItem="v88-X0-edi" secondAttribute="leading" id="NXZ-vr-tAI"/>
+                <constraint firstItem="bOS-v2-38L" firstAttribute="trailing" secondItem="k5z-al-zjc" secondAttribute="trailing" id="AL1-w3-JBe"/>
+                <constraint firstItem="k5z-al-zjc" firstAttribute="leading" secondItem="v88-X0-edi" secondAttribute="leading" id="SnQ-oB-uSw"/>
+                <constraint firstItem="SRo-Fo-nrF" firstAttribute="leading" secondItem="HGD-d0-siH" secondAttribute="trailing" id="Tuj-rW-bN3"/>
                 <constraint firstItem="k5z-al-zjc" firstAttribute="top" secondItem="v88-X0-edi" secondAttribute="top" id="fPx-OS-Qug"/>
+                <constraint firstItem="bOS-v2-38L" firstAttribute="leading" secondItem="k5z-al-zjc" secondAttribute="leading" id="fjr-le-B0H"/>
+                <constraint firstAttribute="trailing" secondItem="SRo-Fo-nrF" secondAttribute="trailing" id="gmm-cY-Cne"/>
+                <constraint firstItem="HGD-d0-siH" firstAttribute="leading" secondItem="v88-X0-edi" secondAttribute="leading" id="kK4-dN-JuT"/>
                 <constraint firstAttribute="bottom" secondItem="k5z-al-zjc" secondAttribute="bottom" id="kbp-a5-4EA"/>
-                <constraint firstAttribute="trailing" secondItem="k5z-al-zjc" secondAttribute="trailing" id="p1d-vK-35E"/>
+                <constraint firstItem="SRo-Fo-nrF" firstAttribute="top" secondItem="v88-X0-edi" secondAttribute="top" id="kcr-74-Vct"/>
+                <constraint firstAttribute="bottom" secondItem="SRo-Fo-nrF" secondAttribute="bottom" id="nml-NG-urC"/>
+                <constraint firstItem="SRo-Fo-nrF" firstAttribute="leading" secondItem="k5z-al-zjc" secondAttribute="trailing" id="nwH-EJ-zJZ"/>
+                <constraint firstItem="bOS-v2-38L" firstAttribute="top" secondItem="k5z-al-zjc" secondAttribute="top" id="utM-Us-cMR"/>
+                <constraint firstItem="bOS-v2-38L" firstAttribute="bottom" secondItem="k5z-al-zjc" secondAttribute="bottom" id="w88-Bw-twf"/>
+                <constraint firstItem="HGD-d0-siH" firstAttribute="top" secondItem="v88-X0-edi" secondAttribute="top" id="xN5-xh-RUn"/>
             </constraints>
             <size key="customSize" width="80" height="394"/>
             <connections>
-                <outlet property="test" destination="k5z-al-zjc" id="hwp-nJ-bRe"/>
+                <outlet property="busStationNameLabel" destination="k5z-al-zjc" id="hRJ-J8-OQZ"/>
+                <outlet property="tipButton" destination="HGD-d0-siH" id="gER-al-5lf"/>
             </connections>
             <point key="canvasLocation" x="127" y="268"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="busstation_bus_small" width="24" height="15"/>
+    </resources>
 </document>

@@ -30,6 +30,7 @@
 		7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE771C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		7B57BFBE1C9AB75800D4AE6E /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE791C9AB75800D4AE6E /* View+MASAdditions.m */; };
 		7B57BFBF1C9AB75800D4AE6E /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE7C1C9AB75800D4AE6E /* ViewController+MASAdditions.m */; };
+		7B85C5F71CAF96F600F73711 /* BUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B85C5F61CAF96F600F73711 /* BUser.m */; };
 		7B95BD7C1C998FF10029AEAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BD7B1C998FF10029AEAE /* main.m */; };
 		7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B95BD861C998FF10029AEAE /* Assets.xcassets */; };
 		7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B95BD881C998FF10029AEAE /* LaunchScreen.storyboard */; };
@@ -186,6 +187,8 @@
 		7B57BE7A1C9AB75800D4AE6E /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		7B57BE7B1C9AB75800D4AE6E /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		7B57BE7C1C9AB75800D4AE6E /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		7B85C5F51CAF96F600F73711 /* BUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUser.h; sourceTree = "<group>"; };
+		7B85C5F61CAF96F600F73711 /* BUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUser.m; sourceTree = "<group>"; };
 		7B95BD771C998FF10029AEAE /* Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B95BD7B1C998FF10029AEAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B95BD861C998FF10029AEAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 				7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */,
 				7BE601E21CA3FCFC00301A56 /* BBusGPS.h */,
 				7BE601E31CA3FCFC00301A56 /* BBusGPS.m */,
+				7B85C5F51CAF96F600F73711 /* BUser.h */,
+				7B85C5F61CAF96F600F73711 /* BUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1069,6 +1074,7 @@
 				7BB05C9B1CA0FB1500D0D130 /* UIButton+WebCache.m in Sources */,
 				7BB05C861CA0FB1500D0D130 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */,
+				7B85C5F71CAF96F600F73711 /* BUser.m in Sources */,
 				7B39858E1CA27BE4005B2A96 /* BFavoriteBusLineTool.m in Sources */,
 				7BB05C6D1CA0FB1500D0D130 /* AFAutoPurgingImageCache.m in Sources */,
 				7BB05C841CA0FB1500D0D130 /* MJRefreshHeader.m in Sources */,

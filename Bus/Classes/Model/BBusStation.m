@@ -7,6 +7,7 @@
 //
 
 #import "BBusStation.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation BBusStation
 
@@ -15,6 +16,14 @@
     
     
     return [NSString stringWithFormat:@"%@", self.name];
+}
+
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[@"location"];
+}
+
+- (CLLocation *)location {
+    return [[CLLocation alloc]initWithLatitude:self.latitude.doubleValue longitude:self.longitude.doubleValue];
 }
 
 @end

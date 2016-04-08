@@ -23,7 +23,7 @@
 
 + (NSURLSessionDataTask*)busStationForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusStation*>* busStations))success withFailure:(void(^)(NSError* error))failure {
     
-    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/Station/0/%@/1?format=json", ZJ_BUSLINES_HOST, busLine.gprsid];
+    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/Station/0/%@/0?format=json", ZJ_BUSLINES_HOST, busLine.gprsid];
     
     
     

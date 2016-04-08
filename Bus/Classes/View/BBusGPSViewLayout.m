@@ -72,8 +72,8 @@
 
 - (void)prepareLayout {
     
-    self.itemSize = CGSizeMake(100, self.collectionView.frame.size.height);
-    
+    self.itemSize = CGSizeMake(30, self.collectionView.frame.size.height);
+    self.minimumLineSpacing = 0;
 }
 
 @end

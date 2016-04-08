@@ -16,6 +16,7 @@
 #import "BBusLine.h"
 #import "BBusStation.h"
 #import "BBusGPS.h"
+#import "BUser.h"
 
 #import "BBusGPSCell.h"
 
@@ -30,6 +31,11 @@
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 
+/**
+ *  保存用户选中的公交站点
+ */
+@property (nonatomic,weak) BBusStation* selectedBusStation;
+
 @end
 
 @implementation BBusGPSView
@@ -38,23 +44,22 @@
     
     if (self = [super initWithFrame:frame]) {
         BBusGPSViewLayout* layout = [[BBusGPSViewLayout alloc]init];
-//        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
         
         UICollectionView* collectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:layout];
         self.collectionView = collectionView;
         [self addSubview:collectionView];
         
-        collectionView.contentInset = UIEdgeInsetsMake(0, 50, 0, 50);
+//        collectionView.contentInset = UIEdgeInsetsMake(0, 50, 0, 50);
         
         collectionView.dataSource = self;
         collectionView.delegate = self;
         
-        layout.itemSize = CGSizeMake(100, 200);
+//        layout.itemSize = CGSizeMake(50, 50);
         
         [collectionView registerNib:[UINib nibWithNibName:@"BBusGPSCell" bundle:nil]  forCellWithReuseIdentifier:@"busgps"];
         
-        collectionView.backgroundColor = [UIColor blackColor];
+        collectionView.backgroundColor = [UIColor whiteColor];
         
         
         __weak typeof(self) superView = self;
@@ -92,6 +97,8 @@
         [SVProgressHUD showErrorWithStatus:@"获取公交站台失败"];
     }];
     
+    // 清理用户选择的站点
+    self.selectedBusStation = nil;
     
 }
 
@@ -113,16 +120,29 @@
     cell.backgroundColor = [UIColor lightGrayColor];
     cell.busStation = station;
     
+    BBusGPSCellTipType type = BBusGPSCellTipTypeNone;
+    
+    // bus 是否到站信息
     for (BBusGPS* gps in self.busGPSs) {
-        if (gps.stationNo.intValue == indexPath.row) {
-//            cell.backgroundColor = [UIColor greenColor];
-            
-            if(gps.arriveStation.intValue == 1)
-            {
-//                cell.backgroundColor = [UIColor yellowColor];
+        if (gps.stationNo.intValue == station.orderno.intValue) {
+            type = BBusGPSCellTipTypeBusIn;
+            NSLog(@"%@ %@", station.name, gps.date);
+            if (gps.arriveStation.intValue == 1) {
+                type = BBusGPSCellTipTypeBusArrive;
             }
+            break;
         }
     }
+    
+    // 如果station是用户距离最近的站
+    if ([BUser defaultUser].nearestStation.orderno.intValue == station.orderno.intValue) {
+        type = BBusGPSCellTipTypeCurrent;
+        // 用户选择的station
+    }else if(self.selectedBusStation.orderno.intValue == station.orderno.intValue) {
+        type = BBusGPSCellTipTypeSelected;
+    }
+
+    cell.tipType = type;
     return cell;
 }
 
@@ -132,21 +152,13 @@
  */
 - (void)updateBusGps {
     [self.collectionView reloadData];
-    
-    // 当前站点
-    int curStationNo = 6;
-    int nearsetNo = 0;
-    
-    // 计算最近一辆公交的所在站点
-    for (int no = 0; no < self.busGPSs.count; no++) {
-        BBusGPS* gps = [self.busGPSs objectAtIndex:no];
-        if(gps.stationNo.intValue > curStationNo) {
-            break;
-        }else{
-            nearsetNo = gps.stationNo.intValue;
-        }
-    }
-    
+    // 向外部发送通知，表示收到了
+    [[NSNotificationCenter defaultCenter]postNotificationName:BBusGPSDidUpdateNotifcation object:nil userInfo:@{BBusGPSsName:self.busGPSs}];
+}
+
+- (void)selectBusStation:(BBusStation*)busStation {
+    self.selectedBusStation = busStation;
+    [self.collectionView reloadData];
 }
 
 @end

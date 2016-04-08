@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class BBusLine;
+@class BBusStation;
 
 @interface BBusGPSView : UIView
 
 @property (nonatomic,strong) BBusLine* busLine;
+
+/**
+ *  用户选择某个公交站点
+ */
+- (void)selectBusStation:(BBusStation*)busStation;
 
 @end

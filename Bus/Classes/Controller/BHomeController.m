@@ -14,6 +14,8 @@
 
 #import "BFavoriteBusLine.h"
 #import "BBusLine.h"
+#import "BUser.h"
+#import "BBusGPS.h"
 
 #import "BFavoriteBusLineTool.h"
 
@@ -22,8 +24,9 @@
 #import "BAddFavoriteBusCell.h"
 
 #import <CoreLocation/CoreLocation.h>
+#import <objc/runtime.h>
 
-@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate, CLLocationManagerDelegate>
+@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 @property (nonatomic,weak) BBusGPSView* gpsView;
@@ -57,10 +60,15 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     [self setupUI];
     
-    /**
-     *  监听 用户收藏改变
-     */
+    // 监听用户收藏改变
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
+    
+    // 监听用户站点选择
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(buStationDidSelected:) name:BBuStationDidSelectedNotifcation object:nil];
+    
+    // 监听公交GPS变化
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(busGPSsDidUpdate:) name:BBusGPSDidUpdateNotifcation object:nil];
+    
     
     
     // 开始定位
@@ -74,6 +82,12 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     self.locationMgr.desiredAccuracy = kCLLocationAccuracyKilometer;
     [self.locationMgr startUpdatingLocation];
     
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self busCardDidSelected];
 }
 
 
@@ -98,11 +112,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     // 添加左右边框
     collectionView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-    
-//    collectionView.pagingEnabled = YES;
-//    collectionView.bounces = NO;
-//    collectionView.delaysContentTouches = NO;
-    
+
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuide);
         make.left.equalTo(superView);
@@ -110,7 +120,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         make.height.equalTo(superView).with.multipliedBy(0.7);
     }];
     
-//    [collectionView registerClass:[BFavoriteBusCardCell class] forCellWithReuseIdentifier:reuseId_favorite];
     [collectionView registerNib:[UINib nibWithNibName:@"BFavoriteBusCardCell" bundle:nil] forCellWithReuseIdentifier:reuseId_favorite];
     [collectionView registerClass:[BAddFavoriteBusCell class] forCellWithReuseIdentifier:reuseId_addFavorite];
     
@@ -150,6 +159,8 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         cell = favoriteCell;
         
         favoriteCell.favoriteBusLine = favorite[indexPath.row];
+        favoriteCell.gpsView = self.gpsView;
+        favoriteCell.delegate = self;
     }
     
     return cell;
@@ -195,32 +206,38 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark - BFavoriteBusCardDelegate
+- (void)favoriteBusCardDidCloseClick:(BFavoriteBusCardCell*)cardCell {
+    
+    UIAlertView* view = [[UIAlertView alloc]initWithTitle:@"" message:@"删除该收藏？" delegate:nil cancelButtonTitle:@"不删除" otherButtonTitles:@"是的", nil];
+    view.delegate = self;
+    [view show];
+    
+    objc_setAssociatedObject(self, @"cardCell", cardCell, OBJC_ASSOCIATION_ASSIGN);
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        return;
+    }
+    
+    BFavoriteBusCardCell* cardCell = objc_getAssociatedObject(self, @"cardCell");
+    
+    [cardCell removeFromSuperview];
+    [[BFavoriteBusLineTool defaultTool]deleteBusLine:cardCell.favoriteBusLine];
+    [self.collectionView reloadData];
+}
+
 #pragma mark - 定位代理
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@"%f -- %f",[locations lastObject].coordinate.latitude, [locations lastObject].coordinate.longitude);
+    CLLocation* userLocation = [locations lastObject];
     
-    CLGeocoder* geocoder = [[CLGeocoder alloc]init];
-    [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        
-        if (placemarks.count == 0 || error) {
-            NSLog(@"你他妈是在火星吧");
-            return;
-        }
-        
-        for (CLPlacemark *placemark in placemarks) {
-            
-            //获取城市名称 --> 一定要加判断 locality有可能获取不到值
-            
-            //locality : 城市名
-            //administrativeArea : 行政区域
-            if (placemark.locality) {
-                NSLog(@"city: %@",placemark.locality);
-            } else {
-                NSLog(@"city: %@",placemark.administrativeArea);
-            }
-        }
-    }];
+    // 保存用户位置信息
+    [BUser defaultUser].curLocation = userLocation;
     
+//    [[NSNotificationCenter defaultCenter]postNotification:BUserLocationDidUpdateNotifcation];
 }
 
 #pragma mark - 通知消息
@@ -234,7 +251,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    
 }
 
 /**
@@ -252,9 +268,32 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         BFavoriteBusCardCell* favotireCell = (BFavoriteBusCardCell*)cell;
         if(self.lastFavotireCell != favotireCell) {
             self.lastFavotireCell= favotireCell;
-//            self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
+            self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
         }
     }
 }
+
+/**
+ *  获取到最新公交GPS信息时
+ */
+- (void) busGPSsDidUpdate:(NSNotification*) notification {
+    NSArray<BBusGPS*>* busGPSs = notification.userInfo[BBusGPSsName];
+    
+    self.lastFavotireCell.busGPSs = busGPSs;
+    
+    [self.lastFavotireCell setUserCurrentStationWithUserLocation];
+}
+
+/**
+ *  公交站点被选择时
+ */
+- (void)buStationDidSelected:(NSNotification*)notification {
+    
+    BBusStation* station = notification.userInfo[BSelectedBusStation];
+    
+    [self.lastFavotireCell selectBusStation:station];
+    [self.gpsView selectBusStation:station];
+}
+
 
 @end

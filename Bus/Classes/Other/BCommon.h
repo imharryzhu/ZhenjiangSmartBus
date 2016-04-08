@@ -20,4 +20,22 @@
  */
 + (NSString*)timeFromDateString:(NSString*)dateString;
 
+/**
+ *  将时间字符串转换为时间
+ */
++ (NSDate*)dateFromDateString:(NSString*)dateString;
+
+
+/**
+ *  将时间间隔转换为字符串
+ *  如 -28，转换为 28秒前
+ */
++ (NSString*)stringFromTimeInterval:(NSDate*)time;
+
+/*
+ *  将公交名称包含()的，截取未 主名称和子名称
+ *  返回  [主, 子]
+ */
++ (NSArray<NSString*>*)subNameInStationName:(NSString*)fullname;
+
 @end
