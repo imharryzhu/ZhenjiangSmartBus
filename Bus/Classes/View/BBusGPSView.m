@@ -126,7 +126,6 @@
     for (BBusGPS* gps in self.busGPSs) {
         if (gps.stationNo.intValue == station.orderno.intValue) {
             type = BBusGPSCellTipTypeBusIn;
-            NSLog(@"%@ %@", station.name, gps.date);
             if (gps.arriveStation.intValue == 1) {
                 type = BBusGPSCellTipTypeBusArrive;
             }

@@ -43,6 +43,9 @@
     }
     
     self.busStationNameLabel.text = name;
+    
+    self.busStationNameLabel.font = [name maxFontInSize:CGSizeMake(self.busStationNameLabel.width, self.busStationNameLabel.height) maxFontSize:20];
+    
 }
 
 - (void)setTipType:(BBusGPSCellTipType)tipType {
@@ -65,20 +68,6 @@
     
     
 }
-
-
-//-(void)setChoosed:(BOOL)choosed {
-//    _choosed = choosed;
-//    
-//    if(choosed) {
-//        self.tipButton.hidden = NO;
-//        [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_location"] forState:UIControlStateNormal];
-//    }else{
-//        self.tipButton.hidden = YES;
-//        [self.tipButton setBackgroundImage:nil forState:UIControlStateNormal];
-//        
-//    }
-//}
 
 /**
  *  用户手动选择了公交站点

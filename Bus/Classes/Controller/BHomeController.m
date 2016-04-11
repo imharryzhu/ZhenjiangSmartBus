@@ -199,7 +199,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
  */
 - (void)busCellDidClickPlusButton:(BAddFavoriteBusCell *)busCell {
     BBusLineController* buslineVC = [[BBusLineController alloc]initWithStyle:UITableViewStylePlain];
-    buslineVC.title = @"这个吊";
     
     UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:buslineVC];
     

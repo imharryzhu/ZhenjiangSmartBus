@@ -30,7 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeClick)];
+    self.navigationItem.title = @"公交列表";
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"草" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeClick)];
+    
     
     [self initView];
     
@@ -63,13 +67,14 @@
  */
 - (void)initView {
     // tableView的颜色
-    self.tableView.backgroundColor = [UIColor grayColor];
+    self.tableView.backgroundColor = rgb(213, 213, 213);
+    
     // 去除分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.sectionHeaderHeight = 20;
     
-    self.tableView.contentInset =  UIEdgeInsetsMake(20, 0, 20, 0);
+    self.tableView.contentInset =  UIEdgeInsetsMake(10, 0, 0, 0);
 }
 
 #pragma mark - tableView代理
@@ -100,29 +105,18 @@
  */
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 108 + 20;
+    return 88;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
+    BBusStationController* stationVC = [[BBusStationController alloc]init];
     
-    BFavoriteBusLine* favorite = [[BFavoriteBusLine alloc]init];
-    favorite.busLine = viewModel.busLine;
+    BBusLine* busLine = [self.busLineViewModels objectAtIndex:indexPath.row].busLine;
     
-    if([[BFavoriteBusLineTool defaultTool]addBusLine:favorite]) {
-        [[NSNotificationCenter defaultCenter]postNotificationName:BFavoriteChangeNotification object:nil];
-    } else {
-        
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return; // 目前直接添加到收藏
-//    BBusStationController* busStationVC = [[BBusStationController alloc]initWithStyle:UITableViewStylePlain];
-//    
-//    BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
-//    busStationVC.busLine = viewModel.busLine;
-//    
-//    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:busStationVC] animated:YES completion:nil];
+    stationVC.busLine = busLine;
+    
+    [self.navigationController pushViewController:stationVC animated:YES];
 }
 
 

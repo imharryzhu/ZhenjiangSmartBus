@@ -19,6 +19,8 @@
 #import "BLabel.h"
 #import "BCommon.h"
 
+#import "BVerticalButton.h"
+
 #import <CoreLocation/CoreLocation.h>
 
 @interface BFavoriteBusCardCell()
@@ -260,12 +262,14 @@
     NSString* stationName =nil;
     NSString* subText = nil;
     NSString* countOfStation = nil;
+    NSString* surplusTime = nil;
     do {
         
         if(nearsetBusGPS == nil) {
             stationName = @"目前没有公交在路上~~";
             subText = @"悲剧啊~~";
             countOfStation = @"还有0站";
+            surplusTime = @"0";
             break;
         }
         
@@ -279,8 +283,8 @@
         if(nearestBusStation != nil) {
             stationName = nearestBusStation.name;
         } else {
-            stationName = @"卧槽什么情况???!";
-            subText = @"尼玛!!!!";
+            stationName = @"公交失联了";
+            subText = @"悲剧啊~~";
             break;
         }
         
@@ -310,13 +314,35 @@
         
         countOfStation = [NSString stringWithFormat:@"还有%d站", countOfStationNum];
         
+        // 推测时间
+        float probablyTime = 0;
+        
+        NSInteger indexInArray = [self.favoriteBusLine.busLine.busStations indexOfObject:nearestBusStation];
+        BBusStation* temp = nearestBusStation;
+        
+        while(temp.orderno.intValue < self.currentStation.orderno.intValue) {
+            
+            BBusStation* nextStation = [self.favoriteBusLine.busLine.busStations objectAtIndex:indexInArray + 1];
+            
+            CLLocationDistance distance = [temp.location distanceFromLocation:nextStation.location];
+            
+            probablyTime += [self probablyTimeForDistance:distance];
+            
+            temp = nextStation;
+            indexInArray++;
+        }
+        
+        // 减去公交已经离开的时间
+        NSLog(@"%@", nearsetBusGPS.date);
+        
+        surplusTime = [NSString stringWithFormat:@"%d", (int)probablyTime];
         
     }while(0);
     
     self.busArriveStationLabel.text = stationName;
     self.busArriveStationSubLabel.text = subText;
     self.countOfStationLabel.text = countOfStation;
-    self.surplusTimeLabel.text = @"30";
+    self.surplusTimeLabel.text = surplusTime;
     
 }
 
@@ -418,6 +444,34 @@
     }
     
     return [NSString stringWithFormat:@"%.2f%@", distance, unit];
+}
+
+/**
+ *  计算公交车大概
+ *
+ *  @param distance 距离
+ *
+ *  @return 推测的分钟数
+ */
+- (float)probablyTimeForDistance:(CLLocationDistance)distance {
+    
+    float speed = 300;
+    
+    // 里程数 > 1km  速度为 400/m
+    if(distance > 1000) {
+        speed = 400;
+    }
+    
+    // 里程数 > 2km  速度 600/m
+    if(distance > 2000){
+        speed = 600;
+    }
+    // 里程数 > 3km  速度 800/m
+    if(distance > 2000){
+        speed = 800;
+    }
+
+    return distance / speed;
 }
 
 @end

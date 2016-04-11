@@ -39,31 +39,11 @@
         [self addSubview:label];
         self.label = label;
         
-        
-        
         label.x = 10;
         label.y = 10;
-        
-        UISwitch* siwtc = [[UISwitch alloc]init];
-        self.switc = siwtc;
-        [self addSubview:siwtc];
-        
-        [siwtc addTarget:self action:@selector(didSelect:) forControlEvents:UIControlEventTouchUpInside];
-        
-        siwtc.x = 100;
-        siwtc.y = 40;
-        
-        
     }
     return self;
 }
-
-- (void)didSelect:(UISwitch*)swit {
-    
-    
-    
-}
-
 
 - (void)setBusStation:(BBusStation *)busStation {
     _busStation = busStation;

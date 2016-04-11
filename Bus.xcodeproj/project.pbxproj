@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B046DB11CB945C1005848CA /* BVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B046DB01CB945C1005848CA /* BVerticalButton.m */; };
+		7B046DB61CBA4F5A005848CA /* BBusStationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B046DB51CBA4F5A005848CA /* BBusStationController.m */; };
 		7B39857C1CA23FCE005B2A96 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39857B1CA23FCE005B2A96 /* NSString+Extension.m */; };
 		7B39857F1CA2552C005B2A96 /* BCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39857E1CA2552C005B2A96 /* BCommon.m */; };
 		7B3985821CA25B9B005B2A96 /* BBusStationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985811CA25B9B005B2A96 /* BBusStationTool.m */; };
 		7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985841CA25C28005B2A96 /* BBusStation.m */; };
-		7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985871CA25E5C005B2A96 /* BBusStationController.m */; };
 		7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858A1CA25F57005B2A96 /* BBusStationCell.m */; };
 		7B39858E1CA27BE4005B2A96 /* BFavoriteBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */; };
 		7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */; };
@@ -42,7 +43,6 @@
 		7B9A4AE81C9EA4890041AC35 /* BBusLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */; };
 		7B9A4AF21C9EA84C0041AC35 /* BBusLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */; };
 		7BAEC6261CACD5B00036D5D6 /* BLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEC6251CACD5B00036D5D6 /* BLabel.m */; };
-		7BAEC6291CACFB700036D5D6 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEC6281CACFB700036D5D6 /* BButton.m */; };
 		7BB05C671CA0FB1500D0D130 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BDF1CA0FB1500D0D130 /* AFHTTPSessionManager.m */; };
 		7BB05C681CA0FB1500D0D130 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BE21CA0FB1500D0D130 /* AFNetworkReachabilityManager.m */; };
 		7BB05C691CA0FB1500D0D130 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05BE41CA0FB1500D0D130 /* AFSecurityPolicy.m */; };
@@ -136,6 +136,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B046DAF1CB945C1005848CA /* BVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVerticalButton.h; sourceTree = "<group>"; };
+		7B046DB01CB945C1005848CA /* BVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVerticalButton.m; sourceTree = "<group>"; };
+		7B046DB41CBA4F5A005848CA /* BBusStationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationController.h; sourceTree = "<group>"; };
+		7B046DB51CBA4F5A005848CA /* BBusStationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationController.m; sourceTree = "<group>"; };
 		7B39857A1CA23FCE005B2A96 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		7B39857B1CA23FCE005B2A96 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		7B39857D1CA2552C005B2A96 /* BCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCommon.h; sourceTree = "<group>"; };
@@ -144,8 +148,6 @@
 		7B3985811CA25B9B005B2A96 /* BBusStationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationTool.m; sourceTree = "<group>"; };
 		7B3985831CA25C28005B2A96 /* BBusStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStation.h; sourceTree = "<group>"; };
 		7B3985841CA25C28005B2A96 /* BBusStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStation.m; sourceTree = "<group>"; };
-		7B3985861CA25E5C005B2A96 /* BBusStationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationController.h; sourceTree = "<group>"; };
-		7B3985871CA25E5C005B2A96 /* BBusStationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationController.m; sourceTree = "<group>"; };
 		7B3985891CA25F57005B2A96 /* BBusStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusStationCell.h; sourceTree = "<group>"; };
 		7B39858A1CA25F57005B2A96 /* BBusStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusStationCell.m; sourceTree = "<group>"; };
 		7B39858C1CA27BE4005B2A96 /* BFavoriteBusLineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusLineTool.h; sourceTree = "<group>"; };
@@ -212,8 +214,6 @@
 		7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineCell.m; sourceTree = "<group>"; };
 		7BAEC6241CACD5B00036D5D6 /* BLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLabel.h; sourceTree = "<group>"; };
 		7BAEC6251CACD5B00036D5D6 /* BLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLabel.m; sourceTree = "<group>"; };
-		7BAEC6271CACFB700036D5D6 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
-		7BAEC6281CACFB700036D5D6 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		7BB05BDE1CA0FB1500D0D130 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		7BB05BDF1CA0FB1500D0D130 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		7BB05BE01CA0FB1500D0D130 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -538,8 +538,8 @@
 				7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */,
 				7B9A4AE61C9EA4890041AC35 /* BBusLineController.h */,
 				7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */,
-				7B3985861CA25E5C005B2A96 /* BBusStationController.h */,
-				7B3985871CA25E5C005B2A96 /* BBusStationController.m */,
+				7B046DB41CBA4F5A005848CA /* BBusStationController.h */,
+				7B046DB51CBA4F5A005848CA /* BBusStationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -595,8 +595,8 @@
 				7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */,
 				7BAEC6241CACD5B00036D5D6 /* BLabel.h */,
 				7BAEC6251CACD5B00036D5D6 /* BLabel.m */,
-				7BAEC6271CACFB700036D5D6 /* BButton.h */,
-				7BAEC6281CACFB700036D5D6 /* BButton.m */,
+				7B046DAF1CB945C1005848CA /* BVerticalButton.h */,
+				7B046DB01CB945C1005848CA /* BVerticalButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -991,6 +991,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B57BFBB1C9AB75800D4AE6E /* MASViewConstraint.m in Sources */,
+				7B046DB11CB945C1005848CA /* BVerticalButton.m in Sources */,
 				7BB05C851CA0FB1500D0D130 /* MJRefreshAutoGifFooter.m in Sources */,
 				7BB05C781CA0FB1500D0D130 /* MJProperty.m in Sources */,
 				7B57BFBC1C9AB75800D4AE6E /* NSArray+MASAdditions.m in Sources */,
@@ -1027,6 +1028,7 @@
 				7BB05C731CA0FB1500D0D130 /* UIProgressView+AFNetworking.m in Sources */,
 				7BB05C931CA0FB1500D0D130 /* NSData+ImageContentType.m in Sources */,
 				7B57BFB71C9AB75800D4AE6E /* MASConstraint.m in Sources */,
+				7B046DB61CBA4F5A005848CA /* BBusStationController.m in Sources */,
 				7BB05C891CA0FB1500D0D130 /* MJRefreshBackNormalFooter.m in Sources */,
 				7BB05C6E1CA0FB1500D0D130 /* AFImageDownloader.m in Sources */,
 				7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */,
@@ -1056,7 +1058,6 @@
 				7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */,
 				7BB05C8F1CA0FB1500D0D130 /* MJRefreshConst.m in Sources */,
 				7BB05C7B1CA0FB1500D0D130 /* NSObject+MJClass.m in Sources */,
-				7B3985881CA25E5C005B2A96 /* BBusStationController.m in Sources */,
 				7BB05C941CA0FB1500D0D130 /* SDImageCache.m in Sources */,
 				7BB05C761CA0FB1500D0D130 /* MJExtensionConst.m in Sources */,
 				7BB05C7E1CA0FB1500D0D130 /* NSObject+MJProperty.m in Sources */,
@@ -1070,7 +1071,6 @@
 				7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */,
 				7B4069921C9D7CBA0047C7C2 /* UIView+ZH.m in Sources */,
-				7BAEC6291CACFB700036D5D6 /* BButton.m in Sources */,
 				7BB05C9B1CA0FB1500D0D130 /* UIButton+WebCache.m in Sources */,
 				7BB05C861CA0FB1500D0D130 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7B3985851CA25C28005B2A96 /* BBusStation.m in Sources */,

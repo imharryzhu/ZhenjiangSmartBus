@@ -11,6 +11,9 @@
             <PersistentString
                value = "self.currentStation">
             </PersistentString>
+            <PersistentString
+               value = "self.favoriteBusLine.busLine">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
    </ContextStates>
