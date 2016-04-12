@@ -23,6 +23,6 @@
 /**
  *  保存用户距离最近的公交站点
  */
-@property (nonatomic,weak) BBusStation* nearestStation;
+@property (nonatomic,strong) BBusStation* nearestStation;
 
 @end

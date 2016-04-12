@@ -22,7 +22,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-Fo-nrF">
                         <rect key="frame" x="79" y="0.0" width="1" height="394"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="Gkv-Uy-Q7u"/>
                         </constraints>
@@ -33,7 +33,7 @@
                             <action selector="btnClick:" destination="v88-X0-edi" eventType="touchUpInside" id="8pT-WI-MEH"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-d0-siH">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-d0-siH">
                         <rect key="frame" x="0.0" y="0.0" width="79" height="22"/>
                         <state key="normal" image="busstation_bus_small"/>
                     </button>

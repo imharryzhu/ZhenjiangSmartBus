@@ -31,10 +31,14 @@
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 
+@property (nonatomic,strong) NSTimer* timer;
+
+@property (nonatomic,strong) NSURLSessionDataTask* urlSessionTask;
+
 /**
  *  保存用户选中的公交站点
  */
-@property (nonatomic,weak) BBusStation* selectedBusStation;
+@property (nonatomic,strong) BBusStation* selectedBusStation;
 
 @end
 
@@ -76,29 +80,44 @@
 - (void)setBusLine:(BBusLine *)busLine {
     _busLine = busLine;
     
-    [SVProgressHUD show];
+    // 清理上次选中的数据
+    self.selectedBusStation = nil;
+    
+    // 停止上一个定时器
+    [self.timer invalidate];
+    
+    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(updateBusGps) userInfo:nil repeats:YES];
+    self.timer = timer;
+    [timer fire];
+}
 
-    [BBusStationTool busStationForBusLine:busLine success:^(NSArray<BBusStation *> *busStations) {
+- (void)updateBusGps {
+    
+    [SVProgressHUD show];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.busLine success:^(NSArray<BBusStation *> *busStations) {
         [SVProgressHUD dismiss];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         self.busLine.busStations = busStations;
-        [self.collectionView reloadData];
         
-        [BBusGPSTool busGPSForBusLine:busLine success:^(NSArray<BBusGPS*>* busGPSs){
+        [BBusGPSTool busGPSForBusLine:self.busLine success:^(NSArray<BBusGPS*>* busGPSs){
             self.busGPSs = busGPSs;
             
-            [self updateBusGps];
+            [self didUpdateBusGps];
             
         } withFailure:^(NSError *error) {
         }];
         
     } withFailure:^(NSError *error) {
         [SVProgressHUD dismiss];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [SVProgressHUD showErrorWithStatus:@"获取公交站台失败"];
     }];
+    self.urlSessionTask = task;
     
     // 清理用户选择的站点
-    self.selectedBusStation = nil;
+//    self.selectedBusStation = nil;
     
 }
 
@@ -117,7 +136,6 @@
     BBusGPSCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"busgps" forIndexPath:indexPath];
     BBusStation* station = self.busLine.busStations[indexPath.row];
     
-    cell.backgroundColor = [UIColor lightGrayColor];
     cell.busStation = station;
     
     BBusGPSCellTipType type = BBusGPSCellTipTypeNone;
@@ -149,14 +167,15 @@
 /**
  *  获取公交最新位置时，更新列表
  */
-- (void)updateBusGps {
+- (void)didUpdateBusGps {
     [self.collectionView reloadData];
     // 向外部发送通知，表示收到了
     [[NSNotificationCenter defaultCenter]postNotificationName:BBusGPSDidUpdateNotifcation object:nil userInfo:@{BBusGPSsName:self.busGPSs}];
 }
 
 - (void)selectBusStation:(BBusStation*)busStation {
-    self.selectedBusStation = busStation;
+    
+    _selectedBusStation = busStation;
     [self.collectionView reloadData];
 }
 

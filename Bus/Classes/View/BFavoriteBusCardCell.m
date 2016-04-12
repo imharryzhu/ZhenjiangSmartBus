@@ -185,6 +185,11 @@
     }
 }
 
+- (void)didSelected
+{
+    self.currentStation = nil;
+}
+
 - (void)setFavoriteBusLine:(BFavoriteBusLine *)favoriteBusLine {
     _favoriteBusLine = favoriteBusLine;
     
@@ -240,6 +245,10 @@
 -(void)setBusGPSs:(NSArray<BBusGPS *> *)busGPSs {
     _busGPSs = busGPSs;
     
+    if(self.currentStation == nil) {
+        [self setUserCurrentStationWithUserLocation];
+    }
+    
     [self updateBusInfo];
 }
 
@@ -279,6 +288,7 @@
                 nearestBusStation = station;
             }
         }
+        
         
         if(nearestBusStation != nil) {
             stationName = nearestBusStation.name;
@@ -347,6 +357,9 @@
 }
 
 - (void)selectBusStation:(BBusStation*)busStation {
+    // 清理上次遗留的数据
+    self.currentStation = nil;
+    
     // 如果选中的是当前站
     if(busStation.orderno.intValue == [BUser defaultUser].nearestStation.orderno.intValue) {
         [self setUserCurrentStationWithUserLocation];

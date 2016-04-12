@@ -30,7 +30,7 @@
 
 - (void)setBusStation:(BBusStation *)busStation {
     _busStation = busStation;
-    self.backgroundColor = [UIColor lightGrayColor];
+//    self.backgroundColor = [UIColor lightGrayColor];
     
     _busStation = busStation;
     
@@ -60,7 +60,7 @@
         [self.tipButton setImage:[UIImage imageNamed:@"busstation_bus_small"] forState:UIControlStateNormal];
     } else if(tipType == BBusGPSCellTipTypeBusArrive) {
         [self.tipButton setImage:[UIImage imageNamed:@"busstation_bus_small"] forState:UIControlStateNormal];
-        self.tipButton.backgroundColor = [UIColor yellowColor];
+//        self.tipButton.backgroundColor = [UIColor yellowColor];
     } else {
         self.tipButton.hidden = YES;
         self.tipButton.backgroundColor = [UIColor clearColor];

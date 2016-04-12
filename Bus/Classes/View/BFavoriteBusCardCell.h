@@ -43,6 +43,12 @@
  */
 - (void)setUserCurrentStationWithUserLocation;
 
+
+/**
+ *  当卡片被选择时
+ */
+- (void)didSelected;
+
 @property (nonatomic,strong) id<BFavoriteBusCardDelegate> delegate;
 
 @end

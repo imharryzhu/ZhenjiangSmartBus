@@ -267,6 +267,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         BFavoriteBusCardCell* favotireCell = (BFavoriteBusCardCell*)cell;
         if(self.lastFavotireCell != favotireCell) {
             self.lastFavotireCell= favotireCell;
+            [favotireCell didSelected];
             self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
         }
     }
@@ -279,8 +280,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     NSArray<BBusGPS*>* busGPSs = notification.userInfo[BBusGPSsName];
     
     self.lastFavotireCell.busGPSs = busGPSs;
-    
-    [self.lastFavotireCell setUserCurrentStationWithUserLocation];
 }
 
 /**
