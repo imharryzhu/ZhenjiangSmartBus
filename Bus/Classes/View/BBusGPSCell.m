@@ -52,14 +52,18 @@
     _tipType = tipType;
     
     self.tipButton.hidden = NO;
-    if(tipType == BBusGPSCellTipTypeCurrent) {
+    if(tipType == BBusGPSCellTipTypeCurrent) { //当前站
         [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_location"] forState:UIControlStateNormal];
-    } else if (tipType == BBusGPSCellTipTypeSelected) {
-        [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_location_highlight"] forState:UIControlStateNormal];
-    } else if (tipType == BBusGPSCellTipTypeBusIn) {
+        [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_location_highlight"] forState:UIControlStateHighlighted];
+    } else if (tipType == BBusGPSCellTipTypeSelected) { // 用户选择站
+        [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_other_location"] forState:UIControlStateNormal];
+        [self.tipButton setImage:[UIImage imageNamed:@"favorite_card_other_location_highlight"] forState:UIControlStateHighlighted];
+    } else if (tipType == BBusGPSCellTipTypeBusIn) { // 公交到站
         [self.tipButton setImage:[UIImage imageNamed:@"busstation_bus_small"] forState:UIControlStateNormal];
-    } else if(tipType == BBusGPSCellTipTypeBusArrive) {
+        [self.tipButton setImage:nil forState:UIControlStateHighlighted];
+    } else if(tipType == BBusGPSCellTipTypeBusArrive) { // 公交正好在的站
         [self.tipButton setImage:[UIImage imageNamed:@"busstation_bus_small"] forState:UIControlStateNormal];
+        [self.tipButton setImage:nil forState:UIControlStateHighlighted];
 //        self.tipButton.backgroundColor = [UIColor yellowColor];
     } else {
         self.tipButton.hidden = YES;

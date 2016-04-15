@@ -106,13 +106,12 @@
                                         <state key="normal" title="位置" image="favorite_card_location">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="favorite_card_location_highlight"/>
                                         <connections>
                                             <action selector="locationButtonClick:" destination="Dey-fF-XF5" eventType="touchUpInside" id="cLl-TM-1Qx"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="啪啪啪啪啪啪啪啪啪站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-d2-u8E">
-                                        <rect key="frame" x="44" y="22" width="300" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啪啪啪啪啪啪啪啪啪站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-d2-u8E">
+                                        <rect key="frame" x="44" y="23" width="300" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -152,21 +151,22 @@
                                 <rect key="frame" x="75" y="0.0" width="349" height="105.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DS-J2-I4A">
-                                        <rect key="frame" x="5" y="39" width="48" height="27"/>
+                                        <rect key="frame" x="5" y="37" width="31" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="MRK-Cs-Jbk"/>
-                                            <constraint firstAttribute="height" constant="27" id="pB8-WT-cnN"/>
+                                            <constraint firstAttribute="width" constant="31" id="MRK-Cs-Jbk"/>
+                                            <constraint firstAttribute="height" constant="30" id="pB8-WT-cnN"/>
                                         </constraints>
-                                        <state key="normal" image="bus"/>
+                                        <state key="normal" image="favorite_card_bus"/>
+                                        <state key="highlighted" image="favorite_card_bus_highlight"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啪啪啪啪啪啪啪啪啪站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-JX-sLK">
-                                        <rect key="frame" x="61" y="30" width="280" height="21"/>
+                                        <rect key="frame" x="44" y="31" width="297" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离3站，100km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yx-ts-wUA">
-                                        <rect key="frame" x="61" y="54" width="280" height="17"/>
+                                        <rect key="frame" x="44" y="52" width="297" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -225,20 +225,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tzz-KJ-CFD">
                                         <rect key="frame" x="0.0" y="0.0" width="199" height="105"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="预计用时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvh-we-Q0m">
-                                                <rect key="frame" x="79" y="84" width="42" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预计用时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvh-we-Q0m">
+                                                <rect key="frame" x="66" y="84" width="68" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8B-zL-ZWg">
-                                                <rect key="frame" x="122" y="63" width="17" height="21"/>
+                                                <rect key="frame" x="121" y="63" width="17" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca3-hK-fnT">
-                                                <rect key="frame" x="75" y="0.0" width="48" height="84"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca3-hK-fnT">
+                                                <rect key="frame" x="77" y="0.0" width="44.5" height="84"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -304,8 +304,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX2-4f-XIH">
-                        <rect key="frame" x="321" y="72" width="30" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX2-4f-XIH">
+                        <rect key="frame" x="322" y="72" width="30" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -376,8 +376,8 @@
     </objects>
     <resources>
         <image name="btn_close" width="27" height="27"/>
-        <image name="bus" width="48" height="27"/>
-        <image name="favorite_card_location" width="27" height="38"/>
-        <image name="favorite_card_location_highlight" width="27" height="38"/>
+        <image name="favorite_card_bus" width="30" height="30"/>
+        <image name="favorite_card_bus_highlight" width="30" height="30"/>
+        <image name="favorite_card_location" width="20" height="30"/>
     </resources>
 </document>

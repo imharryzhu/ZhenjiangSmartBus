@@ -33,7 +33,7 @@
                             <action selector="btnClick:" destination="v88-X0-edi" eventType="touchUpInside" id="8pT-WI-MEH"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-d0-siH">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-d0-siH">
                         <rect key="frame" x="0.0" y="0.0" width="79" height="22"/>
                         <state key="normal" image="busstation_bus_small"/>
                     </button>

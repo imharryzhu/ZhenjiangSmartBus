@@ -54,12 +54,8 @@
         self.collectionView = collectionView;
         [self addSubview:collectionView];
         
-//        collectionView.contentInset = UIEdgeInsetsMake(0, 50, 0, 50);
-        
         collectionView.dataSource = self;
         collectionView.delegate = self;
-        
-//        layout.itemSize = CGSizeMake(50, 50);
         
         [collectionView registerNib:[UINib nibWithNibName:@"BBusGPSCell" bundle:nil]  forCellWithReuseIdentifier:@"busgps"];
         
@@ -86,7 +82,9 @@
     // 停止上一个定时器
     [self.timer invalidate];
     
-    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(updateBusGps) userInfo:nil repeats:YES];
+    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(updateBusGps) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
+    
     self.timer = timer;
     [timer fire];
 }
@@ -115,9 +113,6 @@
         [SVProgressHUD showErrorWithStatus:@"获取公交站台失败"];
     }];
     self.urlSessionTask = task;
-    
-    // 清理用户选择的站点
-//    self.selectedBusStation = nil;
     
 }
 
@@ -177,6 +172,14 @@
     
     _selectedBusStation = busStation;
     [self.collectionView reloadData];
+}
+
+- (void)pause {
+    [self.timer setFireDate:[NSDate distantFuture]];
+}
+
+- (void)resume {
+    [self.timer setFireDate:[NSDate date]];
 }
 
 @end

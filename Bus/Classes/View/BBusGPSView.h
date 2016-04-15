@@ -20,4 +20,11 @@
  */
 - (void)selectBusStation:(BBusStation*)busStation;
 
+/**
+ *
+ */
+- (void)pause;
+- (void)resume;
+
+
 @end

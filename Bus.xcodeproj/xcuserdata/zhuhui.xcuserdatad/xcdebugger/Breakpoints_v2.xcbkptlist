@@ -35,29 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bus/Classes/View/BFavoriteBusCardCell.m"
-            timestampString = "482120638.391852"
+            filePath = "Bus/Libs/JElasticPullToRefresh/UIView+JElasticPullToRefresh.m"
+            timestampString = "482306150.846616"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "-selectBusStation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bus/Classes/View/BFavoriteBusCardCell.m"
-            timestampString = "482120966.032339"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "-setUserCurrentStationWithUserLocation"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-jElasticPullToRefresh_centerUsePresentationLayerIfPossible:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

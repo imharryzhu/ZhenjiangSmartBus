@@ -10,6 +10,7 @@
 #import "Masonry.h"
 
 #import "BBusLineController.h"
+#import "BSettingController.h"
 #import "BBusGPSView.h"
 
 #import "BFavoriteBusLine.h"
@@ -46,6 +47,9 @@
  */
 @property (nonatomic,strong) CLLocationManager* locationMgr;
 
+
+@property (nonatomic, strong) UIView* busView;
+
 @end
 
 @implementation BHomeController
@@ -53,9 +57,29 @@
 static NSString* reuseId_favorite = @"favorite";
 static NSString* reuseId_addFavorite = @"addfavorite";
 
+- (void)loadView {
+    UIScrollView* scrollview = [[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    scrollview.contentSize = CGSizeMake(scrollview.width*2, scrollview.height);
+    scrollview.pagingEnabled = TRUE;
+    scrollview.delegate = self;
+    self.view = scrollview;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 设置状态栏风格
+    UINavigationBar* navBar = [UINavigationBar appearance];
+    [navBar setBackgroundImage:[UIImage imageWithColor:rgb(80, 227, 194)] forBarMetrics:UIBarMetricsDefault];
+    navBar.shadowImage = [UIImage new];
+    
+    /**
+     *  公交view。第二个view是设置view
+     */
+    UIView* busView = [[UIView alloc]initWithFrame:self.view.bounds];
+    self.busView = busView;
+    [self.view addSubview:busView];
     
     
     [self setupUI];
@@ -83,6 +107,15 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     [self.locationMgr startUpdatingLocation];
     
     
+    /**
+     *  添加设置界面
+     */
+    BSettingController* settingVC = [BSettingController settingVC];
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:settingVC];
+    [self addChildViewController:nav];
+    nav.view.frame = CGRectMake(CGRectGetMaxX(self.busView.frame), 0, self.view.width, self.view.height);
+    [self.view addSubview:nav.view];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,14 +126,14 @@ static NSString* reuseId_addFavorite = @"addfavorite";
 
 - (void)setupUI {
     
-    UIView* superView = self.view;
+    UIView* superView = self.busView;
     
     // 创建公交卡片切换容器
     
     BCollectionViewLayout* layout = [[BCollectionViewLayout alloc]init];
     
     UICollectionView* collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-    [self.view addSubview:collectionView];
+    [self.busView addSubview:collectionView];
     _collectionView = collectionView;
     
     collectionView.dataSource = self;
@@ -109,6 +142,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     // 隐藏水平滚动条
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.showsHorizontalScrollIndicator = NO;
+
     
     // 添加左右边框
     collectionView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
@@ -126,7 +160,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     // 创建时时公交显示View
     BBusGPSView* updateView = [[BBusGPSView alloc]init];
-    [self.view addSubview:updateView];
+    [self.busView addSubview:updateView];
     _gpsView = updateView;
     
     updateView.backgroundColor = [UIColor whiteColor];
@@ -140,8 +174,9 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     }];
 }
 
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {    
-    return [[BFavoriteBusLineTool defaultTool]favoriteBusLines].count + 1;
+    return [[BFavoriteBusLineTool defaultTool]favoriteBusLines].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,19 +184,12 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     NSArray* favorite = [[BFavoriteBusLineTool defaultTool]favoriteBusLines];
     
-    if (indexPath.row == favorite.count) {
-        BAddFavoriteBusCell* busCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_addFavorite forIndexPath:indexPath];
-        cell = busCell;
-        busCell.delegate = self;
-    } else {
-        
-        BFavoriteBusCardCell* favoriteCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_favorite forIndexPath:indexPath];
-        cell = favoriteCell;
-        
-        favoriteCell.favoriteBusLine = favorite[indexPath.row];
-        favoriteCell.gpsView = self.gpsView;
-        favoriteCell.delegate = self;
-    }
+    BFavoriteBusCardCell* favoriteCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_favorite forIndexPath:indexPath];
+    cell = favoriteCell;
+    
+    favoriteCell.favoriteBusLine = favorite[indexPath.row];
+    favoriteCell.gpsView = self.gpsView;
+    favoriteCell.delegate = self;
     
     return cell;
 }
@@ -173,8 +201,10 @@ static NSString* reuseId_addFavorite = @"addfavorite";
  *  scrollView开始惯性滑动时
  */
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    // 阻止惯性继续滑动
-    [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+    if(scrollView == self.collectionView) {
+        // 阻止惯性继续滑动
+        [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+    }
 }
 
 /**
@@ -189,6 +219,15 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         
         // 开始新的计时
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(busCardDidSelected) userInfo:nil repeats:NO];
+    }else if(scrollView == self.view) {
+        
+        int page = scrollView.contentOffset.x / scrollView.width;
+        // 暂停gpsview 的刷新
+        if(page == 1){
+            [self.gpsView pause];
+        }else if(page == 0){
+            [self.gpsView resume];
+        }
     }
 }
 

@@ -9,6 +9,13 @@
 #import "BAddFavoriteBusCell.h"
 #import "Masonry.h"
 
+@interface BAddFavoriteBusCell ()
+
+@property (nonatomic,weak) UIButton* plusButton;
+@property (nonatomic,weak) UIButton* settingButton;
+
+@end
+
 @implementation BAddFavoriteBusCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -29,27 +36,53 @@
 - (void)setupUI {
     
     UIButton* plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.plusButton = plusButton;
     [self addSubview: plusButton];
-    [plusButton setImage:[UIImage imageNamed:@"favorite_plus"] forState:UIControlStateNormal];
-    [plusButton setImage:[UIImage imageNamed:@"favorite_plus_highlight"] forState:UIControlStateHighlighted];
-    
-    [plusButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        __weak typeof(self) superView = self;
-        
-        make.centerX.equalTo(superView);
-        make.centerY.equalTo(superView).with.offset(41);
-    }];
-    
+    plusButton.imageView.contentMode = UIViewContentModeScaleToFill;
+    [plusButton setBackgroundImage:[UIImage imageNamed:@"favorite_plus"] forState:UIControlStateNormal];
+    [plusButton setBackgroundImage:[UIImage imageNamed:@"favorite_plus_highlight"] forState:UIControlStateHighlighted];
     // 注册事件
     [plusButton addTarget:self  action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton* settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.settingButton = settingButton;
+    [self addSubview: settingButton];
+    settingButton.imageView.contentMode = UIViewContentModeScaleToFill;
+    [settingButton setBackgroundImage:[UIImage imageNamed:@"favorite_setting"] forState:UIControlStateNormal];
+    [settingButton setBackgroundImage:[UIImage imageNamed:@"favorite_setting_highlight"] forState:UIControlStateHighlighted];
+    // 注册事件
+    [settingButton addTarget:self  action:@selector(settingClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGSize size = self.bounds.size;
+    
+    UIEdgeInsets btnInsets = UIEdgeInsetsMake(10, 30, 10, 30);
+    
+    CGFloat btnH = (size.height / 2) - btnInsets.top - btnInsets.bottom;
+    CGFloat btnW = btnH;
+    
+    CGFloat plusX = (size.width - btnW) / 2;
+    CGFloat plusY = (size.height / 2 - btnH) / 2;
+    self.plusButton.frame = CGRectMake(plusX, plusY, btnW, btnH);
+    
+    CGFloat settingX = plusX;
+    CGFloat settingY = plusY + size.height/2;
+    self.settingButton.frame = CGRectMake(settingX, settingY, btnW, btnH);
 }
 
 - (void)plusClick {
     if ([self.delegate respondsToSelector:@selector(busCellDidClickPlusButton:)]) {
         [self.delegate busCellDidClickPlusButton:self];
     }
-    
+}
+
+- (void)settingClick {
+    if ([self.delegate respondsToSelector:@selector(busCellDidClickSettingButton:)]) {
+        [self.delegate busCellDidClickSettingButton:self];
+    }
 }
 
 @end

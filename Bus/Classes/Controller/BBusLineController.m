@@ -19,6 +19,10 @@
 
 #import "SVProgressHUD.h"
 
+#import "MJRefresh.h"
+#import "MJRefreshComponent.h"
+#import "MJRefreshStateHeader.h"
+
 @interface BBusLineController ()
 
 @property (nonatomic,strong) NSArray<BBusLineViewModel*>* busLineViewModels;
@@ -31,14 +35,35 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"公交列表";
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"草" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeClick)];
-    
     
     [self initView];
     
-    [SVProgressHUD show];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadBusLinesFromInternet)];
+    
+    // 尝试从本地加载数据
+    NSArray* busLines = [BBusLineTool busLinesFromLocal];
+    
+    if(busLines.count == 0){
+        [self.tableView.mj_header beginRefreshing];
+    } else {
+        NSMutableArray* buslineViewModels = [NSMutableArray array];
+        
+        for (BBusLine* busline in busLines) {
+            BBusLineViewModel* viewModel = [[BBusLineViewModel alloc]init];
+            viewModel.busLine = busline;
+            [buslineViewModels addObject:viewModel];
+        }
+        self.busLineViewModels = buslineViewModels;
+        [self.tableView reloadData];
+    }
+    
+}
+
+/**
+ *  从网络获取公交数据
+ */
+- (void)loadBusLinesFromInternet {
     // 请求数据
     [BBusLineTool busLineswithSuccess:^(NSArray<BBusLine *> *busLines) {
         [SVProgressHUD dismiss];
@@ -57,9 +82,8 @@
         
     } withFailure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"请求失败"];
-        [SVProgressHUD dismiss];
     }];
-    
+    [self.tableView.mj_header endRefreshing];
 }
 
 /**
@@ -74,7 +98,7 @@
     
     self.tableView.sectionHeaderHeight = 20;
     
-    self.tableView.contentInset =  UIEdgeInsetsMake(10, 0, 0, 0);
+//    self.tableView.contentInset =  UIEdgeInsetsMake(0, 0, 0, 10);
 }
 
 #pragma mark - tableView代理
@@ -118,18 +142,5 @@
     
     [self.navigationController pushViewController:stationVC animated:YES];
 }
-
-
-
-/**
- *  关闭按钮
- */
-- (void)closeClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-
-
 
 @end

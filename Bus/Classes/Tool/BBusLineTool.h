@@ -18,7 +18,7 @@
  *  @param success     成功的回调
  *  @param failure     失败的回调
  */
-+ (void)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure;
++ (NSURLSessionDataTask*)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure;
 
 /**
  *  从本地获取

@@ -15,6 +15,8 @@
 
 - (void)busCellDidClickPlusButton:(BAddFavoriteBusCell*)busCell;
 
+- (void)busCellDidClickSettingButton:(BAddFavoriteBusCell*)busCell;
+
 @end
 
 @interface BAddFavoriteBusCell : UICollectionViewCell

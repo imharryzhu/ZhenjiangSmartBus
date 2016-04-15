@@ -13,11 +13,13 @@
 
 #import "MJExtension.h"
 
+#define BBusCacheFile [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"bus.plist"]]
+
 @implementation BBusLineTool
 
-+ (void)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure {
++ (NSURLSessionDataTask*)busLineswithSuccess:(void(^)(NSArray<BBusLine*>* busLines))success withFailure:(void(^)(NSError* error))failure {
     // 从网络数据
-    [self busLinesFromInternetWithsuccess:^(NSArray<BBusLine *> *busLines) {
+    return [self busLinesFromInternetWithsuccess:^(NSArray<BBusLine *> *busLines) {
         // 成功回调
         success(busLines);
     } failure:^(NSError* error){
@@ -28,9 +30,12 @@
 /**
  *  从网络获取BusLine数组
  */
-+ (void)busLinesFromInternetWithsuccess:(void(^)(NSArray<BBusLine*>* busLines))success failure:(void(^)(NSError* error))failure {
++ (NSURLSessionDataTask*)busLinesFromInternetWithsuccess:(void(^)(NSArray<BBusLine*>* busLines))success failure:(void(^)(NSError* error))failure {
     NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/Line/%d?format=json", ZJ_BUSLINES_HOST, 0];
-    [BNetworkTool GET:url parameters:nil success:^(id responseObject) {
+    return [BNetworkTool GET:url parameters:nil success:^(id responseObject) {
+        
+        // 保存到本地
+        [responseObject[@"linelist"] writeToFile:BBusCacheFile atomically:YES];
         
         NSArray* array = [BBusLine mj_objectArrayWithKeyValuesArray:responseObject[@"linelist"]];
         success(array);
@@ -39,5 +44,11 @@
         failure(error);
     }];
 }
+
++ (NSArray<BBusLine*>*)busLinesFromLocal {
+    
+    return [BBusLine mj_objectArrayWithFile:BBusCacheFile];
+}
+
 
 @end

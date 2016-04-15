@@ -15,12 +15,14 @@
 #import "NSArray+Log.h"
 #import "UIView+ZH.h"
 #import "NSString+Extension.h"
+#import "UIImage+Extension.h"
 #import "BCommon.h"
 
 
 #define BREAK_IF(cond) if(cond) break
 #define rgb(r, g, b) [UIColor colorWithRed:((r)/255.0f) green:((g)/255.0f) blue:((b)/255.0f) alpha:1.0]
 
+#define themeColor rgb(80, 227, 194)
 
 #define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
 

@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="最多这么多字" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="144" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-QV-yIg">
-                        <rect key="frame" x="8" y="8" width="120" height="37.5"/>
+                        <rect key="frame" x="8" y="18" width="120" height="38"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="NNO-sk-nWf"/>
                         </constraints>
@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-df-zSO" userLabel="起始站">
-                        <rect key="frame" x="133" y="13" width="173" height="29"/>
+                        <rect key="frame" x="133" y="23" width="173" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="Ljp-Da-sEe"/>
                             <constraint firstAttribute="width" constant="150" id="bZU-rL-zPc"/>
@@ -41,13 +41,13 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近  站点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-ly-mME">
-                        <rect key="frame" x="8" y="45" width="77" height="21"/>
+                        <rect key="frame" x="8" y="55.5" width="77" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbr-wv-BgE" userLabel="终点站">
-                        <rect key="frame" x="133" y="42" width="173" height="29"/>
+                        <rect key="frame" x="133" y="47.5" width="173" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="0Pb-2M-oCY"/>
                             <constraint firstAttribute="width" constant="150" id="cI7-m1-2DG"/>
@@ -62,8 +62,8 @@
                             </mask>
                         </variation>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="250" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXw-HA-Y9d" customClass="BVerticalButton">
-                        <rect key="frame" x="272" y="8" width="95" height="68.5"/>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXw-HA-Y9d" customClass="BVerticalButton">
+                        <rect key="frame" x="272" y="18" width="95" height="58.5"/>
                         <state key="normal" title="已收藏" image="favorite_no_normal">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -72,7 +72,7 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-0D-M5i" userLabel="分割线">
-                        <rect key="frame" x="0.0" y="74.5" width="375" height="10"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
                         <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="2Cx-we-laq"/>
@@ -81,39 +81,23 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="VYh-ly-mME" firstAttribute="top" secondItem="2Jc-QV-yIg" secondAttribute="bottom" id="3dW-LB-wVf"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Jbr-wv-BgE" secondAttribute="bottom" constant="5" id="6Je-Ha-y7V"/>
                     <constraint firstItem="Usf-0D-M5i" firstAttribute="leading" secondItem="Z7q-rX-pSe" secondAttribute="leading" id="7Jo-Wi-8Ya"/>
-                    <constraint firstAttribute="bottom" secondItem="Usf-0D-M5i" secondAttribute="bottom" id="7Vy-bZ-HGE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Jbr-wv-BgE" secondAttribute="trailing" constant="61" id="AzW-9d-DsR"/>
+                    <constraint firstItem="Usf-0D-M5i" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="top" id="GQY-cg-uec"/>
                     <constraint firstAttribute="trailing" secondItem="Usf-0D-M5i" secondAttribute="trailing" id="Har-fk-XQE"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Jbr-wv-BgE" secondAttribute="bottom" constant="5" id="JMu-3I-upC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Jbr-wv-BgE" secondAttribute="bottom" id="JMu-3I-upC"/>
                     <constraint firstItem="VYh-ly-mME" firstAttribute="leading" secondItem="Z7q-rX-pSe" secondAttribute="leadingMargin" id="Mc1-NA-1Hc"/>
-                    <constraint firstItem="iXw-HA-Y9d" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" id="NNo-7c-7CW"/>
+                    <constraint firstItem="iXw-HA-Y9d" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" constant="10" id="NNo-7c-7CW"/>
                     <constraint firstItem="Jbr-wv-BgE" firstAttribute="leading" secondItem="2Jc-QV-yIg" secondAttribute="trailing" constant="5" id="ZZI-8J-wfv"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Usf-0D-M5i" secondAttribute="bottom" id="c8o-Xo-nxl"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="VYh-ly-mME" secondAttribute="bottom" constant="10" id="gLw-Tm-tUa"/>
-                    <constraint firstItem="Usf-0D-M5i" firstAttribute="leading" secondItem="Z7q-rX-pSe" secondAttribute="leadingMargin" id="gjG-h8-ksJ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Usf-0D-M5i" secondAttribute="trailing" id="hR2-oN-PMt"/>
-                    <constraint firstItem="Cb3-df-zSO" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" constant="5" id="ikM-67-yyz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VYh-ly-mME" secondAttribute="bottom" id="gLw-Tm-tUa"/>
+                    <constraint firstItem="Cb3-df-zSO" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" constant="15" id="ikM-67-yyz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Cb3-df-zSO" secondAttribute="trailing" constant="61" id="jsL-eP-b1Z"/>
-                    <constraint firstItem="2Jc-QV-yIg" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" id="kG1-rr-FWx"/>
+                    <constraint firstItem="2Jc-QV-yIg" firstAttribute="top" secondItem="Z7q-rX-pSe" secondAttribute="topMargin" constant="10" id="kG1-rr-FWx"/>
                     <constraint firstAttribute="bottomMargin" secondItem="iXw-HA-Y9d" secondAttribute="bottom" id="miO-sf-AyY"/>
                     <constraint firstItem="iXw-HA-Y9d" firstAttribute="trailing" secondItem="Z7q-rX-pSe" secondAttribute="trailingMargin" id="pCM-R9-3sN"/>
-                    <constraint firstItem="iXw-HA-Y9d" firstAttribute="leading" secondItem="Cb3-df-zSO" secondAttribute="trailing" constant="10" id="tJS-6E-nEc"/>
                     <constraint firstItem="2Jc-QV-yIg" firstAttribute="leading" secondItem="Z7q-rX-pSe" secondAttribute="leadingMargin" id="tuT-AO-FBF"/>
-                    <constraint firstItem="Jbr-wv-BgE" firstAttribute="height" secondItem="Cb3-df-zSO" secondAttribute="height" id="wTs-Js-1qz"/>
                     <constraint firstItem="Cb3-df-zSO" firstAttribute="leading" secondItem="2Jc-QV-yIg" secondAttribute="trailing" constant="5" id="zBk-wx-dkc"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="c8o-Xo-nxl"/>
-                        <exclude reference="gjG-h8-ksJ"/>
-                        <exclude reference="hR2-oN-PMt"/>
-                        <exclude reference="6Je-Ha-y7V"/>
-                        <exclude reference="wTs-Js-1qz"/>
-                        <exclude reference="tJS-6E-nEc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="favoriteBtn" destination="iXw-HA-Y9d" id="GwO-dX-CaP"/>

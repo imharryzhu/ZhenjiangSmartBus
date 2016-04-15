@@ -188,6 +188,7 @@
 - (void)didSelected
 {
     self.currentStation = nil;
+    [self setLocationButtonImageWithSelected:NO];
 }
 
 - (void)setFavoriteBusLine:(BFavoriteBusLine *)favoriteBusLine {
@@ -378,6 +379,8 @@
     
     // 用户自己选中时，图标设置为蓝色
     [self.locationButton setSelected:YES];
+    [self setLocationButtonImageWithSelected:YES];
+    
     
     self.currentStation = busStation;
     self.currentStationNameLabel.text = busStation.name;
@@ -407,11 +410,23 @@
     [BUser defaultUser].nearestStation = minDistanceStation;
     
     [self.locationButton setSelected:NO];
+    [self setLocationButtonImageWithSelected:NO];
     [self updateBusInfo];
 }
 
 - (void)setUserCurrentStationWithBusStation:(BBusStation*)busStation {
     
+    
+}
+
+- (void)setLocationButtonImageWithSelected:(BOOL)selected {
+    if(selected) {
+        [self.locationButton setImage:[UIImage imageNamed:@"favorite_card_other_location"] forState:UIControlStateNormal];
+        [self.locationButton setImage:[UIImage imageNamed:@"favorite_card_other_location_highlight"] forState:UIControlStateHighlighted];
+    }else{
+        [self.locationButton setImage:[UIImage imageNamed:@"favorite_card_location"] forState:UIControlStateNormal];
+        [self.locationButton setImage:[UIImage imageNamed:@"favorite_card_location_highlight"] forState:UIControlStateHighlighted];
+    }
     
 }
 
