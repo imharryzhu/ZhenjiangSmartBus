@@ -121,6 +121,7 @@
 		7BB552F21CBFB43F0061B372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB552F11CBFB43F0061B372 /* Main.storyboard */; };
 		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
 		7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */; };
+		7BCB45391CC088EC00A41756 /* BNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB45381CC088EC00A41756 /* BNavigationController.m */; };
 		7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */; };
 		7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */; };
 		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
@@ -381,6 +382,8 @@
 		7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BFavoriteBusCardCell.xib; sourceTree = "<group>"; };
 		7BC3F4111CAA266E004FE662 /* BBusGPSViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSViewLayout.h; sourceTree = "<group>"; };
 		7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSViewLayout.m; sourceTree = "<group>"; };
+		7BCB45371CC088EC00A41756 /* BNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNavigationController.h; sourceTree = "<group>"; };
+		7BCB45381CC088EC00A41756 /* BNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNavigationController.m; sourceTree = "<group>"; };
 		7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSView.h; sourceTree = "<group>"; };
 		7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSView.m; sourceTree = "<group>"; };
 		7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSCell.h; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 				7B95BDC21C9992D30029AEAE /* AppDelegate.m */,
 				7B39857D1CA2552C005B2A96 /* BCommon.h */,
 				7B39857E1CA2552C005B2A96 /* BCommon.m */,
+				7BCB45371CC088EC00A41756 /* BNavigationController.h */,
+				7BCB45381CC088EC00A41756 /* BNavigationController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1084,6 +1089,7 @@
 				7BB05C9D1CA0FB1500D0D130 /* UIImage+MultiFormat.m in Sources */,
 				7BB05C721CA0FB1500D0D130 /* UIImageView+AFNetworking.m in Sources */,
 				7BB05C8A1CA0FB1500D0D130 /* MJRefreshBackStateFooter.m in Sources */,
+				7BCB45391CC088EC00A41756 /* BNavigationController.m in Sources */,
 				7BB05C7C1CA0FB1500D0D130 /* NSObject+MJCoding.m in Sources */,
 				7B95BD7C1C998FF10029AEAE /* main.m in Sources */,
 				7BB05C801CA0FB1500D0D130 /* MJRefreshAutoFooter.m in Sources */,
@@ -1290,7 +1296,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1304,7 +1310,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";

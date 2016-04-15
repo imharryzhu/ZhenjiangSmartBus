@@ -11,6 +11,7 @@
 
 #import "BBusLineController.h"
 #import "BSettingController.h"
+#import "BNavigationController.h"
 #import "BBusGPSView.h"
 
 #import "BFavoriteBusLine.h"
@@ -111,7 +112,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
      *  添加设置界面
      */
     BSettingController* settingVC = [BSettingController settingVC];
-    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:settingVC];
+    BNavigationController* nav = [[BNavigationController alloc]initWithRootViewController:settingVC];
     [self addChildViewController:nav];
     nav.view.frame = CGRectMake(CGRectGetMaxX(self.busView.frame), 0, self.view.width, self.view.height);
     [self.view addSubview:nav.view];
