@@ -8,6 +8,8 @@
 
 #import "BSettingController.h"
 
+#import "MobClick.h"
+
 @interface BSettingController ()
 
 
@@ -15,6 +17,22 @@
 @end
 
 @implementation BSettingController
+
++ (NSString*)description {
+    return [NSString stringWithFormat:@"设置(%@)",NSStringFromClass([self class])];
+}
+
+#pragma mark - 友盟页面统计
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:[[self class]description]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick endLogPageView:[[self class]description]];
+}
 
 
 + (instancetype)settingVC {

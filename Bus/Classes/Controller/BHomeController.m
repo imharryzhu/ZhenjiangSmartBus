@@ -28,6 +28,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <objc/runtime.h>
 
+#import "MobClick.h"
+
 @interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
@@ -57,6 +59,24 @@
 
 static NSString* reuseId_favorite = @"favorite";
 static NSString* reuseId_addFavorite = @"addfavorite";
+
+
+
++ (NSString*)description {
+    return [NSString stringWithFormat:@"主页(%@)",NSStringFromClass([self class])];
+}
+
+#pragma mark - 友盟页面统计
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:[[self class]description]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick endLogPageView:[[self class]description]];
+}
 
 - (void)loadView {
     UIScrollView* scrollview = [[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];

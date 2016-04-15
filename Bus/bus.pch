@@ -24,6 +24,9 @@
 
 #define themeColor rgb(80, 227, 194)
 
+#define UMENG_APPKEY    @"571064ea67e58eef48000621"
+
+
 #define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
 
 /**

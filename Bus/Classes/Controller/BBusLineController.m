@@ -23,6 +23,8 @@
 #import "MJRefreshComponent.h"
 #import "MJRefreshStateHeader.h"
 
+#import "MobClick.h"
+
 @interface BBusLineController ()
 
 @property (nonatomic,strong) NSArray<BBusLineViewModel*>* busLineViewModels;
@@ -30,6 +32,22 @@
 @end
 
 @implementation BBusLineController
+
++ (NSString*)description {
+    return [NSString stringWithFormat:@"收藏线路(%@)",NSStringFromClass([self class])];
+}
+
+#pragma mark - 友盟页面统计
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:[[self class]description]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick endLogPageView:[[self class]description]];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

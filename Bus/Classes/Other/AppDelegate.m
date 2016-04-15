@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BHomeController.h"
+#import "MobClick.h"
 
 
 @interface AppDelegate ()
@@ -18,6 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // UMENGE 测试模式
+    [MobClick setLogEnabled:YES];
 
     UIWindow* window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window = window;
@@ -27,6 +30,15 @@
     window.rootViewController = vc;
     
     
+    /**
+     *  友盟 统计
+     */
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:BATCH channelId:@""];
+
     return YES;
 }
 

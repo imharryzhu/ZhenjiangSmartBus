@@ -8,17 +8,32 @@
 
 #import "BAboutController.h"
 
+#import "MobClick.h"
+
 @interface BAboutController ()
 
 @end
 
 @implementation BAboutController
 
++ (NSString*)description {
+    return [NSString stringWithFormat:@"关于(%@)",NSStringFromClass([self class])];
+}
+
+#pragma mark - 友盟页面统计
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:[[self class]description]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick endLogPageView:[[self class]description]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

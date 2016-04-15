@@ -16,11 +16,6 @@
 		7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858A1CA25F57005B2A96 /* BBusStationCell.m */; };
 		7B39858E1CA27BE4005B2A96 /* BFavoriteBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */; };
 		7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */; };
-		7B3A56DB1CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56D21CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.m */; };
-		7B3A56DC1CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56D41CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.m */; };
-		7B3A56DD1CBF5C4B001CD972 /* JElasticPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56D61CBF5C4B001CD972 /* JElasticPullToRefreshView.m */; };
-		7B3A56DE1CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56D81CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.m */; };
-		7B3A56DF1CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56DA1CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.m */; };
 		7B3A56E21CBF64ED001CD972 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56E11CBF64ED001CD972 /* UIImage+Extension.m */; };
 		7B4037151CBFC77900A87C9A /* BAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4037141CBFC77900A87C9A /* BAboutController.m */; };
 		7B4037171CBFC8D700A87C9A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4037161CBFC8D700A87C9A /* logo.png */; };
@@ -122,6 +117,8 @@
 		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
 		7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */; };
 		7BCB45391CC088EC00A41756 /* BNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB45381CC088EC00A41756 /* BNavigationController.m */; };
+		7BCB45421CC09EFE00A41756 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */; };
+		7BCB45441CC0B8BB00A41756 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCB45431CC0B8BB00A41756 /* libz.tbd */; };
 		7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */; };
 		7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */; };
 		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
@@ -165,17 +162,6 @@
 		7B39858D1CA27BE4005B2A96 /* BFavoriteBusLineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusLineTool.m; sourceTree = "<group>"; };
 		7B39858F1CA27C41005B2A96 /* BFavoriteBusLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusLine.h; sourceTree = "<group>"; };
 		7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusLine.m; sourceTree = "<group>"; };
-		7B3A56D01CBF5C4B001CD972 /* JElasticPullToRefreshConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshConstants.h; sourceTree = "<group>"; };
-		7B3A56D11CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshLoadingView.h; sourceTree = "<group>"; };
-		7B3A56D21CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshLoadingView.m; sourceTree = "<group>"; };
-		7B3A56D31CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshLoadingViewCircle.h; sourceTree = "<group>"; };
-		7B3A56D41CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshLoadingViewCircle.m; sourceTree = "<group>"; };
-		7B3A56D51CBF5C4B001CD972 /* JElasticPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshView.h; sourceTree = "<group>"; };
-		7B3A56D61CBF5C4B001CD972 /* JElasticPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshView.m; sourceTree = "<group>"; };
-		7B3A56D71CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JElasticPullToRefresh.h"; sourceTree = "<group>"; };
-		7B3A56D81CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JElasticPullToRefresh.m"; sourceTree = "<group>"; };
-		7B3A56D91CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JElasticPullToRefresh.h"; sourceTree = "<group>"; };
-		7B3A56DA1CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JElasticPullToRefresh.m"; sourceTree = "<group>"; };
 		7B3A56E01CBF64ED001CD972 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		7B3A56E11CBF64ED001CD972 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		7B4037131CBFC77900A87C9A /* BAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAboutController.h; sourceTree = "<group>"; };
@@ -384,6 +370,10 @@
 		7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSViewLayout.m; sourceTree = "<group>"; };
 		7BCB45371CC088EC00A41756 /* BNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNavigationController.h; sourceTree = "<group>"; };
 		7BCB45381CC088EC00A41756 /* BNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNavigationController.m; sourceTree = "<group>"; };
+		7BCB453E1CC09E8D00A41756 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		7BCB453F1CC09E8D00A41756 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = Bus/Libs/UMAnalytics_Sdk_3.6.6/libMobClickLibrary.a; sourceTree = "<group>"; };
+		7BCB45431CC0B8BB00A41756 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSView.h; sourceTree = "<group>"; };
 		7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSView.m; sourceTree = "<group>"; };
 		7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSCell.h; sourceTree = "<group>"; };
@@ -400,6 +390,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BCB45441CC0B8BB00A41756 /* libz.tbd in Frameworks */,
+				7BCB45421CC09EFE00A41756 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,24 +412,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B3A56CF1CBF5C4B001CD972 /* JElasticPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				7B3A56D11CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.h */,
-				7B3A56D01CBF5C4B001CD972 /* JElasticPullToRefreshConstants.h */,
-				7B3A56D21CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.m */,
-				7B3A56D31CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.h */,
-				7B3A56D41CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.m */,
-				7B3A56D51CBF5C4B001CD972 /* JElasticPullToRefreshView.h */,
-				7B3A56D61CBF5C4B001CD972 /* JElasticPullToRefreshView.m */,
-				7B3A56D71CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.h */,
-				7B3A56D81CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.m */,
-				7B3A56D91CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.h */,
-				7B3A56DA1CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.m */,
-			);
-			path = JElasticPullToRefresh;
-			sourceTree = "<group>";
-		};
 		7B40698C1C9D7CBA0047C7C2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +430,7 @@
 		7B57BE281C9AB75700D4AE6E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				7B3A56CF1CBF5C4B001CD972 /* JElasticPullToRefresh */,
+				7BCB453C1CC09E8D00A41756 /* UMAnalytics_Sdk_3.6.6 */,
 				7BB05BDC1CA0FB1500D0D130 /* AFNetworking */,
 				7BB05C001CA0FB1500D0D130 /* MJExtension */,
 				7BB05C161CA0FB1500D0D130 /* MJRefresh */,
@@ -512,6 +486,8 @@
 		7B95BD6E1C998FF10029AEAE = {
 			isa = PBXGroup;
 			children = (
+				7BCB45431CC0B8BB00A41756 /* libz.tbd */,
+				7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */,
 				7B95BD791C998FF10029AEAE /* Bus */,
 				7B95BD931C998FF10029AEAE /* BusTests */,
 				7B95BD9E1C998FF10029AEAE /* BusUITests */,
@@ -913,6 +889,15 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
+		7BCB453C1CC09E8D00A41756 /* UMAnalytics_Sdk_3.6.6 */ = {
+			isa = PBXGroup;
+			children = (
+				7BCB453E1CC09E8D00A41756 /* MobClick.h */,
+				7BCB453F1CC09E8D00A41756 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.6.6;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1069,8 +1054,6 @@
 				7BB05C701CA0FB1500D0D130 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				7BB05C821CA0FB1500D0D130 /* MJRefreshComponent.m in Sources */,
 				7BB05C7F1CA0FB1500D0D130 /* NSString+MJExtension.m in Sources */,
-				7B3A56DE1CBF5C4B001CD972 /* UIScrollView+JElasticPullToRefresh.m in Sources */,
-				7B3A56DD1CBF5C4B001CD972 /* JElasticPullToRefreshView.m in Sources */,
 				7BB05C971CA0FB1500D0D130 /* SDWebImageDownloader.m in Sources */,
 				7BB05C811CA0FB1500D0D130 /* MJRefreshBackFooter.m in Sources */,
 				7BE601E41CA3FCFC00301A56 /* BBusGPS.m in Sources */,
@@ -1081,7 +1064,6 @@
 				7BB05C9E1CA0FB1500D0D130 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7BE601E11CA3F41700301A56 /* BBusGPSTool.m in Sources */,
 				7BB05C711CA0FB1500D0D130 /* UIButton+AFNetworking.m in Sources */,
-				7B3A56DC1CBF5C4B001CD972 /* JElasticPullToRefreshLoadingViewCircle.m in Sources */,
 				7B57BFB61C9AB75800D4AE6E /* MASCompositeConstraint.m in Sources */,
 				7BB05C7D1CA0FB1500D0D130 /* NSObject+MJKeyValue.m in Sources */,
 				7BB552EF1CBFB2B20061B372 /* BSettingController.m in Sources */,
@@ -1114,8 +1096,6 @@
 				7B4037151CBFC77900A87C9A /* BAboutController.m in Sources */,
 				7BB05C6B1CA0FB1500D0D130 /* AFURLResponseSerialization.m in Sources */,
 				7BB05C7A1CA0FB1500D0D130 /* MJPropertyType.m in Sources */,
-				7B3A56DF1CBF5C4B001CD972 /* UIView+JElasticPullToRefresh.m in Sources */,
-				7B3A56DB1CBF5C4B001CD972 /* JElasticPullToRefreshLoadingView.m in Sources */,
 				7BB05C871CA0FB1500D0D130 /* MJRefreshAutoStateFooter.m in Sources */,
 				7BAEC6261CACD5B00036D5D6 /* BLabel.m in Sources */,
 				7B9A4AE81C9EA4890041AC35 /* BBusLineController.m in Sources */,
@@ -1298,6 +1278,10 @@
 				INFOPLIST_FILE = Bus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bus/Libs/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1312,6 +1296,10 @@
 				INFOPLIST_FILE = Bus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bus/Libs/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
