@@ -185,6 +185,17 @@
     }
 }
 
+/**
+ *  切换方向点击
+ *
+ */
+- (IBAction)changeDirectionClick:(id)sender {
+    
+    if([self.delegate respondsToSelector:@selector(favoriteBusCardDidChangeDirectionClick:)]) {
+        [self.delegate favoriteBusCardDidChangeDirectionClick:self];
+    }
+}
+
 - (void)didSelected
 {
     self.currentStation = nil;
@@ -203,7 +214,8 @@
     self.endTimeLabel.text = [NSString stringWithFormat:@"晚 %@", [BCommon timeFromDateString:favoriteBusLine.busLine.lasttime]];
     
     // 目的站
-    BBusStation* endBusStation = [favoriteBusLine.busLine.busStations lastObject];
+    BBusStation* endBusStation = [[favoriteBusLine.busLine busStationsWithDirection:favoriteBusLine.direction] lastObject];
+    
     NSArray<NSString*>* endBusStationName = [BCommon subNameInStationName:endBusStation.name];
     
     self.endStationLabel.text = endBusStationName[0];

@@ -17,13 +17,13 @@
 
 #import "BBusStationTool.h"
 
-#define BBuslineCacheFile(buslinName) [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"busline_%@.plist", buslinName]]
+#define BBuslineCacheFile(buslinName, dir) [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"busline_%@_%d.plist", buslinName, dir]]
 
 @implementation BBusStationTool
 
-+ (NSURLSessionDataTask*)busStationForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusStation*>* busStations))success withFailure:(void(^)(NSError* error))failure {
++ (NSURLSessionDataTask*)busStationForBusLine:(BBusLine*)busLine WithDirection:(BBusStationDirection)dir success:(void(^)(NSArray<BBusStation*>* busStations))success withFailure:(void(^)(NSError* error))failure {
     
-    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/Station/0/%@/0?format=json", ZJ_BUSLINES_HOST, busLine.gprsid];
+    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/Station/0/%@/%lu?format=json", ZJ_BUSLINES_HOST, busLine.gprsid, (unsigned long)dir];
     
     
     
@@ -31,7 +31,7 @@
         NSArray* array = [BBusStation mj_objectArrayWithKeyValuesArray:responseObject[@"stationlist"]];
         
         // 保存到本地
-        NSString* localFileName = BBuslineCacheFile(busLine.fullname);
+        NSString* localFileName = BBuslineCacheFile(busLine.fullname, dir);
         [responseObject[@"stationlist"] writeToFile:localFileName atomically:YES];
         
         if(success) {
@@ -48,9 +48,9 @@
 /**
  *  从文件中获取
  */
-+ (NSArray<BBusStation*>*)busStationsFromLocal:(NSString*)busLineName {
++ (NSArray<BBusStation*>*)busStationsFromLocal:(NSString*)busLineName WithDirection:(BBusStationDirection)dir{
     
-    NSString* fileName = BBuslineCacheFile(busLineName);
+    NSString* fileName = BBuslineCacheFile(busLineName, dir);
     
     return [BBusStation mj_objectArrayWithFile:fileName];
 }

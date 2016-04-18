@@ -20,6 +20,6 @@
  *  @param success     成功的回调
  *  @param failure     失败的回调
  */
-+ (void)busGPSForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusGPS*>* busGPSs))success withFailure:(void(^)(NSError* error))failure;
++ (void)busGPSForBusLine:(BBusLine*)busLine WithDirection:(BBusStationDirection)dir success:(void(^)(NSArray<BBusGPS*>* busGPSs))success withFailure:(void(^)(NSError* error))failure;
 
 @end

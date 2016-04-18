@@ -21,10 +21,17 @@
 
 - (NSArray<BBusStation *> *)busStations {
     if(!_busStations) {
-        NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self.fullname];
-        _busStations = busStation;
+//        NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self.fullname WithDirection:];
+//        _busStations = busStation;
     }
     return _busStations;
+}
+
+- (nullable NSArray<BBusStation*>*)busStationsWithDirection:(BBusStationDirection)direction {
+    
+    NSArray<BBusStation*>* busStation = [BBusStationTool busStationsFromLocal:self.fullname WithDirection:direction];
+    
+    return busStation;
 }
 
 @end

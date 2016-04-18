@@ -14,4 +14,9 @@
 
 @property (nonatomic,strong) BBusLine* busLine;
 
+/**
+ *  用户选择的方向
+ */
+@property (nonatomic,assign) int direction;
+
 @end

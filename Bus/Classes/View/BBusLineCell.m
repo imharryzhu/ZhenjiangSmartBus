@@ -138,7 +138,7 @@
     }
     
     
-    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.viewModel.busLine success:^(NSArray<BBusStation *> *busStations) {
+    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.viewModel.busLine WithDirection:BBusStationDirectionDwon success:^(NSArray<BBusStation *> *busStations) {
         
         self.viewModel.busLine.busStations = busStations;
         

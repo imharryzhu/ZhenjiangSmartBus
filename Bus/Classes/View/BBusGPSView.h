@@ -10,10 +10,11 @@
 
 @class BBusLine;
 @class BBusStation;
+@class BFavoriteBusLine;
 
 @interface BBusGPSView : UIView
 
-@property (nonatomic,strong) BBusLine* busLine;
+@property (nonatomic,strong) BFavoriteBusLine* favoriteBusLine;
 
 /**
  *  用户选择某个公交站点

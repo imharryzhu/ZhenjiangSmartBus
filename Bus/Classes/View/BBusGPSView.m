@@ -15,6 +15,7 @@
 
 #import "BBusLine.h"
 #import "BBusStation.h"
+#import "BFavoriteBusLine.h"
 #import "BBusGPS.h"
 #import "BUser.h"
 
@@ -22,6 +23,7 @@
 
 #import "BBusStationTool.h"
 #import "BBusGPSTool.h"
+#import "BPreference.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -39,6 +41,8 @@
  *  保存用户选中的公交站点
  */
 @property (nonatomic,strong) BBusStation* selectedBusStation;
+
+@property (nonatomic,copy) NSDate* date;
 
 @end
 
@@ -69,37 +73,40 @@
             make.right.equalTo(superView);
             make.top.equalTo(superView);
         }];
+        
+        // 监听间隔时间修改事件
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(intervalTimeSelected) name:BGPSIntervalTimeSelectedNotifcation object:nil];
+        
     }
     return self;
 }
 
-- (void)setBusLine:(BBusLine *)busLine {
-    _busLine = busLine;
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)setFavoriteBusLine:(BFavoriteBusLine *)favoriteBusLine {
+    _favoriteBusLine = favoriteBusLine;
     
     // 清理上次选中的数据
     self.selectedBusStation = nil;
     
-    // 停止上一个定时器
-    [self.timer invalidate];
-    
-    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(updateBusGps) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
-    
-    self.timer = timer;
-    [timer fire];
+    [self restartGPSTimer];
+    [self.timer fire];
 }
 
 - (void)updateBusGps {
     
     [SVProgressHUD show];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.busLine success:^(NSArray<BBusStation *> *busStations) {
+    NSURLSessionDataTask* task = [BBusStationTool busStationForBusLine:self.favoriteBusLine.busLine WithDirection:self.favoriteBusLine.direction success:^(NSArray<BBusStation *> *busStations) {
+        
         [SVProgressHUD dismiss];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        self.busLine.busStations = busStations;
+        self.favoriteBusLine.busLine.busStations = busStations;
         
-        [BBusGPSTool busGPSForBusLine:self.busLine success:^(NSArray<BBusGPS*>* busGPSs){
+        [BBusGPSTool busGPSForBusLine:self.favoriteBusLine.busLine WithDirection:self.favoriteBusLine.direction success:^(NSArray<BBusGPS*>* busGPSs){
             self.busGPSs = busGPSs;
             
             [self didUpdateBusGps];
@@ -123,13 +130,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.busLine.busStations.count;
+    return self.favoriteBusLine.busLine.busStations.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     BBusGPSCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"busgps" forIndexPath:indexPath];
-    BBusStation* station = self.busLine.busStations[indexPath.row];
+    BBusStation* station = self.favoriteBusLine.busLine.busStations[indexPath.row];
     
     cell.busStation = station;
     
@@ -175,11 +182,39 @@
 }
 
 - (void)pause {
+    self.date = self.timer.fireDate;
     [self.timer setFireDate:[NSDate distantFuture]];
 }
 
 - (void)resume {
-    [self.timer setFireDate:[NSDate date]];
+    [self.timer setFireDate:self.date];
+}
+
+/**
+ *  用户重新选择了 公交间隔时间
+ */
+
+- (void)intervalTimeSelected {
+    
+    // 重启定时器
+    [self restartGPSTimer];
+    
+    self.date = [NSDate date];
+    [self.timer setFireDate:[NSDate distantFuture]];
+}
+
+/**
+ *  重新启动定时器
+ */
+- (void)restartGPSTimer {
+    
+    NSInteger interval = [BPreference intervalTimeTypeToSecond:[BPreference intervalTimeType]];
+    
+    [self.timer invalidate];
+    
+    NSTimer* timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(updateBusGps) userInfo:nil repeats:YES];
+    self.timer = timer;
+    [[NSRunLoop mainRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 @end

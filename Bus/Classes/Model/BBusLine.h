@@ -46,4 +46,7 @@
  */
 @property (nonatomic,strong) NSArray<BBusStation*>* busStations;
 
+- (nullable NSArray<BBusStation*>*)busStationsWithDirection:(BBusStationDirection)direction;
+
+
 @end

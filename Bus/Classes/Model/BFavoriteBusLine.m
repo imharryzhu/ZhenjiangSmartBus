@@ -10,4 +10,13 @@
 
 @implementation BFavoriteBusLine
 
+- (instancetype)init {
+    if(self = [super init]) {
+     
+        // 默认下行
+        self.direction = BBusStationDirectionDwon;
+    }
+    return self;
+}
+
 @end

@@ -23,14 +23,13 @@
 
 #import "BCollectionViewLayout.h"
 #import "BFavoriteBusCardCell.h"
-#import "BAddFavoriteBusCell.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <objc/runtime.h>
 
 #import "MobClick.h"
 
-@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, BAddFavoriteBusCellDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate>
+@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 @property (nonatomic,weak) BBusGPSView* gpsView;
@@ -58,9 +57,6 @@
 @implementation BHomeController
 
 static NSString* reuseId_favorite = @"favorite";
-static NSString* reuseId_addFavorite = @"addfavorite";
-
-
 
 + (NSString*)description {
     return [NSString stringWithFormat:@"主页(%@)",NSStringFromClass([self class])];
@@ -94,6 +90,8 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     UINavigationBar* navBar = [UINavigationBar appearance];
     [navBar setBackgroundImage:[UIImage imageWithColor:rgb(80, 227, 194)] forBarMetrics:UIBarMetricsDefault];
     navBar.shadowImage = [UIImage new];
+    
+    navBar.tintColor = rgb(0x96, 0x56, 0x56);
     
     /**
      *  公交view。第二个view是设置view
@@ -176,7 +174,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     }];
     
     [collectionView registerNib:[UINib nibWithNibName:@"BFavoriteBusCardCell" bundle:nil] forCellWithReuseIdentifier:reuseId_favorite];
-    [collectionView registerClass:[BAddFavoriteBusCell class] forCellWithReuseIdentifier:reuseId_addFavorite];
     
     
     // 创建时时公交显示View
@@ -252,19 +249,6 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     }
 }
 
-#pragma mark - BAddFavoriteBusCellDelegate
-
-/**
- *  添加按钮点击时
- */
-- (void)busCellDidClickPlusButton:(BAddFavoriteBusCell *)busCell {
-    BBusLineController* buslineVC = [[BBusLineController alloc]initWithStyle:UITableViewStylePlain];
-    
-    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:buslineVC];
-    
-    [self presentViewController:nav animated:YES completion:nil];
-}
-
 #pragma mark - BFavoriteBusCardDelegate
 - (void)favoriteBusCardDidCloseClick:(BFavoriteBusCardCell*)cardCell {
     
@@ -274,6 +258,25 @@ static NSString* reuseId_addFavorite = @"addfavorite";
     
     objc_setAssociatedObject(self, @"cardCell", cardCell, OBJC_ASSOCIATION_ASSIGN);
     
+}
+
+- (void)favoriteBusCardDidChangeDirectionClick:(BFavoriteBusCardCell *)cardCell {
+    CGPoint centerPos = CGPointMake(self.collectionView.contentOffset.x + self.collectionView.width/2, self.collectionView.height/2);
+    // 获取屏幕中心点所在的cell
+    NSIndexPath* indexPath = [self.collectionView indexPathForItemAtPoint:centerPos];
+    
+    NSArray<BFavoriteBusLine*>* favorite = [[BFavoriteBusLineTool defaultTool]favoriteBusLines];
+    
+    int dir = favorite[indexPath.row].direction;
+    dir = !dir;
+    
+    favorite[indexPath.row].direction = dir;
+    
+    self.lastFavotireCell = nil;
+    
+    [self busCardDidSelected];
+    
+    [self.collectionView reloadData];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -328,7 +331,7 @@ static NSString* reuseId_addFavorite = @"addfavorite";
         if(self.lastFavotireCell != favotireCell) {
             self.lastFavotireCell= favotireCell;
             [favotireCell didSelected];
-            self.gpsView.busLine = favotireCell.favoriteBusLine.busLine;
+            self.gpsView.favoriteBusLine = favotireCell.favoriteBusLine;
         }
     }
 }

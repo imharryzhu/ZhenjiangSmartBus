@@ -33,9 +33,8 @@
     /**
      *  友盟 统计
      */
-    
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    [MobClick setAppVersion:version];
+
+    [MobClick setAppVersion:BVersion];
     
     [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:BATCH channelId:@""];
 

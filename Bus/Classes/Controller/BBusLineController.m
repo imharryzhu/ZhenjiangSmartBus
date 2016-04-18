@@ -135,6 +135,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBusLineCell* cell = [BBusLineCell busLineCellWithTableView:tableView];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     BBusLineViewModel* viewModel = self.busLineViewModels[indexPath.row];
     
     cell.viewModel = viewModel;
@@ -150,13 +152,27 @@
     return 88;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BBusStationController* stationVC = [[BBusStationController alloc]init];
     
-    BBusLine* busLine = [self.busLineViewModels objectAtIndex:indexPath.row].busLine;
+    BBusLineViewModel* viewModel = [self.busLineViewModels objectAtIndex:indexPath.row];
     
-    stationVC.busLine = busLine;
+    stationVC.busLine = viewModel.busLine;
+    
+    // 判断是否收藏
+    BOOL tmp = NO;
+    // 判断是否收藏
+    for (BFavoriteBusLine* line in [BFavoriteBusLineTool defaultTool].favoriteBusLines) {
+        if([line.busLine.fullname isEqualToString:viewModel.busLine.fullname]){
+            tmp = YES;
+            break;
+        }
+    }
+    
+    stationVC.collected = tmp;
+    stationVC.row = indexPath.row;
     
     [self.navigationController pushViewController:stationVC animated:YES];
 }

@@ -11,8 +11,11 @@
 #import "SVProgressHUD.h"
 
 #import "BBusStationTool.h"
+#import "BFavoriteBusLineTool.h"
 
 #import "BBusStation.h"
+#import "BBusLine.h"
+#import "BFavoriteBusLine.h"
 
 #import "BBusStationCell.h"
 
@@ -35,6 +38,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:[[self class]description]];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -45,21 +50,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeClick)];
-    
-    UIButton* changeDirBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [changeDirBtn setImage:[UIImage imageNamed:@"change_direction"] forState:UIControlStateNormal];
-    [changeDirBtn sizeToFit];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:changeDirBtn];
-    
 }
 
 - (void)setBusLine:(BBusLine*)busLine {
     _busLine = busLine;
     
+    self.title = busLine.fullname;
+    
     [SVProgressHUD show];
-    [BBusStationTool busStationForBusLine:busLine success:^(NSArray<BBusStation *> *busStations) {
+    [BBusStationTool busStationForBusLine:busLine WithDirection:BBusStationDirectionDwon success:^(NSArray<BBusStation *> *busStations) {
         [SVProgressHUD dismiss];
         
         self.busStations = busStations;
@@ -74,6 +73,15 @@
         [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:@"加载失败"];
     }];
+}
+
+- (void)setCollected:(BOOL)collected {
+    _collected = collected;
+    
+    NSString* title = collected ? @"取消收藏" : @"收藏";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(collectClick)];
+    
 }
 
 
@@ -110,12 +118,25 @@
     return NO;
 }
 
-/**
- *  关闭按钮
- */
-- (void)closeClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)collectClick {
+    
+    if (self.collected) { //取消收藏
+        
+        UIAlertView* view = [[UIAlertView alloc]initWithTitle:@"" message:@"删除该收藏？" delegate:nil cancelButtonTitle:@"不删除" otherButtonTitles:@"是的", nil];
+        view.delegate = self;
+        [view show];
+        
+    }else{ // 添加收藏
+        BFavoriteBusLine* favorite = [[BFavoriteBusLine alloc]init];
+        favorite.busLine = self.busLine;
+        
+        if([[BFavoriteBusLineTool defaultTool]addBusLine:favorite]) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:BFavoriteChangeNotification object:nil];
+        }
+        self.collected = YES;
+    }
 }
+
 
 
 @end

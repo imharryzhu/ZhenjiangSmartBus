@@ -16,9 +16,9 @@
 
 @implementation BBusGPSTool
 
-+ (void)busGPSForBusLine:(BBusLine*)busLine success:(void(^)(NSArray<BBusGPS*>* busGPSs))success withFailure:(void(^)(NSError* error))failure {
++ (void)busGPSForBusLine:(BBusLine*)busLine WithDirection:(BBusStationDirection)dir success:(void(^)(NSArray<BBusGPS*>* busGPSs))success withFailure:(void(^)(NSError* error))failure {
     
-    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/BusGPS/0/%@/0?format=json", ZJ_BUSLINES_HOST, busLine.orderno];
+    NSString* url = [NSString stringWithFormat:@"http://%@/Wcity/Bus/BusGPS/0/%@/%lu?format=json", ZJ_BUSLINES_HOST, busLine.orderno, (unsigned long)dir];
     
     [BNetworkTool GET:url parameters:nil success:^(id responseObject) {
         

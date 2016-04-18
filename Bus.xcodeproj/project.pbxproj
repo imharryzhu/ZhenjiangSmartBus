@@ -34,15 +34,14 @@
 		7B57BFBD1C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE771C9AB75800D4AE6E /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		7B57BFBE1C9AB75800D4AE6E /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE791C9AB75800D4AE6E /* View+MASAdditions.m */; };
 		7B57BFBF1C9AB75800D4AE6E /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B57BE7C1C9AB75800D4AE6E /* ViewController+MASAdditions.m */; };
+		7B64E9291CC36475005CAB0C /* BHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64E9281CC36475005CAB0C /* BHomeController.m */; };
 		7B85C5F71CAF96F600F73711 /* BUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B85C5F61CAF96F600F73711 /* BUser.m */; };
 		7B95BD7C1C998FF10029AEAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BD7B1C998FF10029AEAE /* main.m */; };
 		7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B95BD861C998FF10029AEAE /* Assets.xcassets */; };
 		7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B95BD881C998FF10029AEAE /* LaunchScreen.storyboard */; };
 		7B95BD951C998FF10029AEAE /* BusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BD941C998FF10029AEAE /* BusTests.m */; };
 		7B95BDA01C998FF10029AEAE /* BusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BD9F1C998FF10029AEAE /* BusUITests.m */; };
-		7B95BDC41C9992D30029AEAE /* BHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BDBE1C9992D30029AEAE /* BHomeController.m */; };
 		7B95BDC51C9992D30029AEAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B95BDC21C9992D30029AEAE /* AppDelegate.m */; };
-		7B9A4AE21C9E9A1F0041AC35 /* BAddFavoriteBusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */; };
 		7B9A4AE81C9EA4890041AC35 /* BBusLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */; };
 		7B9A4AF21C9EA84C0041AC35 /* BBusLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */; };
 		7BAEC6261CACD5B00036D5D6 /* BLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEC6251CACD5B00036D5D6 /* BLabel.m */; };
@@ -116,9 +115,13 @@
 		7BB552F21CBFB43F0061B372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB552F11CBFB43F0061B372 /* Main.storyboard */; };
 		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
 		7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */; };
+		7BC908201CC252CA007623B2 /* BIntervalTimeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC9081F1CC252CA007623B2 /* BIntervalTimeToolBar.m */; };
+		7BC908221CC252E8007623B2 /* BIntervalTimeToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC908211CC252E8007623B2 /* BIntervalTimeToolBar.xib */; };
+		7BC908251CC25DC7007623B2 /* BPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC908241CC25DC7007623B2 /* BPreference.m */; };
 		7BCB45391CC088EC00A41756 /* BNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB45381CC088EC00A41756 /* BNavigationController.m */; };
 		7BCB45421CC09EFE00A41756 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */; };
 		7BCB45441CC0B8BB00A41756 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCB45431CC0B8BB00A41756 /* libz.tbd */; };
+		7BCB45471CC0C51C00A41756 /* BSettingAddLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB45461CC0C51C00A41756 /* BSettingAddLineCell.m */; };
 		7BE601D91CA3DA6B00301A56 /* BBusGPSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */; };
 		7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */; };
 		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
@@ -202,6 +205,7 @@
 		7B57BE7A1C9AB75800D4AE6E /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		7B57BE7B1C9AB75800D4AE6E /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		7B57BE7C1C9AB75800D4AE6E /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		7B64E9281CC36475005CAB0C /* BHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHomeController.m; sourceTree = "<group>"; };
 		7B85C5F51CAF96F600F73711 /* BUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUser.h; sourceTree = "<group>"; };
 		7B85C5F61CAF96F600F73711 /* BUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUser.m; sourceTree = "<group>"; };
 		7B95BD771C998FF10029AEAE /* Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,11 +220,8 @@
 		7B95BD9F1C998FF10029AEAE /* BusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusUITests.m; sourceTree = "<group>"; };
 		7B95BDA11C998FF10029AEAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B95BDBD1C9992D30029AEAE /* BHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHomeController.h; sourceTree = "<group>"; };
-		7B95BDBE1C9992D30029AEAE /* BHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHomeController.m; sourceTree = "<group>"; };
 		7B95BDC11C9992D30029AEAE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B95BDC21C9992D30029AEAE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7B9A4AE01C9E9A1F0041AC35 /* BAddFavoriteBusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAddFavoriteBusCell.h; sourceTree = "<group>"; };
-		7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAddFavoriteBusCell.m; sourceTree = "<group>"; };
 		7B9A4AE61C9EA4890041AC35 /* BBusLineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineController.h; sourceTree = "<group>"; };
 		7B9A4AE71C9EA4890041AC35 /* BBusLineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineController.m; sourceTree = "<group>"; };
 		7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineCell.h; sourceTree = "<group>"; };
@@ -368,12 +369,19 @@
 		7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BFavoriteBusCardCell.xib; sourceTree = "<group>"; };
 		7BC3F4111CAA266E004FE662 /* BBusGPSViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSViewLayout.h; sourceTree = "<group>"; };
 		7BC3F4121CAA266E004FE662 /* BBusGPSViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSViewLayout.m; sourceTree = "<group>"; };
+		7BC9081E1CC252CA007623B2 /* BIntervalTimeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIntervalTimeToolBar.h; sourceTree = "<group>"; };
+		7BC9081F1CC252CA007623B2 /* BIntervalTimeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIntervalTimeToolBar.m; sourceTree = "<group>"; };
+		7BC908211CC252E8007623B2 /* BIntervalTimeToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BIntervalTimeToolBar.xib; sourceTree = "<group>"; };
+		7BC908231CC25DC7007623B2 /* BPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPreference.h; sourceTree = "<group>"; };
+		7BC908241CC25DC7007623B2 /* BPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPreference.m; sourceTree = "<group>"; };
 		7BCB45371CC088EC00A41756 /* BNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNavigationController.h; sourceTree = "<group>"; };
 		7BCB45381CC088EC00A41756 /* BNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNavigationController.m; sourceTree = "<group>"; };
 		7BCB453E1CC09E8D00A41756 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		7BCB453F1CC09E8D00A41756 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = Bus/Libs/UMAnalytics_Sdk_3.6.6/libMobClickLibrary.a; sourceTree = "<group>"; };
 		7BCB45431CC0B8BB00A41756 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7BCB45451CC0C51C00A41756 /* BSettingAddLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSettingAddLineCell.h; path = ../../Controller/BSettingAddLineCell.h; sourceTree = "<group>"; };
+		7BCB45461CC0C51C00A41756 /* BSettingAddLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BSettingAddLineCell.m; path = ../../Controller/BSettingAddLineCell.m; sourceTree = "<group>"; };
 		7BE601D71CA3DA6B00301A56 /* BBusGPSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSView.h; sourceTree = "<group>"; };
 		7BE601D81CA3DA6B00301A56 /* BBusGPSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSView.m; sourceTree = "<group>"; };
 		7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPSCell.h; sourceTree = "<group>"; };
@@ -415,8 +423,8 @@
 		7B40698C1C9D7CBA0047C7C2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */,
 				7B40698D1C9D7CBA0047C7C2 /* NSArray+Log.h */,
+				7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */,
 				7B40698F1C9D7CBA0047C7C2 /* UIView+ZH.h */,
 				7B4069901C9D7CBA0047C7C2 /* UIView+ZH.m */,
 				7B39857A1CA23FCE005B2A96 /* NSString+Extension.h */,
@@ -563,7 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				7B95BDBD1C9992D30029AEAE /* BHomeController.h */,
-				7B95BDBE1C9992D30029AEAE /* BHomeController.m */,
+				7B64E9281CC36475005CAB0C /* BHomeController.m */,
 				7B4069891C9D790E0047C7C2 /* BCollectionViewLayout.h */,
 				7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */,
 				7B9A4AE61C9EA4890041AC35 /* BBusLineController.h */,
@@ -604,6 +612,8 @@
 				7B95BDC21C9992D30029AEAE /* AppDelegate.m */,
 				7B39857D1CA2552C005B2A96 /* BCommon.h */,
 				7B39857E1CA2552C005B2A96 /* BCommon.m */,
+				7BC908231CC25DC7007623B2 /* BPreference.h */,
+				7BC908241CC25DC7007623B2 /* BPreference.m */,
 				7BCB45371CC088EC00A41756 /* BNavigationController.h */,
 				7BCB45381CC088EC00A41756 /* BNavigationController.m */,
 			);
@@ -613,11 +623,10 @@
 		7B95BDC31C9992D30029AEAE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BCB45481CC0C55F00A41756 /* Cell */,
 				7B4069861C9D5DD60047C7C2 /* BFavoriteBusCardCell.h */,
 				7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */,
 				7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */,
-				7B9A4AE01C9E9A1F0041AC35 /* BAddFavoriteBusCell.h */,
-				7B9A4AE11C9E9A1F0041AC35 /* BAddFavoriteBusCell.m */,
 				7B9A4AF01C9EA84C0041AC35 /* BBusLineCell.h */,
 				7B9A4AF11C9EA84C0041AC35 /* BBusLineCell.m */,
 				7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */,
@@ -630,6 +639,9 @@
 				7BE601DA1CA3E5F600301A56 /* BBusGPSCell.h */,
 				7BE601DB1CA3E5F600301A56 /* BBusGPSCell.m */,
 				7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */,
+				7BC9081E1CC252CA007623B2 /* BIntervalTimeToolBar.h */,
+				7BC9081F1CC252CA007623B2 /* BIntervalTimeToolBar.m */,
+				7BC908211CC252E8007623B2 /* BIntervalTimeToolBar.xib */,
 				7BAEC6241CACD5B00036D5D6 /* BLabel.h */,
 				7BAEC6251CACD5B00036D5D6 /* BLabel.m */,
 				7B046DAF1CB945C1005848CA /* BVerticalButton.h */,
@@ -898,6 +910,15 @@
 			path = UMAnalytics_Sdk_3.6.6;
 			sourceTree = "<group>";
 		};
+		7BCB45481CC0C55F00A41756 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7BCB45451CC0C51C00A41756 /* BSettingAddLineCell.h */,
+				7BCB45461CC0C51C00A41756 /* BSettingAddLineCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1010,6 +1031,7 @@
 				7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */,
 				7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */,
 				7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */,
+				7BC908221CC252E8007623B2 /* BIntervalTimeToolBar.xib in Resources */,
 				7B4037171CBFC8D700A87C9A /* logo.png in Resources */,
 				7BB05C8E1CA0FB1500D0D130 /* MJRefresh.bundle in Resources */,
 				7B57BFB51C9AB75800D4AE6E /* Info.plist in Resources */,
@@ -1057,13 +1079,13 @@
 				7BB05C971CA0FB1500D0D130 /* SDWebImageDownloader.m in Sources */,
 				7BB05C811CA0FB1500D0D130 /* MJRefreshBackFooter.m in Sources */,
 				7BE601E41CA3FCFC00301A56 /* BBusGPS.m in Sources */,
-				7B9A4AE21C9E9A1F0041AC35 /* BAddFavoriteBusCell.m in Sources */,
 				7BB05C881CA0FB1500D0D130 /* MJRefreshBackGifFooter.m in Sources */,
 				7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */,
 				7B39858B1CA25F57005B2A96 /* BBusStationCell.m in Sources */,
 				7BB05C9E1CA0FB1500D0D130 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7BE601E11CA3F41700301A56 /* BBusGPSTool.m in Sources */,
 				7BB05C711CA0FB1500D0D130 /* UIButton+AFNetworking.m in Sources */,
+				7BC908201CC252CA007623B2 /* BIntervalTimeToolBar.m in Sources */,
 				7B57BFB61C9AB75800D4AE6E /* MASCompositeConstraint.m in Sources */,
 				7BB05C7D1CA0FB1500D0D130 /* NSObject+MJKeyValue.m in Sources */,
 				7BB552EF1CBFB2B20061B372 /* BSettingController.m in Sources */,
@@ -1087,8 +1109,8 @@
 				7BB05C751CA0FB1500D0D130 /* UIWebView+AFNetworking.m in Sources */,
 				7BB05C921CA0FB1500D0D130 /* UIView+MJExtension.m in Sources */,
 				7BB05C8B1CA0FB1500D0D130 /* MJRefreshGifHeader.m in Sources */,
+				7BCB45471CC0C51C00A41756 /* BSettingAddLineCell.m in Sources */,
 				7BB05C6C1CA0FB1500D0D130 /* AFURLSessionManager.m in Sources */,
-				7B95BDC41C9992D30029AEAE /* BHomeController.m in Sources */,
 				7BB05CAC1CA1028F00D0D130 /* BBusLineTool.m in Sources */,
 				7BB05C911CA0FB1500D0D130 /* UIScrollView+MJRefresh.m in Sources */,
 				7B95BDC51C9992D30029AEAE /* AppDelegate.m in Sources */,
@@ -1105,6 +1127,7 @@
 				7B57BFB91C9AB75800D4AE6E /* MASLayoutConstraint.m in Sources */,
 				7B39857C1CA23FCE005B2A96 /* NSString+Extension.m in Sources */,
 				7BB05C9A1CA0FB1500D0D130 /* SDWebImagePrefetcher.m in Sources */,
+				7BC908251CC25DC7007623B2 /* BPreference.m in Sources */,
 				7BB05CA11CA0FB1500D0D130 /* SVIndefiniteAnimatedView.m in Sources */,
 				7BE601DC1CA3E5F600301A56 /* BBusGPSCell.m in Sources */,
 				7BB05C8F1CA0FB1500D0D130 /* MJRefreshConst.m in Sources */,
@@ -1138,6 +1161,7 @@
 				7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */,
 				7BB05C791CA0FB1500D0D130 /* MJPropertyKey.m in Sources */,
 				7B57BFB81C9AB75800D4AE6E /* MASConstraintMaker.m in Sources */,
+				7B64E9291CC36475005CAB0C /* BHomeController.m in Sources */,
 				7BC3F4131CAA266E004FE662 /* BBusGPSViewLayout.m in Sources */,
 				7BB05C831CA0FB1500D0D130 /* MJRefreshFooter.m in Sources */,
 				7BB05CA31CA0FB1500D0D130 /* SVProgressHUD.m in Sources */,

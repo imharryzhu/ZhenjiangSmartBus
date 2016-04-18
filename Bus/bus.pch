@@ -19,13 +19,22 @@
 #import "BCommon.h"
 
 
+typedef NS_ENUM(NSUInteger, BBusStationDirection) {
+    BBusStationDirectionDwon = 0, // 下行
+    BBusStationDirectionUp // 上行
+};
+
+
+
+#define BVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
 #define BREAK_IF(cond) if(cond) break
+
 #define rgb(r, g, b) [UIColor colorWithRed:((r)/255.0f) green:((g)/255.0f) blue:((b)/255.0f) alpha:1.0]
 
 #define themeColor rgb(80, 227, 194)
 
 #define UMENG_APPKEY    @"571064ea67e58eef48000621"
-
 
 #define ZJ_BUSLINES_HOST @"221.131.71.166:55905"
 
@@ -52,5 +61,10 @@
  *  保存BBusStaion数据
  */
 #define BSelectedBusStation @"BSelectedBusStation"
+
+/**
+ *  用户重新选择了 公交间隔时间
+ */
+#define BGPSIntervalTimeSelectedNotifcation @"BGPSIntervalTimeSelectedNotifcation"
 
 #endif /* bus_pch */

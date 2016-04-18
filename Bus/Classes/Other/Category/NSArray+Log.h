@@ -10,6 +10,11 @@
 
 @interface NSArray (Log)
 
+/**
+ *  获取类的所有属性
+ */
++ (instancetype)getProperties:(Class)cls;
+
 @end
 
 @interface NSDictionary (Log)
