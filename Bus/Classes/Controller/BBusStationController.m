@@ -138,5 +138,20 @@
 }
 
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1) {
+        NSArray* array = [[BFavoriteBusLineTool defaultTool]favoriteBusLines];
+        for (int i = (int)array.count-1 ; i >= 0; i--) {
+            BFavoriteBusLine* favorite = [array objectAtIndex:i];
+            if([favorite.busLine.fullname isEqualToString:self.busLine.fullname]){
+                if([[BFavoriteBusLineTool defaultTool]deleteBusLine:favorite]){
+                    [[NSNotificationCenter defaultCenter]postNotificationName:BFavoriteChangeNotification object:nil];
+                    self.collected = NO;
+                }
+            }
+        }
+    }
+}
+
 
 @end

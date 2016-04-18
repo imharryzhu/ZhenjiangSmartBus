@@ -170,7 +170,10 @@ static NSString* reuseId_favorite = @"favorite";
         make.top.equalTo(self.mas_topLayoutGuide);
         make.left.equalTo(superView);
         make.right.equalTo(superView);
-        make.height.equalTo(superView).with.multipliedBy(0.7);
+        
+        float height_scale = 0.65;
+        
+        make.height.equalTo(superView).with.multipliedBy(height_scale);
     }];
     
     [collectionView registerNib:[UINib nibWithNibName:@"BFavoriteBusCardCell" bundle:nil] forCellWithReuseIdentifier:reuseId_favorite];
@@ -183,12 +186,11 @@ static NSString* reuseId_favorite = @"favorite";
     
     updateView.backgroundColor = [UIColor whiteColor];
     
-    
     [updateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(superView);
         make.bottom.equalTo(superView);
         make.right.equalTo(superView);
-        make.top.equalTo(collectionView.mas_bottom);
+        make.top.equalTo(collectionView.mas_bottom).with.mas_offset(5);
     }];
 }
 
@@ -223,6 +225,10 @@ static NSString* reuseId_favorite = @"favorite";
         // 阻止惯性继续滑动
         [scrollView setContentOffset:scrollView.contentOffset animated:NO];
     }
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    return NO;
 }
 
 /**

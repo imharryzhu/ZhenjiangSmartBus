@@ -16,7 +16,7 @@
         // 水平滚动
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
-        self.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
+        self.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
     }
     return self;
 }
@@ -96,7 +96,7 @@
     [super prepareLayout];
     
     
-    self.itemSize = CGSizeMake(self.collectionView.width - 40, self.collectionView.height - 30);
+    self.itemSize = CGSizeMake(self.collectionView.width - 40, self.collectionView.height - 10);
     
 }
 
