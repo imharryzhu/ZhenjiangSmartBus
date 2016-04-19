@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class BSettingController;
+
+@protocol BSettingControllerDelegate <NSObject>
+
+- (void)settingControllerDidChangeCollected:(BSettingController*)vc;
+
+@end
+
 @interface BSettingController : UITableViewController
 
 + (instancetype)settingVC;
+
+@property (nonatomic,weak) id<BSettingControllerDelegate> delegate;
 
 @end

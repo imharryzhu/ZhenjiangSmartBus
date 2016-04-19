@@ -10,8 +10,6 @@
 
 @class BFavoriteBusLine;
 
-static NSString* BFavoriteChangeNotification = @"BFavoriteChangeNotification";
-
 @interface BFavoriteBusLineTool : NSObject
 
 /**

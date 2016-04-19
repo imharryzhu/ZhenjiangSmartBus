@@ -37,6 +37,7 @@
 
 @property (nonatomic,weak) UIPickerView* pickerView;
 
+@property (nonatomic,assign) BOOL favoriteChanged;
 
 @end
 
@@ -56,6 +57,19 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick endLogPageView:[[self class]description]];
+}
+
+/**
+ *  在页面完全加载完毕后，检测用户是否修改过收藏
+ *  如果修改过，则跳转到收藏线路界面
+ *
+ */
+- (void)viewDidAppear:(BOOL)animated {
+    
+    if(self.favoriteChanged && [self.delegate respondsToSelector:@selector(settingControllerDidChangeCollected:)]){
+        self.favoriteChanged = NO;
+        [self.delegate settingControllerDidChangeCollected:self];
+    }
 }
 
 
@@ -89,6 +103,9 @@
     self.pickerData = @[@"1秒", @"5秒", @"20秒", @"30秒", @"1分钟", @"2分钟", @"5分钟", @"手动刷新", @"自定义"];
     
     [self fillWithPreference];
+    
+    // 监听用户收藏改变
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
 }
 
 - (void)fillWithPreference {
@@ -279,7 +296,20 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:BGPSIntervalTimeSelectedNotifcation object:nil];
 }
 
+- (void)dealloc {
+    
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
+#pragma mark - 消息通知
+
+/**
+ *  当收藏发生改变时
+ */
+- (void)favoriteBusLinesDidchange {
+    self.favoriteChanged = YES;
+}
 
 
 @end

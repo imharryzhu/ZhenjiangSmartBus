@@ -29,7 +29,7 @@
 
 #import "MobClick.h"
 
-@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate>
+@interface BHomeController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, BFavoriteBusCardDelegate, UIAlertViewDelegate, BSettingControllerDelegate>
 
 @property (nonatomic,weak) UICollectionView* collectionView;
 @property (nonatomic,weak) BBusGPSView* gpsView;
@@ -51,6 +51,8 @@
 
 
 @property (nonatomic, strong) UIView* busView;
+
+@property (nonatomic,weak) BSettingController* settingVC;
 
 @end
 
@@ -101,6 +103,17 @@ static NSString* reuseId_favorite = @"favorite";
     [self.view addSubview:busView];
     
     
+    /**
+     *  添加设置界面
+     */
+    BSettingController* settingVC = [BSettingController settingVC];
+    settingVC.delegate = self;
+    self.settingVC = settingVC;
+    BNavigationController* nav = [[BNavigationController alloc]initWithRootViewController:settingVC];
+    [self addChildViewController:nav];
+    nav.view.frame = CGRectMake(CGRectGetMaxX(self.busView.frame), 0, self.view.width, self.view.height);
+    [self.view addSubview:nav.view];
+    
     [self setupUI];
     
     // 监听用户收藏改变
@@ -124,17 +137,6 @@ static NSString* reuseId_favorite = @"favorite";
     self.locationMgr.distanceFilter = 500;
     self.locationMgr.desiredAccuracy = kCLLocationAccuracyKilometer;
     [self.locationMgr startUpdatingLocation];
-    
-    
-    /**
-     *  添加设置界面
-     */
-    BSettingController* settingVC = [BSettingController settingVC];
-    BNavigationController* nav = [[BNavigationController alloc]initWithRootViewController:settingVC];
-    [self addChildViewController:nav];
-    nav.view.frame = CGRectMake(CGRectGetMaxX(self.busView.frame), 0, self.view.width, self.view.height);
-    [self.view addSubview:nav.view];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -150,6 +152,8 @@ static NSString* reuseId_favorite = @"favorite";
     // 创建公交卡片切换容器
     
     BCollectionViewLayout* layout = [[BCollectionViewLayout alloc]init];
+    layout.minimumLineSpacing = 10;
+    
     
     UICollectionView* collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.busView addSubview:collectionView];
@@ -163,7 +167,7 @@ static NSString* reuseId_favorite = @"favorite";
     collectionView.showsHorizontalScrollIndicator = NO;
 
     
-    // 添加左右边框
+    // 添加左右边距
     collectionView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
 
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -192,6 +196,20 @@ static NSString* reuseId_favorite = @"favorite";
         make.right.equalTo(superView);
         make.top.equalTo(collectionView.mas_bottom).with.mas_offset(5);
     }];
+    
+    
+    // 如果没有收藏线路，直接跳转到公交列表
+    __weak UIScrollView* scrollView = (UIScrollView*)self.view;
+    if([[BFavoriteBusLineTool defaultTool]favoriteBusLines].count == 0) {
+        scrollView.contentOffset = CGPointMake(scrollView.width, 0);
+        
+        BBusLineController* vc = [[BBusLineController alloc]init];
+        [self.settingVC.navigationController pushViewController:vc animated:YES];
+    }
+       
+       
+    
+    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -298,6 +316,42 @@ static NSString* reuseId_favorite = @"favorite";
     [self.collectionView reloadData];
 }
 
+#pragma mark - BSettingControllerDelegate
+/**
+ *  用户收藏发生更改时
+ *  滚动到最后一页并刷新
+ */
+- (void)settingControllerDidChangeCollected:(BSettingController *)vc {
+    
+    [self.collectionView reloadData];
+    
+    __weak UIScrollView* scrollView = (UIScrollView*)self.view;
+    
+    // 移动到卡片页面
+    [UIView animateWithDuration:0.25 animations:^{
+        scrollView.contentOffset = CGPointMake(0, 0);
+    } completion:^(BOOL finished) {
+        // 移动到最后一张卡片
+        NSInteger count = [self collectionView:self.collectionView numberOfItemsInSection:0];
+        
+        NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:count - 1 inSection:0];
+        
+        
+        UICollectionViewLayoutAttributes* attr = [self.collectionView layoutAttributesForItemAtIndexPath:lastIndexPath];
+        
+        CGPoint pos = attr.frame.origin;
+        pos.x -= 20;
+        pos.y -= 5;
+        
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.collectionView.contentOffset = pos;
+        } completion:^(BOOL finished) {
+            [self scrollViewDidEndDecelerating:self.collectionView];
+        }];
+    }];
+}
+
+
 #pragma mark - 定位代理
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation* userLocation = [locations lastObject];
@@ -314,7 +368,7 @@ static NSString* reuseId_favorite = @"favorite";
  *  当收藏发生改变时
  */
 - (void)favoriteBusLinesDidchange {
-    [self.collectionView reloadData];
+//    [self.collectionView reloadData];
 }
 
 -(void)dealloc {

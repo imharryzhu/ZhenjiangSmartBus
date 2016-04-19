@@ -67,4 +67,9 @@ typedef NS_ENUM(NSUInteger, BBusStationDirection) {
  */
 #define BGPSIntervalTimeSelectedNotifcation @"BGPSIntervalTimeSelectedNotifcation"
 
+/**
+ *  当用户收藏发生改变时
+ */
+static NSString* BFavoriteChangeNotification = @"BFavoriteChangeNotification";
+
 #endif /* bus_pch */
