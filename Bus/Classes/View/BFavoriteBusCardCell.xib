@@ -195,30 +195,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXl-rj-1of">
                                         <rect key="frame" x="199" y="0.0" width="199.5" height="105"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到站提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGe-zl-Qmk">
-                                                <rect key="frame" x="0.0" y="84" width="68" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SR6-LG-MOU">
-                                                <rect key="frame" x="150" y="74" width="51" height="31"/>
-                                            </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有3站" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZv-au-npq">
-                                                <rect key="frame" x="0.0" y="8" width="199" height="61"/>
+                                                <rect key="frame" x="0.0" y="8" width="199" height="97"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="SR6-LG-MOU" secondAttribute="trailing" id="8hA-KA-HEm"/>
+                                            <constraint firstAttribute="bottom" secondItem="qZv-au-npq" secondAttribute="bottom" id="LZ3-Cy-nU8"/>
                                             <constraint firstAttribute="trailing" secondItem="qZv-au-npq" secondAttribute="trailing" id="bRB-yc-9gq"/>
                                             <constraint firstItem="qZv-au-npq" firstAttribute="leading" secondItem="IXl-rj-1of" secondAttribute="leading" id="cCP-Eh-wI2"/>
-                                            <constraint firstAttribute="bottom" secondItem="XGe-zl-Qmk" secondAttribute="bottom" id="hRs-Sx-ewh"/>
-                                            <constraint firstAttribute="bottom" secondItem="SR6-LG-MOU" secondAttribute="bottom" id="kRU-nc-icq"/>
-                                            <constraint firstItem="SR6-LG-MOU" firstAttribute="top" secondItem="qZv-au-npq" secondAttribute="bottom" constant="5" id="q6I-As-GKt"/>
-                                            <constraint firstItem="XGe-zl-Qmk" firstAttribute="leading" secondItem="IXl-rj-1of" secondAttribute="leading" id="w0X-x3-dgy"/>
                                             <constraint firstItem="qZv-au-npq" firstAttribute="top" secondItem="IXl-rj-1of" secondAttribute="top" constant="8" id="xyL-XN-Eg9"/>
                                         </constraints>
                                     </view>
@@ -371,7 +358,6 @@
                 <outlet property="aaa" destination="1Xx-ss-Qkb" id="4yB-2F-Mrr"/>
                 <outlet property="busArriveStationLabel" destination="RHU-JX-sLK" id="xkX-fu-DjL"/>
                 <outlet property="busArriveStationSubLabel" destination="6Yx-ts-wUA" id="hUx-1k-6fe"/>
-                <outlet property="busArriveTipLabel" destination="XGe-zl-Qmk" id="HZo-qE-Vei"/>
                 <outlet property="busDirViewTop" destination="jYA-L4-cVw" id="T4t-zy-NGg"/>
                 <outlet property="busLineNameLabel" destination="UBZ-hI-fd3" id="Jnw-KF-XqU"/>
                 <outlet property="busLineNameLabelHeight" destination="avZ-qz-1d7" id="dZ4-jx-Gf5"/>

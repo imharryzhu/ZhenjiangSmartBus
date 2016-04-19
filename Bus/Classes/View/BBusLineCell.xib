@@ -62,7 +62,7 @@
                             </mask>
                         </variation>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXw-HA-Y9d" customClass="BVerticalButton">
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="250" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXw-HA-Y9d" customClass="BVerticalButton">
                         <rect key="frame" x="272" y="18" width="95" height="58.5"/>
                         <state key="normal" title="已收藏" image="favorite_no_normal">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

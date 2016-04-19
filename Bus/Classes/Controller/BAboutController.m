@@ -59,9 +59,24 @@
     [view addSubview:imageview];
     
     return view;
-    
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 1) {
+        [self didClickVisitBlog];
+        
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+- (void)didClickVisitBlog {
+    [MobClick event:@"goblog"];
+    
+    NSURL* url = [[NSURL alloc]initWithString:@"http://blog.yeetor.com"];
+    [[UIApplication sharedApplication]openURL:url];
+}
 
 
 @end

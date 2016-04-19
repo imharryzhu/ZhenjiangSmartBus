@@ -298,8 +298,6 @@ static NSString* reuseId_favorite = @"favorite";
     
     self.lastFavotireCell = nil;
     
-    [self busCardDidSelected];
-    
     [self.collectionView reloadData];
 }
 
@@ -313,7 +311,12 @@ static NSString* reuseId_favorite = @"favorite";
     
     [cardCell removeFromSuperview];
     [[BFavoriteBusLineTool defaultTool]deleteBusLine:cardCell.favoriteBusLine];
+    
     [self.collectionView reloadData];
+    
+    self.lastFavotireCell = nil;
+    
+    [self busCardDidSelected];
 }
 
 #pragma mark - BSettingControllerDelegate
@@ -322,6 +325,10 @@ static NSString* reuseId_favorite = @"favorite";
  *  滚动到最后一页并刷新
  */
 - (void)settingControllerDidChangeCollected:(BSettingController *)vc {
+    NSInteger count = [self collectionView:self.collectionView numberOfItemsInSection:0];
+    if(count == 0) {
+        return;
+    }
     
     [self.collectionView reloadData];
     
