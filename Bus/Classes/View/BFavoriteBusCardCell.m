@@ -288,8 +288,8 @@
     do {
         
         if(nearsetBusGPS == nil) {
-            stationName = @"目前没有公交在路上~~";
-            subText = @"悲剧啊~~";
+            stationName = @"目前没有合适的公交";
+            subText = @"请耐心等待";
             countOfStation = @"还有0站";
             surplusTime = @"0";
             break;
@@ -327,11 +327,14 @@
         subText = [NSString stringWithFormat:@"%.2f%@", distance, unit];
         
         // 计算公交车离开上一站的时间
-        
         NSString* timeTip = [BCommon stringFromTimeInterval:[BCommon dateFromDateString:nearsetBusGPS.date]];
         
-        subText = [NSString stringWithFormat:@"%@, 距您%@", timeTip, subText];
-        
+        if(nearsetBusGPS.arriveStation.integerValue == 0) {
+            subText = [NSString stringWithFormat:@"%@离开此站\n距您%@", timeTip, subText];
+        }else{
+            subText = [NSString stringWithFormat:@"刚刚到!快去\n距离%@", subText];
+        }
+
         // 计算剩余站数量
         int countOfStationNum = self.currentStation.orderno.intValue - nearestBusStation.orderno.intValue;
         
@@ -356,8 +359,6 @@
         }
         
         // 减去公交已经离开的时间
-        NSLog(@"%@", nearsetBusGPS.date);
-        
         surplusTime = [NSString stringWithFormat:@"%d", (int)probablyTime];
         
     }while(0);
@@ -406,14 +407,14 @@
     BBusStation* minDistanceStation = [self getNearsetBusStaionAtLocation:curLocation];
     
     if (minDistanceStation == nil) {
-        self.currentStationNameLabel.text = @"现在木有网";
+        self.currentStationNameLabel.text = @"网络不给力";
     } else {
         self.currentStationNameLabel.text = minDistanceStation.name;
     }
     
     CLLocationDistance minDistance = [minDistanceStation.location distanceFromLocation:curLocation];
     
-    self.currentStationSubLabel.text = [NSString stringWithFormat:@"大概%@", [self distanceToString:minDistance]];
+    self.currentStationSubLabel.text = [NSString stringWithFormat:@"距您约%@", [self distanceToString:minDistance]];
     
     // 设置当前用户所在站点
     self.currentStation = minDistanceStation;

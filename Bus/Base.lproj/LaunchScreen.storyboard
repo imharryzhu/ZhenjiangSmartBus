@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +16,46 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-6k-m4t">
+                                <rect key="frame" x="259" y="96" width="83" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="NC2-V3-umm"/>
+                                    <constraint firstAttribute="width" constant="240" id="Xfz-fM-eo0"/>
+                                    <constraint firstAttribute="height" constant="240" id="giq-j9-tPf"/>
+                                    <constraint firstAttribute="height" constant="167" id="lcI-ID-Vn6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Xfz-fM-eo0"/>
+                                        <exclude reference="giq-j9-tPf"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ssgj.png" translatesAutoresizingMaskIntoConstraints="NO" id="IjW-aq-9a6">
+                                <rect key="frame" x="180" y="303" width="240" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="2UG-Vh-V82"/>
+                                    <constraint firstAttribute="width" constant="240" id="Xmt-Le-jvh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subtitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-nf-lqD">
+                                <rect key="frame" x="150" y="389" width="300" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27.5" id="1oL-MP-Rfy"/>
+                                    <constraint firstAttribute="width" constant="300" id="Var-Z9-B1S"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41960784313725491" green="0.92156862745098034" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2CS-6k-m4t" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-120" id="4tT-2W-Lp1"/>
+                            <constraint firstItem="IjW-aq-9a6" firstAttribute="top" secondItem="2CS-6k-m4t" secondAttribute="bottom" constant="40" id="9oU-CQ-8TL"/>
+                            <constraint firstItem="Ub9-nf-lqD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="E6e-sb-r1S"/>
+                            <constraint firstItem="2CS-6k-m4t" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Pel-PL-eIS"/>
+                            <constraint firstItem="Ub9-nf-lqD" firstAttribute="top" secondItem="IjW-aq-9a6" secondAttribute="bottom" constant="15" id="bb3-Pi-BaD"/>
+                            <constraint firstItem="IjW-aq-9a6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lBk-ux-r0l"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +63,9 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="330" height="666"/>
+        <image name="ssgj.png" width="642" height="169"/>
+        <image name="subtitle.png" width="500" height="46"/>
+    </resources>
 </document>

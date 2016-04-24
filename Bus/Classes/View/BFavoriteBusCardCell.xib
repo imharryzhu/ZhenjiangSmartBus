@@ -160,13 +160,13 @@
                                         <state key="highlighted" image="favorite_card_bus_highlight"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啪啪啪啪啪啪啪啪啪站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-JX-sLK">
-                                        <rect key="frame" x="44" y="31" width="297" height="21"/>
+                                        <rect key="frame" x="44" y="28" width="297" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离3站，100km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yx-ts-wUA">
-                                        <rect key="frame" x="44" y="52" width="297" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离3站，100km" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yx-ts-wUA">
+                                        <rect key="frame" x="44" y="49" width="297" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -174,10 +174,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5DS-J2-I4A" firstAttribute="top" secondItem="Ibv-2i-9Hm" secondAttribute="top" constant="5" id="CHl-2d-dd3"/>
-                                    <constraint firstItem="6Yx-ts-wUA" firstAttribute="top" secondItem="5DS-J2-I4A" secondAttribute="top" constant="15" id="Ffd-Ov-PO7"/>
+                                    <constraint firstItem="6Yx-ts-wUA" firstAttribute="top" secondItem="5DS-J2-I4A" secondAttribute="top" constant="12" id="Ffd-Ov-PO7"/>
                                     <constraint firstAttribute="trailing" secondItem="RHU-JX-sLK" secondAttribute="trailing" constant="8" id="LxW-eo-Mpl"/>
                                     <constraint firstItem="5DS-J2-I4A" firstAttribute="leading" secondItem="Ibv-2i-9Hm" secondAttribute="leading" constant="5" id="Pkk-LX-M0K"/>
-                                    <constraint firstItem="RHU-JX-sLK" firstAttribute="bottom" secondItem="5DS-J2-I4A" secondAttribute="bottom" constant="-15" id="Toq-8A-TZv"/>
+                                    <constraint firstItem="RHU-JX-sLK" firstAttribute="bottom" secondItem="5DS-J2-I4A" secondAttribute="bottom" constant="-18" id="Toq-8A-TZv"/>
                                     <constraint firstAttribute="trailing" secondItem="6Yx-ts-wUA" secondAttribute="trailing" constant="8" id="UbH-nf-5ly"/>
                                     <constraint firstItem="RHU-JX-sLK" firstAttribute="leading" secondItem="5DS-J2-I4A" secondAttribute="trailing" constant="8" id="cz9-rG-5EI"/>
                                     <constraint firstItem="6Yx-ts-wUA" firstAttribute="leading" secondItem="5DS-J2-I4A" secondAttribute="trailing" constant="8" id="jOT-HZ-3xq"/>
@@ -298,13 +298,13 @@
                             <action selector="closeCardClick:" destination="Dey-fF-XF5" eventType="touchUpInside" id="tcu-af-sBN"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIi-QW-yBc">
-                        <rect key="frame" x="484" y="5" width="30" height="30"/>
-                        <state key="normal" title="刷新"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIi-QW-yBc">
+                        <rect key="frame" x="482" y="5" width="32" height="25"/>
+                        <state key="normal" image="favorite_card_refesh"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhK-Db-Sbw">
-                        <rect key="frame" x="317" y="80" width="60" height="30"/>
-                        <state key="normal" title="切换方向"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhK-Db-Sbw">
+                        <rect key="frame" x="322" y="86" width="30" height="24"/>
+                        <state key="normal" image="favorite_card_switch"/>
                         <connections>
                             <action selector="changeDirectionClick:" destination="Dey-fF-XF5" eventType="touchUpInside" id="u5y-Bg-zX8"/>
                         </connections>
@@ -328,7 +328,7 @@
                 <constraint firstItem="uqr-hK-75w" firstAttribute="height" secondItem="Dey-fF-XF5" secondAttribute="height" multiplier="0.15" id="7U7-gJ-JBa"/>
                 <constraint firstItem="PcK-FQ-znC" firstAttribute="leading" secondItem="eX2-4f-XIH" secondAttribute="leading" id="86F-gM-9YU"/>
                 <constraint firstItem="KIi-QW-yBc" firstAttribute="top" secondItem="Dey-fF-XF5" secondAttribute="top" constant="5" id="8Nq-7i-Qo4"/>
-                <constraint firstItem="QhK-Db-Sbw" firstAttribute="leading" secondItem="UBZ-hI-fd3" secondAttribute="trailing" id="9jw-4s-REX"/>
+                <constraint firstItem="QhK-Db-Sbw" firstAttribute="leading" secondItem="UBZ-hI-fd3" secondAttribute="trailing" constant="5" id="9jw-4s-REX"/>
                 <constraint firstItem="Kkk-Zy-e4T" firstAttribute="leading" secondItem="Dey-fF-XF5" secondAttribute="leading" constant="10" id="B7d-Ly-UYz"/>
                 <constraint firstAttribute="trailing" secondItem="ren-ec-ZM9" secondAttribute="trailing" constant="10" id="Jw3-wu-E7S"/>
                 <constraint firstItem="BE4-a4-LpI" firstAttribute="leading" secondItem="Dey-fF-XF5" secondAttribute="leading" constant="5" id="OvQ-8f-nbf"/>
@@ -386,5 +386,7 @@
         <image name="favorite_card_bus" width="30" height="30"/>
         <image name="favorite_card_bus_highlight" width="30" height="30"/>
         <image name="favorite_card_location" width="20" height="30"/>
+        <image name="favorite_card_refesh" width="32" height="25"/>
+        <image name="favorite_card_switch" width="30" height="24"/>
     </resources>
 </document>

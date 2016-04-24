@@ -298,7 +298,11 @@ static NSString* reuseId_favorite = @"favorite";
     
     self.lastFavotireCell = nil;
     
+    [self busCardDidSelected];
+    
     [self.collectionView reloadData];
+    
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

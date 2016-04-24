@@ -18,7 +18,6 @@
 		7B3985911CA27C41005B2A96 /* BFavoriteBusLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3985901CA27C41005B2A96 /* BFavoriteBusLine.m */; };
 		7B3A56E21CBF64ED001CD972 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A56E11CBF64ED001CD972 /* UIImage+Extension.m */; };
 		7B4037151CBFC77900A87C9A /* BAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4037141CBFC77900A87C9A /* BAboutController.m */; };
-		7B4037171CBFC8D700A87C9A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4037161CBFC8D700A87C9A /* logo.png */; };
 		7B4069881C9D5DD60047C7C2 /* BFavoriteBusCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */; };
 		7B40698B1C9D790E0047C7C2 /* BCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698A1C9D790E0047C7C2 /* BCollectionViewLayout.m */; };
 		7B4069911C9D7CBA0047C7C2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B40698E1C9D7CBA0047C7C2 /* NSArray+Log.m */; };
@@ -111,6 +110,9 @@
 		7BB05CAC1CA1028F00D0D130 /* BBusLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CAB1CA1028F00D0D130 /* BBusLineTool.m */; };
 		7BB05CB11CA1081800D0D130 /* BBusLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */; };
 		7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */; };
+		7BB335BE1CCCA653000A817B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB335BD1CCCA653000A817B /* logo.png */; };
+		7BB335C41CCCACB9000A817B /* ssgj.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB335C31CCCACB9000A817B /* ssgj.png */; };
+		7BB335C61CCCAD51000A817B /* subtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB335C51CCCAD51000A817B /* subtitle.png */; };
 		7BB552EF1CBFB2B20061B372 /* BSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB552ED1CBFB2B20061B372 /* BSettingController.m */; };
 		7BB552F21CBFB43F0061B372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB552F11CBFB43F0061B372 /* Main.storyboard */; };
 		7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB905981CA438ED008F3563 /* BFavoriteBusCardCell.xib */; };
@@ -169,7 +171,6 @@
 		7B3A56E11CBF64ED001CD972 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		7B4037131CBFC77900A87C9A /* BAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAboutController.h; sourceTree = "<group>"; };
 		7B4037141CBFC77900A87C9A /* BAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAboutController.m; sourceTree = "<group>"; };
-		7B4037161CBFC8D700A87C9A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		7B4069861C9D5DD60047C7C2 /* BFavoriteBusCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFavoriteBusCardCell.h; sourceTree = "<group>"; };
 		7B4069871C9D5DD60047C7C2 /* BFavoriteBusCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFavoriteBusCardCell.m; sourceTree = "<group>"; };
 		7B4069891C9D790E0047C7C2 /* BCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -363,6 +364,9 @@
 		7BB05CAF1CA1081800D0D130 /* BBusLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusLineViewModel.h; sourceTree = "<group>"; };
 		7BB05CB01CA1081800D0D130 /* BBusLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusLineViewModel.m; sourceTree = "<group>"; };
 		7BB05CD41CA1122600D0D130 /* BBusLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBusLineCell.xib; sourceTree = "<group>"; };
+		7BB335BD1CCCA653000A817B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		7BB335C31CCCACB9000A817B /* ssgj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ssgj.png; sourceTree = "<group>"; };
+		7BB335C51CCCAD51000A817B /* subtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subtitle.png; sourceTree = "<group>"; };
 		7BB552EC1CBFB2B20061B372 /* BSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSettingController.h; sourceTree = "<group>"; };
 		7BB552ED1CBFB2B20061B372 /* BSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSettingController.m; sourceTree = "<group>"; };
 		7BB552F11CBFB43F0061B372 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -527,7 +531,9 @@
 		7B95BD7A1C998FF10029AEAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7B4037161CBFC8D700A87C9A /* logo.png */,
+				7BB335C31CCCACB9000A817B /* ssgj.png */,
+				7BB335C51CCCAD51000A817B /* subtitle.png */,
+				7BB335BD1CCCA653000A817B /* logo.png */,
 				7B95BD881C998FF10029AEAE /* LaunchScreen.storyboard */,
 				7B95BD8B1C998FF10029AEAE /* Info.plist */,
 				7B95BD7B1C998FF10029AEAE /* main.m */,
@@ -1027,12 +1033,14 @@
 			files = (
 				7BB552F21CBFB43F0061B372 /* Main.storyboard in Resources */,
 				7BB05CA21CA0FB1500D0D130 /* SVProgressHUD.bundle in Resources */,
+				7BB335C41CCCACB9000A817B /* ssgj.png in Resources */,
+				7BB335BE1CCCA653000A817B /* logo.png in Resources */,
 				7BB05CD51CA1122600D0D130 /* BBusLineCell.xib in Resources */,
 				7B95BD8A1C998FF10029AEAE /* LaunchScreen.storyboard in Resources */,
 				7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */,
+				7BB335C61CCCAD51000A817B /* subtitle.png in Resources */,
 				7B95BD871C998FF10029AEAE /* Assets.xcassets in Resources */,
 				7BC908221CC252E8007623B2 /* BIntervalTimeToolBar.xib in Resources */,
-				7B4037171CBFC8D700A87C9A /* logo.png in Resources */,
 				7BB05C8E1CA0FB1500D0D130 /* MJRefresh.bundle in Resources */,
 				7B57BFB51C9AB75800D4AE6E /* Info.plist in Resources */,
 				7BB905991CA438ED008F3563 /* BFavoriteBusCardCell.xib in Resources */,
@@ -1308,6 +1316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1326,6 +1335,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
