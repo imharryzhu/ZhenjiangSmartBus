@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-6k-m4t">
-                                <rect key="frame" x="259" y="96" width="83" height="167"/>
+                                <rect key="frame" x="280" y="96" width="83" height="167"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="83" id="NC2-V3-umm"/>
                                     <constraint firstAttribute="width" constant="240" id="Xfz-fM-eo0"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subtitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-nf-lqD">
-                                <rect key="frame" x="150" y="389" width="300" height="27.5"/>
+                                <rect key="frame" x="150" y="389" width="300" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27.5" id="1oL-MP-Rfy"/>
                                     <constraint firstAttribute="width" constant="300" id="Var-Z9-B1S"/>
@@ -52,7 +52,7 @@
                             <constraint firstItem="2CS-6k-m4t" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-120" id="4tT-2W-Lp1"/>
                             <constraint firstItem="IjW-aq-9a6" firstAttribute="top" secondItem="2CS-6k-m4t" secondAttribute="bottom" constant="40" id="9oU-CQ-8TL"/>
                             <constraint firstItem="Ub9-nf-lqD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="E6e-sb-r1S"/>
-                            <constraint firstItem="2CS-6k-m4t" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Pel-PL-eIS"/>
+                            <constraint firstItem="2CS-6k-m4t" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="21" id="Pel-PL-eIS"/>
                             <constraint firstItem="Ub9-nf-lqD" firstAttribute="top" secondItem="IjW-aq-9a6" secondAttribute="bottom" constant="15" id="bb3-Pi-BaD"/>
                             <constraint firstItem="IjW-aq-9a6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lBk-ux-r0l"/>
                         </constraints>

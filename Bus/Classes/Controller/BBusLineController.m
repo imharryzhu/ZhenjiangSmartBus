@@ -48,6 +48,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick endLogPageView:[[self class]description]];
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {

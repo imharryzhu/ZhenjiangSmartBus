@@ -74,6 +74,7 @@ static NSString* reuseId_favorite = @"favorite";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick endLogPageView:[[self class]description]];
+    [super viewWillDisappear:animated];
 }
 
 - (void)loadView {
@@ -102,7 +103,6 @@ static NSString* reuseId_favorite = @"favorite";
     self.busView = busView;
     [self.view addSubview:busView];
     
-    
     /**
      *  添加设置界面
      */
@@ -130,18 +130,19 @@ static NSString* reuseId_favorite = @"favorite";
     // 开始定位
     self.locationMgr = [[CLLocationManager alloc]init];
     if([[[UIDevice currentDevice] systemVersion] floatValue] > 8.0) {
-        [self.locationMgr requestAlwaysAuthorization];
+        [self.locationMgr requestWhenInUseAuthorization];
     }
     self.locationMgr.delegate = self;
     // 位置偏移 500m
-    self.locationMgr.distanceFilter = 500;
-    self.locationMgr.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationMgr.distanceFilter = 100;
+    self.locationMgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [self.locationMgr startUpdatingLocation];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [self busCardDidSelected];
+    [super viewDidAppear:animated];
 }
 
 
@@ -298,11 +299,15 @@ static NSString* reuseId_favorite = @"favorite";
     
     self.lastFavotireCell = nil;
     
+//    [self.collectionView reloadData];
+    
     [self busCardDidSelected];
     
-    [self.collectionView reloadData];
     
-    
+}
+
+- (void)favoriteBusCardDidUpdateClick:(BFavoriteBusCardCell *)cardCell {
+    [self.gpsView updateBusGps];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

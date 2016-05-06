@@ -129,6 +129,7 @@
 		7BE601DE1CA3E6CE00301A56 /* BBusGPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE601DD1CA3E6CE00301A56 /* BBusGPSCell.xib */; };
 		7BE601E11CA3F41700301A56 /* BBusGPSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601E01CA3F41700301A56 /* BBusGPSTool.m */; };
 		7BE601E41CA3FCFC00301A56 /* BBusGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE601E31CA3FCFC00301A56 /* BBusGPS.m */; };
+		7BEAD4641CD26DE4009E6E5E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEAD4631CD26DE4009E6E5E /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,6 +396,7 @@
 		7BE601E01CA3F41700301A56 /* BBusGPSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPSTool.m; sourceTree = "<group>"; };
 		7BE601E21CA3FCFC00301A56 /* BBusGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBusGPS.h; sourceTree = "<group>"; };
 		7BE601E31CA3FCFC00301A56 /* BBusGPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBusGPS.m; sourceTree = "<group>"; };
+		7BEAD4631CD26DE4009E6E5E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEAD4641CD26DE4009E6E5E /* StoreKit.framework in Frameworks */,
 				7BCB45441CC0B8BB00A41756 /* libz.tbd in Frameworks */,
 				7BCB45421CC09EFE00A41756 /* libMobClickLibrary.a in Frameworks */,
 			);
@@ -498,6 +501,7 @@
 		7B95BD6E1C998FF10029AEAE = {
 			isa = PBXGroup;
 			children = (
+				7BEAD4631CD26DE4009E6E5E /* StoreKit.framework */,
 				7BCB45431CC0B8BB00A41756 /* libz.tbd */,
 				7BCB45411CC09EFE00A41756 /* libMobClickLibrary.a */,
 				7B95BD791C998FF10029AEAE /* Bus */,
@@ -993,6 +997,7 @@
 				TargetAttributes = {
 					7B95BD761C998FF10029AEAE = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5VYK6E9JFF;
 					};
 					7B95BD8F1C998FF10029AEAE = {
 						CreatedOnToolsVersion = 7.2;
@@ -1306,6 +1311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1314,8 +1320,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bus/Libs/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1325,6 +1333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Bus/bus.pch;
 				INFOPLIST_FILE = Bus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1333,8 +1342,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bus/Libs/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.Bus;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeetor.bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

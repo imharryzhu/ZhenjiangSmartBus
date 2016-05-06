@@ -16,7 +16,7 @@
 @implementation BPreference
 
 + (NSInteger)intervalTimeTypeToSecond:(NSString*)type {
-    NSDictionary* dic = @{@"1秒":@1, @"5秒":@5, @"20秒":@20, @"30秒":@30, @"1分钟":@60, @"2分钟":@120, @"5分钟":@300, @"手动刷新":@0, @"自定义":@([self secondForCustom])};
+    NSDictionary* dic = @{@"1秒":@1, @"5秒":@5, @"20秒":@20, @"30秒":@30, @"1分钟":@60, @"2分钟":@120, @"5分钟":@300, @"手动刷新":@(INT_MAX), @"自定义":@([self secondForCustom])};
     
     return [[dic objectForKey:type]integerValue];
 }

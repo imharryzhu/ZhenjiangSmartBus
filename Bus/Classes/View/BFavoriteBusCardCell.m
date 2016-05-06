@@ -196,6 +196,15 @@
     }
 }
 
+/**
+ *  刷新按钮点击
+ */
+- (IBAction)updateClick:(id)sender {
+    if([self.delegate respondsToSelector:@selector(favoriteBusCardDidUpdateClick:)]){
+        [self.delegate favoriteBusCardDidUpdateClick:self];
+    }
+}
+
 - (void)didSelected
 {
     self.currentStation = nil;
@@ -213,8 +222,26 @@
     self.startTimeLabel.text = [NSString stringWithFormat:@"早 %@", [BCommon timeFromDateString:favoriteBusLine.busLine.firsttime]];
     self.endTimeLabel.text = [NSString stringWithFormat:@"晚 %@", [BCommon timeFromDateString:favoriteBusLine.busLine.lasttime]];
     
+    // 设置终点站名称
+    [self setEndStationName:[[favoriteBusLine.busLine busStationsWithDirection:favoriteBusLine.direction] lastObject]];
+    
+    [self updateConstraints];
+    [self layoutIfNeeded];
+    
+    [self autosizeAllLabel];
+    
+    // 设置当前位置
+    [self setUserCurrentStationWithUserLocation];
+}
+
+
+// 设置开往方向终点站名称
+- (void)setEndStationName:(BBusStation*)endStation {
+    
+    if(endStation == nil) return;
+    
     // 目的站
-    BBusStation* endBusStation = [[favoriteBusLine.busLine busStationsWithDirection:favoriteBusLine.direction] lastObject];
+    BBusStation* endBusStation = endStation;
     
     NSArray<NSString*>* endBusStationName = [BCommon subNameInStationName:endBusStation.name];
     
@@ -226,18 +253,16 @@
     }else{
         self.endStationNameBottom.constant = 14;
     }
-    
-    [self updateConstraints];
-    [self layoutIfNeeded];
-    
-    
+}
+
+- (void)autosizeAllLabel {
     // fullName,fullName的宽度不超过自身宽的62%
     self.busLineNameLabel.font =[self.busLineNameLabel.text maxFontInSize:CGSizeMake(self.width * .62, self.busLineNameLabel.frame.size.height)  maxFontSize:50];
     self.busLineNameLabel.verticalAlignment = UIControlContentVerticalAlignmentBottom;
-
+    
     
     // 开往
-//    self.aaa.font = [self.aaa.text maxFontInSize:self.aaa.frame.size  maxFontSize:50];
+    //    self.aaa.font = [self.aaa.text maxFontInSize:self.aaa.frame.size  maxFontSize:50];
     
     // 尾站
     self.endStationLabel.font = [self.endStationLabel.text maxFontInSize:self.endStationLabel.frame.size  maxFontSize:50];
@@ -245,11 +270,7 @@
     // 时间label
     
     self.surplusTimeLabel.font = [self.surplusTimeLabel.text maxFontInSize:CGSizeMake(CGFLOAT_MAX, self.endStationLabel.frame.size.height)   maxFontSize:100];
-    // 设置当前位置
-    [self setUserCurrentStationWithUserLocation];
 }
-
-
 
 
 /**
@@ -281,6 +302,9 @@
         }
     }
     
+    // 设置开往方向终点站
+    [self setEndStationName:[self.favoriteBusLine.busLine.busStations lastObject]];
+    
     NSString* stationName =nil;
     NSString* subText = nil;
     NSString* countOfStation = nil;
@@ -301,7 +325,6 @@
                 nearestBusStation = station;
             }
         }
-        
         
         if(nearestBusStation != nil) {
             stationName = nearestBusStation.name;
@@ -368,6 +391,7 @@
     self.countOfStationLabel.text = countOfStation;
     self.surplusTimeLabel.text = surplusTime;
     
+    [self autosizeAllLabel];
 }
 
 - (void)selectBusStation:(BBusStation*)busStation {

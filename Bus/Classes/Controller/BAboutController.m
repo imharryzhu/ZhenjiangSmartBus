@@ -30,6 +30,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick endLogPageView:[[self class]description]];
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {
@@ -38,7 +39,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 80;
+    return 88 + 30;
 }
 
 
@@ -47,9 +48,9 @@
     UIView* view = [[UIView alloc]init];
     
     CGFloat imageW = 64;
-    CGFloat imageH = 64;
+    CGFloat imageH = 88;
     
-    CGFloat x = (tableView.width - imageW) / 2;
+    CGFloat x = (tableView.width - imageW) / 2 + imageW / 4;
     CGFloat y = ([self tableView:tableView heightForHeaderInSection:section] - imageH) / 2;
     
     UIImageView* imageview = [[UIImageView alloc]initWithFrame:CGRectMake(x, y, imageW, imageH)];

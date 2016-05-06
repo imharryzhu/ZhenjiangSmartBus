@@ -24,6 +24,15 @@ typedef NS_ENUM(NSUInteger, BBusStationDirection) {
     BBusStationDirectionUp // 上行
 };
 
+#ifdef DEBUG
+
+
+#else
+
+#define NSLog(...) 
+
+#endif
+
 
 
 #define BVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
@@ -71,5 +80,19 @@ typedef NS_ENUM(NSUInteger, BBusStationDirection) {
  *  当用户收藏发生改变时
  */
 static NSString* BFavoriteChangeNotification = @"BFavoriteChangeNotification";
+
+
+/******************* KEYS *******************/
+
+/**
+ *  记录启动次数
+ */
+#define KEY_APP_OPEN_TIME @"key_app_open_time"
+
+/**
+ *  记录用户是否修改过自定义间隔秒数
+ */
+#define KEY_APP_DIDCHANGE_INTERVAL @"key_app_didchange_interval"
+
 
 #endif /* bus_pch */

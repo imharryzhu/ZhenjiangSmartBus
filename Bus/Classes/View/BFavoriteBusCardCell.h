@@ -29,6 +29,11 @@
  */
 - (void)favoriteBusCardDidChangeDirectionClick:(BFavoriteBusCardCell*)cardCell;
 
+/**
+ *  当刷新按钮按下
+ */
+- (void)favoriteBusCardDidUpdateClick:(BFavoriteBusCardCell*)cardCell;
+
 @end
 
 @interface BFavoriteBusCardCell : UICollectionViewCell

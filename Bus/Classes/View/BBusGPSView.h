@@ -22,6 +22,11 @@
 - (void)selectBusStation:(BBusStation*)busStation;
 
 /**
+ *  刷新
+ */
+- (void)updateBusGps;
+
+/**
  *
  */
 - (void)pause;

@@ -11,9 +11,15 @@
 #import "MobClick.h"
 #import "BPreference.h"
 
+#import "StoreKit/StoreKit.h"
+
 #import <objc/runtime.h>
 
-@interface BSettingController () <UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, BIntervalTimeToolBarDelegate,UIAlertViewDelegate>
+
+#define PAY_DASHANG_01 @"dashang_01"  // 打赏一元
+
+
+@interface BSettingController () <UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, BIntervalTimeToolBarDelegate,UIAlertViewDelegate, SKProductsRequestDelegate,SKPaymentTransactionObserver>
 
 /**
  *  检测更新label
@@ -39,6 +45,10 @@
 
 @property (nonatomic,assign) BOOL favoriteChanged;
 
+@property (nonatomic,copy) NSString* payType;
+
+@property (nonatomic,strong) UIAlertView* messageView;
+
 @end
 
 @implementation BSettingController
@@ -57,6 +67,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick endLogPageView:[[self class]description]];
+    [super viewWillDisappear:animated];
 }
 
 /**
@@ -70,6 +81,7 @@
         self.favoriteChanged = NO;
         [self.delegate settingControllerDidChangeCollected:self];
     }
+    [super viewDidAppear:animated];
 }
 
 
@@ -106,6 +118,10 @@
     
     // 监听用户收藏改变
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(favoriteBusLinesDidchange) name:BFavoriteChangeNotification object:nil];
+    
+    // 支付监听
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    
 }
 
 - (void)fillWithPreference {
@@ -152,7 +168,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 4) {
+    if(indexPath.section == 3) {
         if(indexPath.row == 0) {
             [self dashangDidClick:tableView indexPath:indexPath];
         }
@@ -201,7 +217,14 @@
         textField.keyboardType = UIKeyboardTypeNumberPad;
         
         // 获取当前保存的时间
-        textField.text = [NSString stringWithFormat:@"%ld", (long)[BPreference secondForCustom]];
+        NSInteger customSecond = [BPreference secondForCustom];
+        
+        // 如果是第一次设置自定义间隔，设置一个默认值
+        if(![[NSUserDefaults standardUserDefaults]boolForKey:KEY_APP_DIDCHANGE_INTERVAL]){
+            customSecond = 15;
+        }
+        
+        textField.text = [NSString stringWithFormat:@"%ld", (long)customSecond];
         
         [alert show];
         
@@ -230,6 +253,9 @@
         // 保存用户输入的时间
         [BPreference setSecondForCustom:textField.text.integerValue];
         
+        // 设置用户已经设置过了
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:KEY_APP_DIDCHANGE_INTERVAL];
+        
         // 更新 间隔时间文字
         self.intervalTimeLabel.text = [NSString stringWithFormat:@"自定义(%@秒)", textField.text];
         
@@ -252,9 +278,13 @@
  *  打赏被点击
  */
 - (void)dashangDidClick:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath {
-    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"^_^" message:@"谢谢土豪" delegate:nil cancelButtonTitle:@"不谢" otherButtonTitles:nil];
-    [alertView show];
+
+    [self buy:PAY_DASHANG_01];
+    
+//    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"^_^" message:@"谢谢土豪" delegate:nil cancelButtonTitle:@"不谢" otherButtonTitles:nil];
+//    [alertView show];
 }
+
 
 /**
  *  实时公交间隔被点击
@@ -300,6 +330,7 @@
     
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 #pragma mark - 消息通知
@@ -311,5 +342,141 @@
     self.favoriteChanged = YES;
 }
 
+
+
+
+/*************** 购买 *********************/
+
+- (void)showMessage:(NSString*)title message:(NSString*)message {
+    UIAlertView* messageView = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    self.messageView = messageView;
+    
+    [messageView show];
+}
+
+- (void)dismissMessage {
+    [self.messageView dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+- (void)buy:(NSString*)payType {
+    self.payType = payType;
+    if ([SKPaymentQueue canMakePayments]) {
+        [self requestProduceData];
+        [self showMessage:@"正在请求购买" message:@"辣条运送中..."];
+    }
+    else
+    {
+        NSLog(@"不允许程序内付费购买");
+        UIAlertView *alerView =  [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"您的手机没有打开程序内付费购买"
+                                                           delegate:nil cancelButtonTitle:NSLocalizedString(@"关闭",nil) otherButtonTitles:nil];
+        [alerView show];
+        
+    }
+}
+
+// 请求购买数据
+- (void)requestProduceData {
+    
+    NSArray* product = nil;
+    
+    if([self.payType isEqualToString:PAY_DASHANG_01]) {
+        product = [[NSArray alloc]initWithObjects:PAY_DASHANG_01, nil];
+    }
+    
+    NSSet *nsset = [NSSet setWithArray:product];
+    SKProductsRequest *request=[[SKProductsRequest alloc] initWithProductIdentifiers: nsset];
+    request.delegate=self;
+    [request start];
+}
+
+/**
+ *  获得商品信息
+ */
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+    
+    [self dismissMessage];
+    
+    NSLog(@"-----------收到产品反馈信息--------------");
+    NSArray *myProduct = response.products;
+    NSLog(@"产品Product ID:%@",response.invalidProductIdentifiers);
+    NSLog(@"产品付费数量: %d", (int)[myProduct count]);
+    // populate UI
+    for(SKProduct *product in myProduct){
+        NSLog(@"product info");
+        NSLog(@"SKProduct 描述信息%@", [product description]);
+        NSLog(@"产品标题 %@" , product.localizedTitle);
+        NSLog(@"产品描述信息: %@" , product.localizedDescription);
+        NSLog(@"价格: %@" , product.price);
+        NSLog(@"Product id: %@" , product.productIdentifier);
+        
+        SKPayment *payment = nil;
+        
+        payment = [SKPayment paymentWithProduct:product];
+        
+        // 发送购买请求
+        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        
+        [self showMessage:@"正在购买" message:nil];
+    }
+}
+
+
+#pragma mark - SKPaymentTransactionObserver
+
+//交易结果
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+    [self dismissMessage];
+    for (SKPaymentTransaction *transaction in transactions)
+    {
+        switch (transaction.transactionState)
+        {
+            case SKPaymentTransactionStatePurchased:
+            {//交易完成
+                NSLog(@"-----交易完成 --------");
+                
+                UIAlertView *alerView =  [[UIAlertView alloc] initWithTitle:@""
+                                                                    message:@"购买成功"
+                                                                   delegate:nil cancelButtonTitle:NSLocalizedString(@"关闭",nil) otherButtonTitles:nil];
+                
+                [alerView show];
+                
+            }
+            break;
+            case SKPaymentTransactionStateFailed://交易失败
+            {
+                [self failedTransaction:transaction];
+                NSLog(@"-----交易失败 --------");
+                UIAlertView *alerView2 =  [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                     message:@"购买失败，请重新尝试购买"
+                                                                    delegate:nil cancelButtonTitle:NSLocalizedString(@"关闭",nil) otherButtonTitles:nil];
+                
+                [alerView2 show];
+            }
+            break;
+            case SKPaymentTransactionStateRestored://已经购买过该商品
+                NSLog(@"-----已经购买过该商品 --------");
+                break;
+            case SKPaymentTransactionStatePurchasing:      //商品添加进列表
+                NSLog(@"-----商品添加进列表 --------");
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
+- (void) failedTransaction: (SKPaymentTransaction *)transaction{
+    NSLog(@"失败");
+    if (transaction.error.code != SKErrorPaymentCancelled)
+    {
+        NSLog(@"购买失败");
+    }else{
+        NSLog(@"用户取消");
+    }
+    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+}
 
 @end

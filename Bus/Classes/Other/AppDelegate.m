@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // UMENGE 测试模式
-    [MobClick setLogEnabled:YES];
+    [MobClick setLogEnabled:NO];
 
     UIWindow* window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window = window;
@@ -29,7 +29,6 @@
     BHomeController* vc = [[BHomeController alloc]init];
     window.rootViewController = vc;
     
-    
     /**
      *  友盟 统计
      */
@@ -37,6 +36,12 @@
     [MobClick setAppVersion:BVersion];
     
     [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:BATCH channelId:@""];
+    
+    
+    // 记录App启动次数
+    int open_time = [[NSUserDefaults standardUserDefaults]integerForKey:KEY_APP_OPEN_TIME];
+    [[NSUserDefaults standardUserDefaults]setInteger:open_time+1 forKey:KEY_APP_OPEN_TIME];
+    
 
     return YES;
 }
